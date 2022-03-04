@@ -10,12 +10,13 @@ optimized for use via a Command Line Interface (CLI) while still having the bene
 If you can type fast, NUScheduler can schedule your tasks faster than traditional GUI apps.<br>
 
 ## Uses:
+***
   * keep track of all school contacts, modules and tasks
   * organise academic life in a neat manner
-
-***
+  
 
 ## Features:
+***
   * Add a task/contact
   * Delete a task/contact
   * Update a task/contact
@@ -23,4 +24,9 @@ If you can type fast, NUScheduler can schedule your tasks faster than traditiona
   * View all tasks and their deadlines
   * View all contacts
   * Remind upcoming tasks
+
+## Acknowledgements
+***
+This project is based on the AddressBook-Level3 project created by the [SE-EDU initiative.](https://se-education.org)
+
 
