@@ -257,42 +257,44 @@ _{Explain here how the data archiving feature will be implemented}_
 
 **Target user profile**:
 
-* has a need to manage a significant number of contacts
-* prefer desktop apps over other types
-* can type fast
-* prefers typing to mouse interactions
-* is reasonably comfortable using CLI apps
+NUScheduler is for Year 1 NUS Computing students who prefer CLI over GUI and has a lot of academic tasks to keep track of.
 
-**Value proposition**: manage contacts faster than a typical mouse/GUI driven app
+**Value proposition**: This app has simple CLI and a sleek GUI that allows the user to manage the tasks easily and efficiently. It will be mainly used to keep track NUS assignments and projects across multiple modules.
 
 
 ### User stories
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                                    | I want to …​                     | So that I can…​                                                        |
-| -------- | ------------------------------------------ | ------------------------------ | ---------------------------------------------------------------------- |
-| `* * *`  | new user                                   | see usage instructions         | refer to instructions when I forget how to use the App                 |
-| `* * *`  | user                                       | add a new person               |                                                                        |
-| `* * *`  | user                                       | delete a person                | remove entries that I no longer need                                   |
-| `* * *`  | user                                       | find a person by name          | locate details of persons without having to go through the entire list |
-| `* *`    | user                                       | hide private contact details   | minimize chance of someone else seeing them by accident                |
-| `*`      | user with many persons in the address book | sort persons by name           | locate a person easily                                                 |
+| Priority | As a …​                                    | I want to …​                         | So that I can…​                                                    |
+|----------| ------------------------------------------ | ------------------------------------ | ------------------------------------------------------------------ |
+| `* * *`  | beginner user                              | add a task                           | keep track of the task                                             |
+| `* * *`  | beginner user                              | delete a task                        | remove a task I have completed                                     |
+| `* * *`  | beginner user                              | edit a task                          | change details of a task                                           |
+| `* * *`  | beginner user                              | view all tasks                       | keep track of all my current tasks                                 |
+| `* * *`  | beginner user                              | add a contact                        | keep track of all my contacts                                      |
+| `* * *`  | beginner user                              | delete a contact                     | delete an incorrect/unneeded contact                               |
+| `* * *`  | beginner user                              | edit a contact                       | correct/update a a contact                                         |
+| `* * *`  | beginner user                              | view all contacts                    | view all my current contacts                                       |
+| `* * *`  | beginner user                              | add a label                          | know which task is for which module                                |
+| `* * *`  | potential user                             | use simple commands                  | learn the commands easily                                          |
+| `* * *`  | year 1 computing student                   | keep track of assignment deadlines   | complete the tasks on time                                         |
+| `*`      | beginner user                              | see a reminder of tasks from the app | know what are my upcoming deadlines                                |
 
 *{More to be added}*
 
 ### Use cases
 
-(For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
+(For all use cases below, the **System** is the `NUScheduler` and the **Actor** is the `user`, unless specified otherwise)
 
-**Use case: Delete a person**
+**Use case: Delete a contact**
 
 **MSS**
 
-1.  User requests to list persons
-2.  AddressBook shows a list of persons
-3.  User requests to delete a specific person in the list
-4.  AddressBook deletes the person
+1.  User requests to list contacts
+2.  NUScheduler shows a list of contacts
+3.  User requests to delete a specific contact in the list
+4.  NUScheduler deletes the contact
 
     Use case ends.
 
@@ -304,17 +306,105 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 3a. The given index is invalid.
 
-    * 3a1. AddressBook shows an error message.
+    * 3a1. NUScheduler shows an error message.
 
       Use case resumes at step 2.
 
-*{More to be added}*
+**Use case: Add a task**
+
+**MSS**
+
+1. User requests to add a task with add task command
+2. NUScheduler adds the user's defined task to the task list
+
+   Use case ends.
+
+**Extensions**
+
+* 2a. The task description is empty.
+    * 2a1. NUScheduler prompts the user to fill up the description.
+
+      Use case ends.
+
+* 2b. The task deadline has a wrong time format.
+    * 2b1. NUScheduler shows an error message.
+
+      Use case ends.
+
+**Use case: Delete a task**
+
+**MSS**
+
+1. User requests to delete a task with delete task command
+2. NUScheduler deletes task specified from task list
+
+   Use case ends.
+
+**Extensions**
+
+* 2a. The task list is empty.
+    * 2a1. NUScheduler shows an error message.
+
+      Use case ends.
+
+* 2b. The task number to delete is invalid.
+    * 2b1. NUScheduler shows an error message.
+
+      Use case ends.
+
+**Use case: View all tasks**
+
+**MSS**
+
+1. User requests to view all the tasks with view command
+2. NUScheduler shows all the tasks from task list
+
+   Use case ends.
+
+**Extensions**
+
+* 2a. The task list is empty.
+    * 2a1. NUScheduler shows a message that the task list is empty.
+
+      Use case ends.
+
+**Use case: Find a task**
+
+**MSS**
+
+1. User requests to find tasks with find command
+2. NUScheduler shows a list of tasks from task list.
+
+   Use case ends.
+
+**Extensions**
+
+* 2a. The task list is empty.
+    * 2a1. NUScheduler shows a message that the task list is empty.
+
+      Use case ends.
+
+* 2b. No task matches.
+    * 2b1. NUScheduler shows a message that there are no tasks that matches the description.
+
+      Use case ends.
+
+* 2c. Tasks found.
+    * 2c1. NUScheduler shows all the tasks that matches with the keyword.
+
+      Use case ends.
 
 ### Non-Functional Requirements
 
-1.  Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
-2.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
-3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
+1. Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
+2. Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
+3. A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
+4. The command used should be simple to learn.
+5. The system should be usable by a novice who has never used the system before. 
+6. The system should be backward compatible with data produced by earlier versions of the system.
+7. Each command should not take more than 2 second to complete and display the result.
+8. Texts in the UI should wrap around.
+9. The project is expected to adhere to a schedule that delivers a feature set every milestone.
 
 *{More to be added}*
 
@@ -322,6 +412,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
 * **Private contact detail**: A contact detail that is not meant to be shared with others
+* **Task**: A task with descriptions and/or deadline
+* **Task list**: A task list of all the tasks
 
 --------------------------------------------------------------------------------------------------------------------
 
