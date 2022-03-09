@@ -1,12 +1,9 @@
 package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_ADD_TASK_DESCRIPTION;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADD_TASK_DEADLINE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_ADD_TASK_DESCRIPTION;
 
-import seedu.address.commons.core.index.Index;
-import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.logic.commands.AddTaskCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
@@ -21,7 +18,8 @@ public class AddTaskCommandParser implements Parser<AddTaskCommand> {
      */
     public AddTaskCommand parse(String args) throws ParseException {
         requireNonNull(args);
-        ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args, PREFIX_ADD_TASK_DESCRIPTION, PREFIX_ADD_TASK_DEADLINE);
+        ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args, PREFIX_ADD_TASK_DESCRIPTION,
+                PREFIX_ADD_TASK_DEADLINE);
 
         String description = argMultimap.getValue(PREFIX_ADD_TASK_DESCRIPTION).orElse("");
         String deadline = argMultimap.getValue(PREFIX_ADD_TASK_DEADLINE).orElse("");

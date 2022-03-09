@@ -1,8 +1,8 @@
 package seedu.address.logic.commands;
 
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_ADD_TASK_DESCRIPTION;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADD_TASK_DEADLINE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_ADD_TASK_DESCRIPTION;
 
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
@@ -27,6 +27,9 @@ public class AddTaskCommand extends Command {
     private final String description;
     private final String deadline;
 
+    /**
+     * Initializes a AddTaskCommand with the given description. The deadline is not set.
+     */
     public AddTaskCommand(String description) {
         requireAllNonNull(description);
 
@@ -34,6 +37,9 @@ public class AddTaskCommand extends Command {
         this.deadline = "No deadline set";
     }
 
+    /**
+     * Initializes a AddTaskCommand with the given description and deadline.
+     */
     public AddTaskCommand(String description, String deadline) {
         requireAllNonNull(description, deadline);
 

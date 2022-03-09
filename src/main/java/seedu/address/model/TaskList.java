@@ -1,8 +1,8 @@
 package seedu.address.model;
 
-import seedu.address.model.task.Task;
-
 import java.util.ArrayList;
+
+import seedu.address.model.task.Task;
 
 public class TaskList {
     private final ArrayList<Task> taskList;
