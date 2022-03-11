@@ -122,6 +122,11 @@ public class ParserUtil {
         return tagSet;
     }
 
+    /**
+     * Parses {@code oneBasedIndex} into an Integer and returns it. Leading and trailing whitespaces will be
+     * trimmed.
+     * @throws ParseException if the specified index is invalid (not non-zero unsigned integer).
+     */
     public static Integer parseNumber(String oneBasedIndex) throws ParseException {
         String trimmedIndex = oneBasedIndex.trim();
         if (!StringUtil.isNonZeroUnsignedInteger(trimmedIndex)) {

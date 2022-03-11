@@ -66,6 +66,13 @@ public class StringUtil {
         }
     }
 
+    /**
+     * Returns true if {@code s} the index is valid number
+     * e.g. delt 1
+     * Will return false for any other invalid inout
+     * e.g. empty string, delt abc
+     * @throws NullPointerException if {@code s} is null.
+     */
     public static boolean isInvalidNumber(String s) {
         requireNonNull(s);
 
