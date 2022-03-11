@@ -18,4 +18,12 @@ public class TaskList {
     public ArrayList<Task> getTaskList() {
         return this.taskList;
     }
+
+    public int size() {
+        return this.taskList.size();
+    }
+
+    public void deleteTask(Integer taskNumber) {
+        taskList.remove(taskNumber - 1); // to convert to zero-based indexing
+    }
 }

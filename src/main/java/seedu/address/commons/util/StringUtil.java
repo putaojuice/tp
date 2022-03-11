@@ -65,4 +65,15 @@ public class StringUtil {
             return false;
         }
     }
+
+    public static boolean isInvalidNumber(String s) {
+        requireNonNull(s);
+
+        try {
+            Integer a = Integer.parseInt(s.replaceAll("[^0-9]", ""));
+            return true;
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+    }
 }
