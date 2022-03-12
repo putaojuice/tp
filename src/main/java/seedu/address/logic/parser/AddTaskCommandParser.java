@@ -5,10 +5,10 @@ import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADD_TASK_DEADLINE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADD_TASK_DESCRIPTION;
 
+import java.util.List;
+
 import seedu.address.logic.commands.AddTaskCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-
-import java.util.List;
 
 /**
  * Parses input arguments and creates a new {@code AddTaskCommand} object
@@ -32,7 +32,7 @@ public class AddTaskCommandParser implements Parser<AddTaskCommand> {
                 // more than 1 "d/" or "t/" prefix were used, meaning that it is wrong format
                 throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddTaskCommand.MESSAGE_USAGE));
             }
-        } catch(ParseException e) {
+        } catch (ParseException e) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddTaskCommand.MESSAGE_USAGE));
         }
 
