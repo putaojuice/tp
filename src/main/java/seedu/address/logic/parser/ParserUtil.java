@@ -22,6 +22,8 @@ public class ParserUtil {
 
     public static final String MESSAGE_INVALID_INDEX = "Index is not valid.";
 
+    public static final String MESSAGE_INVALID_FIRSTCHAR = "Index starts with empty whitespace";
+
     /**
      * Parses {@code oneBasedIndex} into an {@code Index} and returns it. Leading and trailing whitespaces will be
      * trimmed.
@@ -130,10 +132,6 @@ public class ParserUtil {
     public static Integer parseNumber(String oneBasedIndex) throws ParseException {
         String trimmedIndex = oneBasedIndex.trim();
         if (!StringUtil.isNonZeroUnsignedInteger(trimmedIndex)) {
-            throw new ParseException(MESSAGE_INVALID_INDEX);
-        }
-
-        if (StringUtil.isInvalidNumber(trimmedIndex)) {
             throw new ParseException(MESSAGE_INVALID_INDEX);
         }
 
