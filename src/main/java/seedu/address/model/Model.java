@@ -89,4 +89,6 @@ public interface Model {
     void addTask(Task task);
 
     TaskList getTaskList();
+
+    void deleteTask(Integer taskNumber);
 }

@@ -45,7 +45,7 @@ If you can type fast, NUScheduler can schedule your tasks faster than traditiona
    2. `add c` /John Doe /[johnd@example.com](mailto:johnd@example.com) /johntele: Adds a contact named John Doe to the Address Book.
    3. `add tn/Assignment 1 m/CS1101s` : Adds an `assignment/task` of the specified module to NUScheduler.
    4. `del c 3` : Deletes the 3rd contact shown in the current list.
-   5. `del t 3` : Deletes the 3rd task shown in the current task list.
+   5. `delt 3` : Deletes the 3rd task shown in the current task list.
    6. `upd t 3 n/Assignment 2 m/CS1231s` : Updates the specified task in the current list.
    7. `exit` : Exits the app.
 
@@ -78,13 +78,13 @@ Format: `add t /DESCRIPTION /DEADLINE [/TAG]`
 
 Example: `add t /Buy groceries /2022 02 22 5pm [/Important]`
 
-### Feature - Delete a task: `del t <integer>`
+### Feature - Delete a task: `delt <integer>`
 
 Deletes a task from the task list, where `<integer>` is the ID of the task.
 
-Format: `del t <integer>`
+Format: `delt <integer>`
 
-Example: `del t 3`
+Example: `delt 3`
 
 ### Feature - Update a task description: `upd t d <integer>`
 
@@ -201,7 +201,7 @@ data of your previous NUScheduler home folder.
 Action | Format, Examples
 --------|------------------
 **add t** | `add t /DESCRIPTION /DEADLINE [/TAG]` <br> e.g., `add t /Buy groceries /2022 02 22 5pm /Important`
-**del t <integer>** | `del t <integer>` <br> e.g., `del t 3`
+**delt <integer>** | `del t <integer>` <br> e.g., `del t 3`
 **upd t d <integer>** | `upd t d <integer>  /DESCRIPTION`<br> e.g., `upd t d 3 /Buy groceries`
 **upd t t <integer>** | `upd t t <integer> /DEADLINE`<br> e.g.,`upd t t <integer> /2022 03 10 12pm`
 **lab t <integer>** | `label t <integer> tag` <br> e.g., `label t 3 important`
