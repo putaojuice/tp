@@ -159,6 +159,11 @@ public class AddCommandTest {
         public TaskList getTaskList() {
             throw new AssertionError("This method should not be called.");
         }
+
+        @Override
+        public void deleteTask(Integer taskNumber) {
+            throw new AssertionError("This method should not be called.");
+        }
     }
 
     /**

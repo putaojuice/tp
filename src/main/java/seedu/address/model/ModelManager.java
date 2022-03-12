@@ -164,6 +164,8 @@ public class ModelManager implements Model {
         return this.taskList;
     }
 
+    //=========== Delete Task ==================================================================================
+
     @Override
     public void deleteTask(Integer taskNumber) {
         taskList.deleteTask(taskNumber);

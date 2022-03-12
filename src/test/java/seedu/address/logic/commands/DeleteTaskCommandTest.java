@@ -1,12 +1,9 @@
 package seedu.address.logic.commands;
 
 import static seedu.address.testutil.Assert.assertThrows;
-
 import java.nio.file.Path;
 import java.util.function.Predicate;
-
 import org.junit.jupiter.api.Test;
-
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.model.Model;
@@ -16,16 +13,10 @@ import seedu.address.model.TaskList;
 import seedu.address.model.person.Person;
 import seedu.address.model.task.Task;
 
-public class AddTaskCommandTest {
-
+public class DeleteTaskCommandTest {
     @Test
     public void constructor_nullDescription_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> new AddTaskCommand(null));
-    }
-
-    @Test
-    public void constructor_nullDescriptionAndDeadline_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> new AddTaskCommand(null, null));
+        assertThrows(NullPointerException.class, () -> new DeleteTaskCommand(null));
     }
 
     /**
@@ -108,13 +99,13 @@ public class AddTaskCommandTest {
         }
 
         @Override
-        public TaskList getTaskList() {
+        public void deleteTask(Integer taskNumber) {
             throw new AssertionError("This method should not be called.");
         }
 
         @Override
-        public void deleteTask(Integer taskNumber) {
-            throw new AssertionError("This method should not be called");
+        public TaskList getTaskList() {
+            throw new AssertionError("This method should not be called.");
         }
     }
 }
