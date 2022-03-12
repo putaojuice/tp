@@ -133,10 +133,10 @@ public class ParserUtil {
             throw new ParseException(MESSAGE_INVALID_INDEX);
         }
 
-        if (!StringUtil.isInvalidNumber(trimmedIndex)) {
+        if (StringUtil.isInvalidNumber(trimmedIndex)) {
             throw new ParseException(MESSAGE_INVALID_INDEX);
         }
 
-        return Integer.parseInt(trimmedIndex.replaceAll("[^0-9]", ""));
+        return Integer.parseInt(trimmedIndex);
     }
 }

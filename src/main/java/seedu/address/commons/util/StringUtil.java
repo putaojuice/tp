@@ -69,7 +69,7 @@ public class StringUtil {
     /**
      * Returns true if {@code s} the index is valid number
      * e.g. delt 1
-     * Will return false for any other invalid inout
+     * Will return false for any other invalid input
      * e.g. empty string, delt abc
      * @throws NullPointerException if {@code s} is null.
      */
@@ -77,9 +77,15 @@ public class StringUtil {
         requireNonNull(s);
 
         try {
-            Integer a = Integer.parseInt(s.replaceAll("[^0-9]", ""));
-            return true;
+            String subStringWithoutPrefix = s.substring(5);
+            if (subStringWithoutPrefix.matches("[0-9]+")) {
+                return true;
+            } else {
+                throw new NumberFormatException();
+            }
         } catch (NumberFormatException nfe) {
+            return false;
+        } catch (StringIndexOutOfBoundsException e) {
             return false;
         }
     }
