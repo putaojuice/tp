@@ -170,4 +170,11 @@ public class ModelManager implements Model {
     public void deleteTask(Integer taskNumber) {
         taskList.deleteTask(taskNumber);
     }
+
+    //=========== Find Task ==================================================================================
+
+    @Override
+    public String findTask(String input) {
+        return taskList.findTask(input);
+    }
 }

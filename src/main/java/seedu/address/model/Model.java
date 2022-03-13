@@ -91,4 +91,10 @@ public interface Model {
     TaskList getTaskList();
 
     void deleteTask(Integer taskNumber);
+
+    /**
+     * finds tasks based on keyword.
+     * filters task list based on matching keyword {@code input}.
+     */
+    String findTask(String input);
 }

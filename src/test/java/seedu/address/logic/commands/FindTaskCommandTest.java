@@ -16,14 +16,23 @@ import seedu.address.model.TaskList;
 import seedu.address.model.person.Person;
 import seedu.address.model.task.Task;
 
-public class DeleteTaskCommandTest {
+/**
+ * Contains integration tests (interaction with the Model) for {@code FindCommand}.
+ */
+public class FindTaskCommandTest {
+
     @Test
     public void constructor_nullDescription_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> new DeleteTaskCommand(null));
+        assertThrows(NullPointerException.class, () -> new AddTaskCommand(null));
+    }
+
+    @Test
+    public void constructor_nullDescriptionAndDeadline_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> new AddTaskCommand(null, null));
     }
 
     /**
-     * A default model stub that have all of the methods failing.
+     * A default model stub that have all the methods failing.
      */
     private class ModelStub implements Model {
         @Override
@@ -116,3 +125,4 @@ public class DeleteTaskCommandTest {
             throw new AssertionError("This method should not be called."); }
     }
 }
+
