@@ -2,9 +2,11 @@ package seedu.address.logic.commands;
 
 import static seedu.address.testutil.Assert.assertThrows;
 
+
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.function.Predicate;
+
 
 import org.junit.jupiter.api.Test;
 
@@ -17,7 +19,10 @@ import seedu.address.model.TaskList;
 import seedu.address.model.person.Person;
 import seedu.address.model.task.Task;
 
-public class AddTaskCommandTest {
+/**
+ * Contains integration tests (interaction with the Model) for {@code FindCommand}.
+ */
+public class FindTaskCommandTest {
 
     @Test
     public void constructor_nullDescription_throwsNullPointerException() {
@@ -30,7 +35,7 @@ public class AddTaskCommandTest {
     }
 
     /**
-     * A default model stub that have all of the methods failing.
+     * A default model stub that have all the methods failing.
      */
     private class ModelStub implements Model {
         @Override
@@ -109,17 +114,17 @@ public class AddTaskCommandTest {
         }
 
         @Override
+        public void deleteTask(Integer taskNumber) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public TaskList getTaskList() {
             throw new AssertionError("This method should not be called.");
         }
 
         @Override
-        public void deleteTask(Integer taskNumber) {
-            throw new AssertionError("This method should not be called");
-        }
-
-        @Override
-        public ArrayList<Task> findTask(String input) {throw new AssertionError("This method should not be called."); }
+        public ArrayList<Task> findTask(String input) { throw new AssertionError("This method should not be called."); }
     }
-
 }
+

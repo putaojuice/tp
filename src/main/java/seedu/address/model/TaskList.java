@@ -26,4 +26,18 @@ public class TaskList {
     public void deleteTask(Integer taskNumber) {
         taskList.remove(taskNumber - 1); // to convert to zero-based indexing
     }
+
+    public ArrayList<Task> findTask(String input) {
+        ArrayList<Task> matchingTasks = new ArrayList<>();
+        for (int i = 0; i < this.taskList.size(); i++) {
+            Task curr = this.taskList.get(i);
+            if (curr.toString().contains(input)) {
+                matchingTasks.add(curr);
+            }
+        }
+        return matchingTasks;
+    }
+
 }
+
+
