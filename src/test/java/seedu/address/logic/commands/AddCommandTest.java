@@ -166,7 +166,7 @@ public class AddCommandTest {
         }
 
         @Override
-        public ArrayList<Task> findTask(String input) {
+        public String findTask(String input) {
             throw new AssertionError("This method should not be called."); }
     }
 

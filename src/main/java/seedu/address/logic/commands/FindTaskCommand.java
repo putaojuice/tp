@@ -3,11 +3,8 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 
-import java.util.ArrayList;
-
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.task.Task;
 
 /**
  * finds a task to the system based on user input.
@@ -23,9 +20,9 @@ public class FindTaskCommand extends Command {
 
     public static final String MESSAGE_ARGUMENTS = "Here are the matching tasks in the list:\n" + "%1$s";
 
-    public static final String MESSAGE_NO_DESCRIPTION = "Unable to find any matching tasks due to empty keyword";
+    public static final String MESSAGE_NO_DESCRIPTION = "Unable to find any matching tasks due to empty keyword!";
 
-    public static final String MESSAGE_NO_MATCHING_TASK = "Unable to find any matching tasks based on input";
+    public static final String MESSAGE_NO_MATCHING_TASK = "Unable to find any matching tasks based on input!";
 
     private final String input;
 
@@ -43,17 +40,16 @@ public class FindTaskCommand extends Command {
         if (this.input.equals("")) {
             throw new CommandException(MESSAGE_NO_DESCRIPTION + "\n" + MESSAGE_USAGE);
         }
-        ArrayList<Task> matchingList = model.findTask(input);
-        String output = getOutput(matchingList);
+        try {
+            String orderedList = model.findTask(input);
 
-        if (matchingList.size() == 0) {
+            if (orderedList.isEmpty()) {
+                throw new CommandException(MESSAGE_NO_MATCHING_TASK);
+            }
+            return new CommandResult(String.format(MESSAGE_ARGUMENTS, orderedList));
+        } catch (CommandException e) {
             throw new CommandException(MESSAGE_NO_MATCHING_TASK);
         }
-
-        // Ensure that tasklist is not changed, to be deleted later
-        System.out.println(model.findTask(input).toString());
-
-        return new CommandResult(String.format(MESSAGE_ARGUMENTS, output));
     }
 
     @Override
@@ -72,23 +68,6 @@ public class FindTaskCommand extends Command {
         return input.equals(e.input);
     }
 
-    /**
-     * Provides an ordered list of tasks that contains keyword.
-     *
-     * @param list - the list of tasks that matches keyword
-     * @return String of ordered list of tasks.
-     */
-    private String getOutput(ArrayList<Task> list) {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < list.size(); i++) {
-            int order = i + 1;
-            if (i == list.size() - 1) {
-                sb.append(order).append(". ").append(list.get(i).toString());
-            } else {
-                sb.append(order).append(". ").append(list.get(i).toString()).append("\n");
-            }
-        }
-        return sb.toString();
-    }
+
 }
 

@@ -31,19 +31,38 @@ public class TaskList {
      * Returns an ArrayList of matching tasks based on keyword.
      *
      * @param input the keyword input by user
-     * @return the list of tasks that contains the keyword
+     * @return the list of ordered tasks that contain the keyword
      */
-    public ArrayList<Task> findTask(String input) {
+    public String findTask(String input) {
         ArrayList<Task> matchingTasks = new ArrayList<>();
         for (int i = 0; i < this.taskList.size(); i++) {
             Task curr = this.taskList.get(i);
-            if (curr.toString().contains(input)) {
+            if (curr.toString().matches("(?i).*" + input + ".*")) { //bypass case sensitivity with regex
                 matchingTasks.add(curr);
             }
         }
-        return matchingTasks;
+        String orderedList = getOutput(matchingTasks);
+        return orderedList;
     }
 
+    /**
+     * Provides an ordered list of tasks that contains keyword.
+     *
+     * @param list - the list of tasks that matches keyword
+     * @return String of ordered list of tasks.
+     */
+    private String getOutput(ArrayList<Task> list) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < list.size(); i++) {
+            int order = i + 1;
+            if (i == list.size() - 1) {
+                sb.append(order).append(". ").append(list.get(i).toString());
+            } else {
+                sb.append(order).append(". ").append(list.get(i).toString()).append("\n");
+            }
+        }
+        return sb.toString();
+    }
 }
 
 

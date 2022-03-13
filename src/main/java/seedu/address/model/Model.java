@@ -1,7 +1,6 @@
 package seedu.address.model;
 
 import java.nio.file.Path;
-import java.util.ArrayList;
 import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
@@ -97,5 +96,5 @@ public interface Model {
      * finds tasks based on keyword.
      * filters task list based on matching keyword {@code input}.
      */
-    ArrayList<Task> findTask(String input);
+    String findTask(String input);
 }

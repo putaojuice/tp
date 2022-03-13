@@ -4,7 +4,6 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.nio.file.Path;
-import java.util.ArrayList;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
 
@@ -175,7 +174,7 @@ public class ModelManager implements Model {
     //=========== Find Task ==================================================================================
 
     @Override
-    public ArrayList<Task> findTask(String input) {
+    public String findTask(String input) {
         return taskList.findTask(input);
     }
 }
