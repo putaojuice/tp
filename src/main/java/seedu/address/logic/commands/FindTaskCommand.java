@@ -3,7 +3,6 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 
-
 import java.util.ArrayList;
 
 import seedu.address.logic.commands.exceptions.CommandException;
@@ -33,7 +32,7 @@ public class FindTaskCommand extends Command {
     /**
      * Initializes a FindTaskCommand with the given input.
      */
-    public FindTaskCommand(String input){
+    public FindTaskCommand(String input) {
         requireNonNull(input);
         this.input = input;
     }
@@ -81,15 +80,15 @@ public class FindTaskCommand extends Command {
      */
     private String getOutput(ArrayList<Task> list) {
         StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < list.size(); i++) {
-                int order = i + 1;
-                if (i == list.size() - 1) {
-                    sb.append(order).append(". ").append(list.get(i).toString());
-                } else {
-                    sb.append(order).append(". ").append(list.get(i).toString()).append("\n");
-                }
+        for (int i = 0; i < list.size(); i++) {
+            int order = i + 1;
+            if (i == list.size() - 1) {
+                sb.append(order).append(". ").append(list.get(i).toString());
+            } else {
+                sb.append(order).append(". ").append(list.get(i).toString()).append("\n");
             }
-            return sb.toString();
         }
+        return sb.toString();
+    }
 }
 

@@ -27,6 +27,12 @@ public class TaskList {
         taskList.remove(taskNumber - 1); // to convert to zero-based indexing
     }
 
+    /**
+     * Returns an ArrayList of matching tasks based on keyword.
+     *
+     * @param input the keyword input by user
+     * @return the list of tasks that contains the keyword
+     */
     public ArrayList<Task> findTask(String input) {
         ArrayList<Task> matchingTasks = new ArrayList<>();
         for (int i = 0; i < this.taskList.size(); i++) {

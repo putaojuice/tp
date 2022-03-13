@@ -2,11 +2,9 @@ package seedu.address.logic.commands;
 
 import static seedu.address.testutil.Assert.assertThrows;
 
-
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.function.Predicate;
-
 
 import org.junit.jupiter.api.Test;
 
@@ -124,7 +122,8 @@ public class FindTaskCommandTest {
         }
 
         @Override
-        public ArrayList<Task> findTask(String input) { throw new AssertionError("This method should not be called."); }
+        public ArrayList<Task> findTask(String input) {
+            throw new AssertionError("This method should not be called."); }
     }
 }
 

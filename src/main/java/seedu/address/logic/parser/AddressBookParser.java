@@ -78,7 +78,7 @@ public class AddressBookParser {
             return new DeleteTaskCommandParser().parse(arguments);
 
         case FindTaskCommand.COMMAND_WORD:
-        return new FindTaskCommandParser().parse(arguments);
+            return new FindTaskCommandParser().parse(arguments);
 
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
