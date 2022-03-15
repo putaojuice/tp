@@ -70,13 +70,13 @@ If you can type fast, NUScheduler can schedule your tasks faster than traditiona
 
 </div>
 
-### Feature - Add a task: `add t`
+### Feature - Add a task: `addt`
 
 Adds a task to the task list.
 
-Format: `add t /DESCRIPTION /DEADLINE [/TAG]`
+Format: `addt d/DESCRIPTION [t/DEADLINE]`
 
-Example: `add t /Buy groceries /2022 02 22 5pm [/Important]`
+Example: `addt d/Buy groceries [t/2022 02 22 5pm]`
 
 ### Feature - Delete a task: `delt <integer>`
 
@@ -200,7 +200,7 @@ data of your previous NUScheduler home folder.
 
 Action | Format, Examples
 --------|------------------
-**add t** | `add t /DESCRIPTION /DEADLINE [/TAG]` <br> e.g., `add t /Buy groceries /2022 02 22 5pm /Important`
+**addt** | `addt d/DESCRIPTION [t/DEADLINE]` <br> e.g., `addt d/Buy groceries [t/2022 02 22 5pm]`
 **delt <integer>** | `del t <integer>` <br> e.g., `del t 3`
 **upd t d <integer>** | `upd t d <integer>  /DESCRIPTION`<br> e.g., `upd t d 3 /Buy groceries`
 **upd t t <integer>** | `upd t t <integer> /DEADLINE`<br> e.g.,`upd t t <integer> /2022 03 10 12pm`
@@ -211,4 +211,4 @@ Action | Format, Examples
 **upd c <integer>** | `upd c /NAME /EMAIL /TELEGRAM [/TAG] <integer>` <br> e.g., `upd c /John Doe  /johndoe@example.com /johntele 23`
 **view c** | `view c [to] [t] [/TAG]` <br> e.g., `view c`
 **remind** | `remind [<integer>]` <br> e.g., `remind 10`
-**exit** | `exit` 
+**exit** | `exit`

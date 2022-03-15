@@ -314,8 +314,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1. User requests to add a task with add task command
-2. NUScheduler adds the user's defined task to the task list
+1. User add a task with add task command
+2. NUScheduler provide feedback based on the user input.
+3. NUScheduler adds the user's defined task to the task list
 
    Use case ends.
 
@@ -328,6 +329,11 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 2b. The task deadline has a wrong time format.
     * 2b1. NUScheduler shows an error message.
+
+      Use case ends.
+
+* 2c. The task has multiple description prefix (`d/`) or deadline prefix (`t/`).
+    * 2c1. NUScheduler shows an error message.
 
       Use case ends.
 
@@ -414,6 +420,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * **Private contact detail**: A contact detail that is not meant to be shared with others
 * **Task**: A task with descriptions and/or deadline
 * **Task list**: A task list of all the tasks
+* **Prefix**: A header (eg `d/`, `t/`) that is used to identify different clauses in user inputs.
 
 --------------------------------------------------------------------------------------------------------------------
 
