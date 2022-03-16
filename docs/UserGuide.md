@@ -110,6 +110,18 @@ Format: `label t <integer> tag`
 
 Example: `label t 3 important`
 
+### Feature - Find tasks: `findt KEYWORD`
+
+Locating tasks which match any of given keywords.
+
+Format:  `findt KEYWORD`
+
+- The search is case-insensitive. e.g. `lessons` will match `Lessons`.
+- The order of the keywords does not matter. e.g. `drink water` will match `water drink`
+- Choice of either full words matched or any tasks containing keyword.
+
+Example: `findt lessons` returns `Swimming lessons 03/05/2022`.
+
 ### Feature - View all tasks: `view t`
 
 View all the tasks currently in the task list.
@@ -198,17 +210,18 @@ data of your previous NUScheduler home folder.
 
 ## Command summary
 
-Action | Format, Examples
---------|------------------
-**addt** | `addt d/DESCRIPTION [t/DEADLINE]` <br> e.g., `addt d/Buy groceries [t/2022 02 22 5pm]`
-**delt <integer>** | `del t <integer>` <br> e.g., `del t 3`
-**upd t d <integer>** | `upd t d <integer>  /DESCRIPTION`<br> e.g., `upd t d 3 /Buy groceries`
-**upd t t <integer>** | `upd t t <integer> /DEADLINE`<br> e.g.,`upd t t <integer> /2022 03 10 12pm`
-**lab t <integer>** | `label t <integer> tag` <br> e.g., `label t 3 important`
-**view t** | `view t` 
-**add c** | `add c /NAME /EMAIL /TELEGRAM [/TAG]` <br> e.g., `add c /Betsy Crow /betsycrow@example.com /betsyc /Group Member`
-**del c <integer>** | `del c <integer>` <br> e.g., `del c 3`
-**upd c <integer>** | `upd c /NAME /EMAIL /TELEGRAM [/TAG] <integer>` <br> e.g., `upd c /John Doe  /johndoe@example.com /johntele 23`
-**view c** | `view c [to] [t] [/TAG]` <br> e.g., `view c`
-**remind** | `remind [<integer>]` <br> e.g., `remind 10`
-**exit** | `exit`
+| Action                | Format, Examples                                                                                                  |
+|-----------------------|-------------------------------------------------------------------------------------------------------------------|
+| **addt**              | `addt d/DESCRIPTION [t/DEADLINE]` <br> e.g., `addt d/Buy groceries [t/2022 02 22 5pm]`                            |
+| **delt <integer>**    | `del t <integer>` <br> e.g., `del t 3`                                                                            |
+| **upd t d <integer>** | `upd t d <integer>  /DESCRIPTION`<br> e.g., `upd t d 3 /Buy groceries`                                            |
+| **upd t t <integer>** | `upd t t <integer> /DEADLINE`<br> e.g.,`upd t t <integer> /2022 03 10 12pm`                                       |
+| **findt KEYWORD**     | `findt <KEYWORD>` <br> e.g., `findt lessons`                                                                      |
+| **lab t <integer>**   | `label t <integer> tag` <br> e.g., `label t 3 important`                                                          |
+| **view t**            | `view t`                                                                                                          |
+| **add c**             | `add c /NAME /EMAIL /TELEGRAM [/TAG]` <br> e.g., `add c /Betsy Crow /betsycrow@example.com /betsyc /Group Member` |
+| **del c <integer>**   | `del c <integer>` <br> e.g., `del c 3`                                                                            |
+| **upd c <integer>**   | `upd c /NAME /EMAIL /TELEGRAM [/TAG] <integer>` <br> e.g., `upd c /John Doe  /johndoe@example.com /johntele 23`   |
+| **view c**            | `view c [to] [t] [/TAG]` <br> e.g., `view c`                                                                      |
+| **remind**            | `remind [<integer>]` <br> e.g., `remind 10`                                                                       |
+| **exit**              | `exit`                                                                                                            |

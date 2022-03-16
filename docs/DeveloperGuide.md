@@ -266,20 +266,22 @@ NUScheduler is for Year 1 NUS Computing students who prefer CLI over GUI and has
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                                    | I want to …​                         | So that I can…​                                                    |
-|----------| ------------------------------------------ | ------------------------------------ | ------------------------------------------------------------------ |
-| `* * *`  | beginner user                              | add a task                           | keep track of the task                                             |
-| `* * *`  | beginner user                              | delete a task                        | remove a task I have completed                                     |
-| `* * *`  | beginner user                              | edit a task                          | change details of a task                                           |
-| `* * *`  | beginner user                              | view all tasks                       | keep track of all my current tasks                                 |
-| `* * *`  | beginner user                              | add a contact                        | keep track of all my contacts                                      |
-| `* * *`  | beginner user                              | delete a contact                     | delete an incorrect/unneeded contact                               |
-| `* * *`  | beginner user                              | edit a contact                       | correct/update a a contact                                         |
-| `* * *`  | beginner user                              | view all contacts                    | view all my current contacts                                       |
-| `* * *`  | beginner user                              | add a label                          | know which task is for which module                                |
-| `* * *`  | potential user                             | use simple commands                  | learn the commands easily                                          |
-| `* * *`  | year 1 computing student                   | keep track of assignment deadlines   | complete the tasks on time                                         |
-| `*`      | beginner user                              | see a reminder of tasks from the app | know what are my upcoming deadlines                                |
+| Priority | As a …​                  | I want to …​                         | So that I can…​                      |
+|----------|--------------------------|--------------------------------------|--------------------------------------|
+| `* * *`  | beginner user            | add a task                           | keep track of the task               |
+| `* * *`  | beginner user            | delete a task                        | remove a task I have completed       |
+| `* * *`  | beginner user            | edit a task                          | change details of a task             |
+| `* * *`  | beginner user            | view all tasks                       | keep track of all my current tasks   |
+| `* * *`  | beginner user            | add a contact                        | keep track of all my contacts        |
+| `* * *`  | beginner user            | delete a contact                     | delete an incorrect/unneeded contact |
+| `* * *`  | beginner user            | edit a contact                       | correct/update a a contact           |
+| `* * *`  | beginner user            | find tasks based on keyword          | search for relevant tasks quickly    |
+| `* * *`  | beginner user            | find contacts based on keyword       | search for relevant contacts quickly |
+| `* * *`  | beginner user            | view all contacts                    | view all my current contacts         |
+| `* * *`  | beginner user            | add a label                          | know which task is for which module  |
+| `* * *`  | potential user           | use simple commands                  | learn the commands easily            |
+| `* * *`  | year 1 computing student | keep track of assignment deadlines   | complete the tasks on time           |
+| `*`      | beginner user            | see a reminder of tasks from the app | know what are my upcoming deadlines  |
 
 *{More to be added}*
 
@@ -374,12 +376,12 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case ends.
 
-**Use case: Find a task**
+**Use case: Find tasks**
 
 **MSS**
 
 1. User requests to find tasks with find command
-2. NUScheduler shows a list of tasks from task list.
+2. NUScheduler provides a list of matching tasks from the task list.
 
    Use case ends.
 
