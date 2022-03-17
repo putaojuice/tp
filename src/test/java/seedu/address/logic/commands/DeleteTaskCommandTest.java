@@ -114,5 +114,10 @@ public class DeleteTaskCommandTest {
         @Override
         public String findTask(String input) {
             throw new AssertionError("This method should not be called."); }
+
+        @Override
+        public String viewTaskList() {
+            throw new AssertionError("This method should not be called.");
+        }
     }
 }

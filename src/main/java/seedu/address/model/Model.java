@@ -97,4 +97,6 @@ public interface Model {
      * filters task list based on matching keyword {@code input}.
      */
     String findTask(String input);
+
+    String viewTaskList();
 }

@@ -63,6 +63,11 @@ public class TaskList {
         }
         return sb.toString();
     }
+
+    public String getOrderedList() {
+        String orderedList = getOutput(this.taskList);
+        return orderedList;
+    }
 }
 
 
