@@ -1,5 +1,7 @@
 package seedu.address.logic.commands;
 
+import static java.util.Objects.requireNonNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static seedu.address.testutil.Assert.assertThrows;
 
 import java.nio.file.Path;
@@ -26,6 +28,25 @@ public class AddTaskCommandTest {
     @Test
     public void constructor_nullDescriptionAndDeadline_throwsNullPointerException() {
         assertThrows(NullPointerException.class, () -> new AddTaskCommand(null, null));
+    }
+
+    @Test
+    public void execute_addTaskNoDeadline_addSuccessful() throws Exception {
+        ModelStubAcceptTask modelStubAcceptTask = new ModelStubAcceptTask();
+
+        CommandResult commandResult = new AddTaskCommand("description").execute(modelStubAcceptTask);
+        assertEquals(String.format(AddTaskCommand.MESSAGE_ARGUMENTS, "description", "No deadline set"),
+                commandResult.getFeedbackToUser());
+    }
+
+    @Test
+    public void execute_addTaskWithDeadline_addSuccessful() throws Exception {
+        ModelStubAcceptTask modelStubAcceptTask = new ModelStubAcceptTask();
+
+        CommandResult commandResult = new AddTaskCommand("description", "2022")
+                .execute(modelStubAcceptTask);
+        assertEquals(String.format(AddTaskCommand.MESSAGE_ARGUMENTS, "description", "2022"),
+                commandResult.getFeedbackToUser());
     }
 
     /**
@@ -127,4 +148,18 @@ public class AddTaskCommandTest {
         }
     }
 
+    private class ModelStubAcceptTask extends ModelStub {
+        private TaskList taskList = new TaskList();
+
+        @Override
+        public TaskList getTaskList() {
+            return taskList;
+        }
+
+        @Override
+        public void addTask(Task task) {
+            requireNonNull(task);
+            taskList.addTask(task);
+        }
+    }
 }
