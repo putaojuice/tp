@@ -41,6 +41,10 @@ public class AddTaskCommandParser implements Parser<AddTaskCommand> {
         String description = argMultimap.getValue(PREFIX_ADD_TASK_DESCRIPTION).orElse("");
         String deadline = argMultimap.getValue(PREFIX_ADD_TASK_DEADLINE).orElse("");
 
+        if (description.equals("")) {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddTaskCommand.MESSAGE_USAGE));
+        }
+
         if (deadline.equals("")) {
             // task without deadline set
             return new AddTaskCommand(description);
