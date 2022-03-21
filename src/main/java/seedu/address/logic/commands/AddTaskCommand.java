@@ -15,8 +15,8 @@ public class AddTaskCommand extends Command {
     public static final String COMMAND_WORD = "addt";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Add a task with description and/or deadline. \n"
-            + "Format: addt d/[DESCRIPTION] t/[DEADLINE]\n"
+            + ": Add a task with description and/or deadline.\n"
+            + "Format: addt d/DESCRIPTION [t/DEADLINE (dd/mm/yyyy)]\n"
             + "Example: " + COMMAND_WORD + " " + PREFIX_ADD_TASK_DESCRIPTION
             + "Swimming lesson " + PREFIX_ADD_TASK_DEADLINE + "03/05/2022";
 
