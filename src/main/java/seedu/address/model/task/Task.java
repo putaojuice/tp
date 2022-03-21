@@ -1,5 +1,7 @@
 package seedu.address.model.task;
 
+import static java.util.Objects.requireNonNull;
+
 public class Task {
     private final String description;
     private final String deadline;
@@ -8,6 +10,8 @@ public class Task {
      * Initializes a Task with a description and deadline.
      */
     public Task(String description, String deadline) {
+        requireNonNull(description);
+        requireNonNull(deadline);
         this.description = description;
         this.deadline = deadline;
     }

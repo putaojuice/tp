@@ -1,5 +1,7 @@
 package seedu.address.model;
 
+import static java.util.Objects.requireNonNull;
+
 import java.util.ArrayList;
 
 import seedu.address.model.task.Task;
@@ -11,10 +13,21 @@ public class TaskList {
         this.taskList = new ArrayList<>();
     }
 
+    /**
+     * Add a task to the taskList.
+     *
+     * @param task the Task to be added which must not be null
+     */
     public void addTask(Task task) {
+        requireNonNull(task);
         this.taskList.add(task);
     }
 
+    /**
+     * Returns the taskList.
+     *
+     * @return the taskList with all the tasks contained
+     */
     public ArrayList<Task> getTaskList() {
         return this.taskList;
     }
