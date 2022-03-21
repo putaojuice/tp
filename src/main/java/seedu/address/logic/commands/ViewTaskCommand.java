@@ -22,9 +22,8 @@ public class ViewTaskCommand extends Command {
         if (model.getTaskList().size() == 0) {
             // No tasks
             throw new CommandException(MESSAGE_NO_TASK);
-        };
-        // Printing out the current items in task list to make sure the method work, should be removed later on
-//        System.out.println(model.getTaskList().getTaskList().toString());
+        }
+
         String message = model.viewTask();
         return new CommandResult(MESSAGE_SUCCESS + "\n" + message);
     }

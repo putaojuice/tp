@@ -64,11 +64,6 @@ public class TaskList {
      * @return the list of ordered tasks
      */
     public String viewTask() {
-//        ArrayList<Task> tasks = new ArrayList<>();
-//        for (int i = 0; i < this.taskList.size(); i++) {
-//            tasks.add(this.taskList.get(i));
-//        }
-
         String orderedList = getOutput(taskList);
         return orderedList;
     }
