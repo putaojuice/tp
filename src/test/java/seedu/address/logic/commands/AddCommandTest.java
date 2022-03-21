@@ -167,7 +167,13 @@ public class AddCommandTest {
 
         @Override
         public String findTask(String input) {
-            throw new AssertionError("This method should not be called."); }
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public String viewTask() {
+            throw new AssertionError("This method should not be called.");
+        }
     }
 
     /**
