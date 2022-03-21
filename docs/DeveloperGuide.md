@@ -422,6 +422,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * **Private contact detail**: A contact detail that is not meant to be shared with others
 * **Task**: A task with descriptions and/or deadline
 * **Task list**: A task list of all the tasks
+* **Task list ID**: ID assigned to corresponding task in the list
 * **Prefix**: A header (eg `d/`, `t/`) that is used to identify different clauses in user inputs.
 
 --------------------------------------------------------------------------------------------------------------------

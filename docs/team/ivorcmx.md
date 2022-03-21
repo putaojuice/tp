@@ -9,26 +9,40 @@ NUScheduler is a desktop app for Year 1 Computing students to assist with more e
 
 Given below are my contributions to the project.
 
-* **New Feature**: TBA
-* **New Feature**: TBA
+* **New Feature**: Implemented `DeleteTask` command.
+    * What it does: Allow the user to delete a particular task based on its ID in the Tasklist
+    * Justification: Our target audience is year 1 computing students. It helps them to remove tasks that are not relevant anymore.
+    * **Classes created**:
+    * `DeleteTaskCommand`
+    * `DeleteTaskCommandParser`
+    * **Tests Written**:
+        * `DeleteTaskCommandTest`
+    * **Additional info**:
+        * Updated ParserUtil method of parseNumber to work with DeleteTaskCommand
 
-* **Code contributed**: [RepoSense link]() TBA
+* **New Feature**:
+    * to be added soon
+
+* **Code contributed**: [RepoSense link (to be added soon)]()
 
 * **Project management**:
-    * TBA
+    * Managed release `v1.1`, `v1.2`.
+    * Participated in weekly project meetings and set up weekly milestones with the team.
+    * Reviewed pull requests.
 
 * **Enhancements to existing features**:
-    * TBA
+    * to be added soon
 
 * **Documentation**:
     * User Guide:
-        * TBA
+        * Added documentation for the feature `DeleteTask`.
     * Developer Guide:
-        * TBA
+        * Contribute to glossary in the developer guide.
+        * Added user story for Delete task feature.
+        * Added MSS for `DeleteTask`.
 
 * **Community**:
-    * TBA
+    * to be added soon
 
 * **Tools**:
-    * TBA
-    
+    * to be added soon
