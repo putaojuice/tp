@@ -1,5 +1,6 @@
 ---
-Ivor Chua's Project Portfolio Page
+layout: page
+title: Ivor's Project Portfolio Page
 ---
 
 ### Project: NUScheduler
