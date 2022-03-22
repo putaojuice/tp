@@ -25,4 +25,9 @@ public class DeleteTaskCommandParserTest {
         assertParseFailure(parser, "a", String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteCommand.MESSAGE_USAGE));
     }
 
+    @Test
+    public void parse_invalidSymbols_throwsParseException() {
+        assertParseFailure(parser, "$%^%$^%#$", String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteCommand.MESSAGE_USAGE));
+    }
+
 }
