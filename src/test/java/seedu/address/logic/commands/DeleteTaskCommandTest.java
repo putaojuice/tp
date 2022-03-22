@@ -5,8 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.testutil.Assert.assertThrows;
-import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
-import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_PERSON;
 import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 
 import java.nio.file.Path;
@@ -16,10 +14,7 @@ import org.junit.jupiter.api.Test;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
-import seedu.address.commons.core.Messages;
-import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.logic.parser.DeleteTaskCommandParser;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.ReadOnlyAddressBook;
@@ -34,26 +29,26 @@ public class DeleteTaskCommandTest {
     private ModelManager model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
 
     @Test
-    public void constructor_ValidInputSuccess() throws Exception {
-       Integer taskNumberToBeDeleted = 1;
-       DeleteTaskCommand deleteTaskCommand = new DeleteTaskCommand(taskNumberToBeDeleted);
+    public void constructor_validInputSuccess() throws Exception {
+        Integer taskNumberToBeDeleted = 1;
+        DeleteTaskCommand deleteTaskCommand = new DeleteTaskCommand(taskNumberToBeDeleted);
 
-       model.addTask(new Task("test", "2022"));
+        model.addTask(new Task("test", "2022"));
 
-       CommandResult commandResult = new DeleteTaskCommand(taskNumberToBeDeleted)
-           .execute(model);
+        CommandResult commandResult = new DeleteTaskCommand(taskNumberToBeDeleted)
+            .execute(model);
 
-       assertEquals(String.format(DeleteTaskCommand.MESSAGE_ARGUMENTS, taskNumberToBeDeleted),
-           commandResult.getFeedbackToUser());
+        assertEquals(String.format(DeleteTaskCommand.MESSAGE_ARGUMENTS, taskNumberToBeDeleted),
+            commandResult.getFeedbackToUser());
 
     }
 
     @Test
-    public void execute_OutofBoundsIndex_throwsCommandException() throws CommandException {
+    public void execute_outOfBoundsIndex_throwsCommandException() throws CommandException {
         Integer outOfBoundIndex = model.getTaskList().size() + 1;
         DeleteTaskCommand deleteTaskCommand = new DeleteTaskCommand(outOfBoundIndex);
-        String expectedMessage = DeleteTaskCommand.MESSAGE_INDEX_OUT_OF_BOUNDS +
-            "\n" + DeleteTaskCommand.MESSAGE_USAGE;
+        String expectedMessage = DeleteTaskCommand.MESSAGE_INDEX_OUT_OF_BOUNDS
+            + "\n" + DeleteTaskCommand.MESSAGE_USAGE;
 
         assertCommandFailure(deleteTaskCommand, model, expectedMessage);
     }
