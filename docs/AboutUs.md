@@ -1,5 +1,6 @@
 ---
-ABOUT US
+layout: page
+title: About Us
 ---
 
 We are a team based in the [School of Computing, National University of Singapore](http://www.comp.nus.edu.sg).
@@ -16,6 +17,7 @@ You can reach us at the email `e0544443@u.nus.edu`
 [[portfolio](team/putaojuice.md)]
 
 * Role: Team Lead
+* 
 
 ### Low Weimin, Ian
 
@@ -25,6 +27,7 @@ You can reach us at the email `e0544443@u.nus.edu`
 [[portfolio](team/castryl.md)]
 
 * Role: Documentation
+*
 
 ### Ivor Chua
 
@@ -34,6 +37,7 @@ You can reach us at the email `e0544443@u.nus.edu`
 [[portfolio](team/ivorcmx.md)]
 
 * Role: Testing
+* 
 
 ### Tan Yu Meng
 
@@ -43,3 +47,4 @@ You can reach us at the email `e0544443@u.nus.edu`
 [[portfolio](team/yumengtan.md)]
 
 * Role: Code Quality
+* 
