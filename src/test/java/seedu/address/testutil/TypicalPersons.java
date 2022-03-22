@@ -16,6 +16,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import seedu.address.model.AddressBook;
+import seedu.address.model.TaskList;
 import seedu.address.model.person.Person;
 
 /**
@@ -64,9 +65,11 @@ public class TypicalPersons {
      */
     public static AddressBook getTypicalAddressBook() {
         AddressBook ab = new AddressBook();
+        TaskList taskList = new TaskList();
         for (Person person : getTypicalPersons()) {
             ab.addPerson(person);
         }
+
         return ab;
     }
 

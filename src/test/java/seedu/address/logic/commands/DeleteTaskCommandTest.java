@@ -1,6 +1,13 @@
 package seedu.address.logic.commands;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.testutil.Assert.assertThrows;
+import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
+import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_PERSON;
+import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 
 import java.nio.file.Path;
 import java.util.function.Predicate;
@@ -9,18 +16,76 @@ import org.junit.jupiter.api.Test;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
+import seedu.address.commons.core.Messages;
+import seedu.address.commons.core.index.Index;
+import seedu.address.logic.commands.exceptions.CommandException;
+import seedu.address.logic.parser.DeleteTaskCommandParser;
 import seedu.address.model.Model;
+import seedu.address.model.ModelManager;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.TaskList;
+import seedu.address.model.UserPrefs;
 import seedu.address.model.person.Person;
 import seedu.address.model.task.Task;
 
 public class DeleteTaskCommandTest {
+
+    private ModelManager model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
+
+    @Test
+    public void constructor_ValidInputSuccess() throws Exception {
+       Integer taskNumberToBeDeleted = 1;
+       DeleteTaskCommand deleteTaskCommand = new DeleteTaskCommand(taskNumberToBeDeleted);
+
+       model.addTask(new Task("test", "2022"));
+
+       CommandResult commandResult = new DeleteTaskCommand(taskNumberToBeDeleted)
+           .execute(model);
+
+       assertEquals(String.format(DeleteTaskCommand.MESSAGE_ARGUMENTS, taskNumberToBeDeleted),
+           commandResult.getFeedbackToUser());
+
+    }
+
+    @Test
+    public void execute_OutofBoundsIndex_throwsCommandException() throws CommandException {
+        Integer outOfBoundIndex = model.getTaskList().size() + 1;
+        DeleteTaskCommand deleteTaskCommand = new DeleteTaskCommand(outOfBoundIndex);
+        String expectedMessage = DeleteTaskCommand.MESSAGE_INDEX_OUT_OF_BOUNDS +
+            "\n" + DeleteTaskCommand.MESSAGE_USAGE;
+
+        assertCommandFailure(deleteTaskCommand, model, expectedMessage);
+    }
+
     @Test
     public void constructor_nullDescription_throwsNullPointerException() {
         assertThrows(NullPointerException.class, () -> new DeleteTaskCommand(null));
     }
+
+    @Test
+    public void equals() {
+        DeleteTaskCommand deleteFirstTaskCommand = new DeleteTaskCommand(1);
+        DeleteTaskCommand deleteSecondTaskCommand = new DeleteTaskCommand(2);
+
+        // same object -> returns true
+        assertTrue(deleteFirstTaskCommand.equals(deleteFirstTaskCommand));
+
+        // same values -> returns true
+        DeleteTaskCommand deleteFirstTaskCommandCopy = new DeleteTaskCommand(1);
+        assertTrue(deleteFirstTaskCommand.equals(deleteFirstTaskCommandCopy));
+
+        // different types -> returns false
+        assertFalse(deleteFirstTaskCommand.equals(1));
+
+        // null -> returns false
+        assertFalse(deleteFirstTaskCommand.equals(null));
+
+        // different person -> returns false
+        assertFalse(deleteFirstTaskCommand.equals(deleteSecondTaskCommand));
+    }
+
+
 
     /**
      * A default model stub that have all of the methods failing.
