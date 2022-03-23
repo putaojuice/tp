@@ -37,10 +37,7 @@ public class DeleteTaskCommand extends Command {
     public CommandResult execute(Model model) throws CommandException {
         requireAllNonNull(model);
 
-        if (this.taskNumber.equals("")) {
-            // missing taskNumber, prompt the user with the format
-            throw new CommandException(MESSAGE_NO_INDEX + "\n" + MESSAGE_USAGE);
-        } else if (this.taskNumber <= 0 || this.taskNumber > model.getTaskList().size()) {
+        if (this.taskNumber <= 0 || this.taskNumber > model.getTaskList().size()) {
             throw new CommandException(MESSAGE_INDEX_OUT_OF_BOUNDS + "\n" + MESSAGE_USAGE);
         }
 
