@@ -1,7 +1,7 @@
 package seedu.address.logic.commands;
 
-import static java.util.Objects.requireNonNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static seedu.address.logic.commands.ViewTaskCommand.MESSAGE_SUCCESS;
 import static seedu.address.testutil.Assert.assertThrows;
 
 import java.nio.file.Path;
@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
+import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.ReadOnlyUserPrefs;
@@ -18,35 +19,27 @@ import seedu.address.model.TaskList;
 import seedu.address.model.person.Person;
 import seedu.address.model.task.Task;
 
-public class AddTaskCommandTest {
+public class ViewTaskCommandTest {
 
     @Test
-    public void constructor_nullDescription_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> new AddTaskCommand(null));
+    public void execute_taskListIsEmpty_throwsCommandException() {
+        ModelStubViewTask modelStubViewTask = new ModelStubViewTask();
+        assertThrows(CommandException.class, () -> new ViewTaskCommand().execute(modelStubViewTask));
     }
 
     @Test
-    public void constructor_nullDescriptionAndDeadline_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> new AddTaskCommand(null, null));
+    public void execute_nullModel_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> new ViewTaskCommand().execute(null));
     }
 
     @Test
-    public void execute_addTaskNoDeadline_addSuccessful() throws Exception {
-        ModelStubAcceptTask modelStubAcceptTask = new ModelStubAcceptTask();
+    public void execute_taskListIsNotEmpty_viewSuccessful() throws CommandException {
+        ModelStubHasTask modelStubHasTask = new ModelStubHasTask();
+        modelStubHasTask.addTask(new Task("description", "01/01/2022"));
+        String message = modelStubHasTask.viewTask();
+        CommandResult commandResult = new ViewTaskCommand().execute(modelStubHasTask);
 
-        CommandResult commandResult = new AddTaskCommand("description").execute(modelStubAcceptTask);
-        assertEquals(String.format(AddTaskCommand.MESSAGE_ARGUMENTS, "description", "No deadline set"),
-                commandResult.getFeedbackToUser());
-    }
-
-    @Test
-    public void execute_addTaskWithDeadline_addSuccessful() throws Exception {
-        ModelStubAcceptTask modelStubAcceptTask = new ModelStubAcceptTask();
-
-        CommandResult commandResult = new AddTaskCommand("description", "2022")
-                .execute(modelStubAcceptTask);
-        assertEquals(String.format(AddTaskCommand.MESSAGE_ARGUMENTS, "description", "2022"),
-                commandResult.getFeedbackToUser());
+        assertEquals(MESSAGE_SUCCESS + "\n" + message, commandResult.getFeedbackToUser());
     }
 
     /**
@@ -149,18 +142,36 @@ public class AddTaskCommandTest {
         }
     }
 
-    private class ModelStubAcceptTask extends ModelStub {
+    private class ModelStubViewTask extends ModelStub {
         private TaskList taskList = new TaskList();
 
         @Override
         public TaskList getTaskList() {
-            return taskList;
+            return this.taskList;
         }
 
         @Override
+        public String viewTask() {
+            return taskList.viewTask();
+        }
+    }
+
+    private class ModelStubHasTask extends ModelStub {
+        private TaskList taskList = new TaskList();
+
+        @Override
         public void addTask(Task task) {
-            requireNonNull(task);
             taskList.addTask(task);
+        }
+
+        @Override
+        public TaskList getTaskList() {
+            return this.taskList;
+        }
+
+        @Override
+        public String viewTask() {
+            return taskList.viewTask();
         }
     }
 }

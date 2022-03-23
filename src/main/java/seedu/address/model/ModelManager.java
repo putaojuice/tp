@@ -177,4 +177,10 @@ public class ModelManager implements Model {
     public String findTask(String input) {
         return taskList.findTask(input);
     }
+
+    //=========== View Task ===============
+    @Override
+    public String viewTask() {
+        return taskList.viewTask();
+    }
 }

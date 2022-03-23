@@ -59,6 +59,16 @@ public class TaskList {
     }
 
     /**
+     * Returns a String of all tasks.
+     *
+     * @return the list of ordered tasks
+     */
+    public String viewTask() {
+        String orderedList = getOutput(taskList);
+        return orderedList;
+    }
+
+    /**
      * Provides an ordered list of tasks that contains keyword.
      *
      * @param list - the list of tasks that matches keyword

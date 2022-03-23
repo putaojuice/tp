@@ -122,11 +122,11 @@ Format:  `findt KEYWORD`
 
 Example: `findt lessons` returns `Swimming lessons 03/05/2022`.
 
-### Feature - View all tasks: `view t`
+### Feature - List all tasks: `viewt`
 
 View all the tasks currently in the task list.
 
-Format: `view t`
+Format: `viewt`
 
 ### Feature - Add contact: `add c`
 
