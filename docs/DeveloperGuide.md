@@ -289,7 +289,6 @@ The following sequence diagram shows how the add task operation work assuming no
 
 ![FindTaskCommandSequenceDiagram](images/FindTaskSequenceDiagram.png)
 
-
 _{more aspects and alternatives to be added}_
 --------------------------------------------------------------------------------------------------------------------
 
