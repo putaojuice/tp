@@ -26,7 +26,7 @@ Given below are my contributions to the project.
 * **Code contributed**: [RepoSense link (to be added soon)]()
 
 * **Project management**:
-    * Managed release `v1.1`, `v1.2`.
+    * Managed release `v1.1`, `v1.2`, `v1.3`.
     * Participated in weekly project meetings and set up weekly milestones with the team.
     * Reviewed pull requests.
 
@@ -40,6 +40,9 @@ Given below are my contributions to the project.
         * Contribute to glossary in the developer guide.
         * Added user story for find task feature. 
         * Added MSS for `FindTask`.
+    * Diagrams
+      * Added Sequence Diagram for `FindTask`
+      * Added Activity Diagram for `FindTask`
 
 * **Community**:
     * to be added soon
