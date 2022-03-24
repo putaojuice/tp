@@ -1,6 +1,10 @@
 package seedu.address.logic.commands;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.testutil.Assert.assertThrows;
+import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 
 import java.nio.file.Path;
 import java.util.function.Predicate;
@@ -9,10 +13,13 @@ import org.junit.jupiter.api.Test;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
+import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
+import seedu.address.model.ModelManager;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.TaskList;
+import seedu.address.model.UserPrefs;
 import seedu.address.model.person.Person;
 import seedu.address.model.task.Task;
 
@@ -21,15 +28,58 @@ import seedu.address.model.task.Task;
  */
 public class FindTaskCommandTest {
 
+    private final ModelManager model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
+
     @Test
-    public void constructor_nullDescription_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> new AddTaskCommand(null));
+    public void constructor_nullInput_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> new FindTaskCommand(null));
     }
 
     @Test
-    public void constructor_nullDescriptionAndDeadline_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> new AddTaskCommand(null, null));
+    public void execute_validInputSuccess() throws CommandException {
+        String testInputSuccess = "test";
+        FindTaskCommand findTaskCommand = new FindTaskCommand(testInputSuccess);
+        model.addTask(new Task("test", "2022"));
+        CommandResult commandResult = findTaskCommand
+                .execute(model);
+        String taskSuccess = model.findTask(testInputSuccess);
+        assertEquals(String.format(FindTaskCommand.MESSAGE_ARGUMENTS, taskSuccess),
+                commandResult.getFeedbackToUser());
     }
+
+    @Test
+    public void execute_validInput_noTaskFound() {
+        String testInputUnsuccessful = "fail";
+        FindTaskCommand findTaskCommand = new FindTaskCommand(testInputUnsuccessful);
+        model.addTask(new Task("test", "2022"));
+        String expectedMessage = FindTaskCommand.MESSAGE_NO_MATCHING_TASK;
+        assertThrows(CommandException.class, expectedMessage, () -> findTaskCommand.execute(model));
+    }
+
+    @Test
+    public void equals() {
+        String firstTest = "test1";
+        String secondTest = "test2";
+        FindTaskCommand findFirstTaskCommand = new FindTaskCommand(firstTest);
+        FindTaskCommand findSecondTaskCommand = new FindTaskCommand(secondTest);
+
+        // same object -> returns true
+        assertTrue(findFirstTaskCommand.equals(findFirstTaskCommand));
+
+        // same values -> returns true
+        FindTaskCommand findFirstTaskCommandCopy = new FindTaskCommand(firstTest);
+        assertTrue(findFirstTaskCommand.equals(findFirstTaskCommandCopy));
+
+        // different types -> returns false
+        assertFalse(findFirstTaskCommand.equals(firstTest));
+
+        // null -> returns false
+        assertFalse(findFirstTaskCommand.equals(null));
+
+        // different person -> returns false
+        assertFalse(findFirstTaskCommand.equals(findSecondTaskCommand));
+    }
+
 
     /**
      * A default model stub that have all the methods failing.
