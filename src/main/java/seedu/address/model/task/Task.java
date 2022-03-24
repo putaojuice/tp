@@ -16,6 +16,14 @@ public class Task {
         this.deadline = deadline;
     }
 
+    public String getDescription() {
+        return this.description;
+    }
+
+    public String getDeadline() {
+        return this.deadline;
+    }
+
     @Override
     public String toString() {
         return "Task: " + this.description + " " + deadline;

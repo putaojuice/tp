@@ -99,4 +99,8 @@ public interface Model {
     String findTask(String input);
 
     String viewTask();
+
+    Path getTaskListFilePath();
+    void setTaskListFilePath(Path taskListFilePath);
+    ReadOnlyTaskList getReadOnlyTaskList();
 }

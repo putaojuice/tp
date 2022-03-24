@@ -3,14 +3,34 @@ package seedu.address.model;
 import static java.util.Objects.requireNonNull;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import seedu.address.model.task.Task;
 
-public class TaskList {
+public class TaskList implements ReadOnlyTaskList {
     private final ArrayList<Task> taskList;
 
-    public TaskList() {
-        this.taskList = new ArrayList<>();
+    {
+        taskList = new ArrayList<>();
+    }
+
+    public TaskList() {}
+
+    public TaskList(ReadOnlyTaskList toBeCopied) {
+        this();
+        resetData(toBeCopied);
+    }
+
+    public void resetData(ReadOnlyTaskList newData) {
+        requireNonNull(newData);
+
+        setTaskList(newData.getObservableTaskList());
+    }
+
+    public void setTaskList(List<Task> tasks) {
+        this.taskList.addAll(tasks);
     }
 
     /**
@@ -85,6 +105,12 @@ public class TaskList {
             }
         }
         return sb.toString();
+    }
+
+    @Override
+    public ObservableList<Task> getObservableTaskList() {
+        ObservableList<Task> taskObservableList = FXCollections.observableArrayList(taskList);
+        return taskObservableList;
     }
 }
 
