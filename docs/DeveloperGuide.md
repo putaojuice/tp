@@ -290,6 +290,34 @@ The following sequence diagram shows how the add task operation work assuming no
 ![FindTaskCommandSequenceDiagram](images/FindTaskSequenceDiagram.png)
 
 _{more aspects and alternatives to be added}_
+
+### \[Proposed\] Add Delete Task Feature (Ivor)
+#### Proposed Implementation
+The proposed delete task feature is facilitated by `DeleteTaskCommand`. It extends `Command` and make use of a new model `TaskList` and `Task`.
+The `TaskList` model consists of an `ArrayList<Task>` to store the `Task`. The `DeketeTaskCommand` also has a `DeleteTaskCommandParser`
+to do the logical parsing of user's input. Additionally, this feature implements the following operations:
+
+* `DeleteTaskCommand#execute()` — Executes the command.
+* `DeleteTaskCommandParser#parse()` — Make sense of the user's input and returns an `DeleteTaskCommand` object.
+* `TaskList#DeleteTask()` — Delete an existing task in the task list if user's input is valid.
+
+The `TaskList#deleteTask()` is exposed in the `Model` interface as `Model#deleteTask()`.
+
+Given below is an example usage scenario and how the delete task feature works.
+
+The following activity diagram shows the workflow of delete task operation:
+
+The user will type in the command `delt <integer>`.
+If a valid format is detected, the system will remove the corresponding task with the integer ID,  and prompt the user that a
+task has been successfully deleted.
+
+![DeleteTaskCommandActivityDiagram](images/DeleteTaskActivityDiagram.png)
+
+The following sequence diagram shows how the delete task operation work assuming no exception is thrown:
+
+![DeleteTaskCommandSequenceDiagram](images/DeleteTaskSequenceDiagram.png)
+
+_{more aspects and alternatives to be added}_
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Documentation, logging, testing, configuration, dev-ops**
@@ -459,7 +487,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 2. Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
 3. A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
 4. The command used should be simple to learn.
-5. The system should be usable by a novice who has never used the system before. 
+5. The system should be usable by a novice who has never used the system before.
 6. The system should be backward compatible with data produced by earlier versions of the system.
 7. Each command should not take more than 2 second to complete and display the result.
 8. Texts in the UI should wrap around.
