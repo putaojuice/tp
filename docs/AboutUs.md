@@ -17,7 +17,6 @@ You can reach us at the email `e0544443@u.nus.edu`
 [[portfolio](team/putaojuice.md)]
 
 * Role: Team Lead
-* 
 
 ### Low Weimin, Ian
 
@@ -35,7 +34,6 @@ You can reach us at the email `e0544443@u.nus.edu`
 
 [[github](http://github.com/ivorcmx)] 
 [[portfolio](team/ivorcmx.md)]
-
 * Role: Testing
 * 
 
@@ -47,4 +45,3 @@ You can reach us at the email `e0544443@u.nus.edu`
 [[portfolio](team/yumengtan.md)]
 
 * Role: Code Quality
-* 

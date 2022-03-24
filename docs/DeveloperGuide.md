@@ -463,7 +463,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 2. Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
 3. A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
 4. The command used should be simple to learn.
-5. The system should be usable by a novice who has never used the system before. 
+5. The system should be usable by a novice who has never used the system before.
 6. The system should be backward compatible with data produced by earlier versions of the system.
 7. Each command should not take more than 2 second to complete and display the result.
 8. Texts in the UI should wrap around.
