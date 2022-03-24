@@ -266,6 +266,34 @@ The following sequence diagram shows how the add task operation work assuming no
 ![AddTaskCommandSequenceDiagram](images/AddTaskCommandSequenceDiagram.png)
 
 _{more aspects and alternatives to be added}_
+
+### \[Proposed\] Add Delete Task Feature (Ivor)
+#### Proposed Implementation
+The proposed delete task feature is facilitated by `DeleteTaskCommand`. It extends `Command` and make use of a new model `TaskList` and `Task`.
+The `TaskList` model consists of an `ArrayList<Task>` to store the `Task`. The `DeketeTaskCommand` also has a `DeleteTaskCommandParser`
+to do the logical parsing of user's input. Additionally, this feature implements the following operations:
+
+* `DeleteTaskCommand#execute()` — Executes the command.
+* `DeleteTaskCommandParser#parse()` — Make sense of the user's input and returns an `DeleteTaskCommand` object.
+* `TaskList#DeleteTask()` — Delete an existing task in the task list if user's input is valid.
+
+The `TaskList#deleteTask()` is exposed in the `Model` interface as `Model#deleteTask()`.
+
+Given below is an example usage scenario and how the delete task feature works.
+
+The following activity diagram shows the workflow of delete task operation:
+
+The user will type in the command `delt <integer>`.
+If a valid format is detected, the system will remove the corresponding task with the integer ID,  and prompt the user that a
+task has been successfully deleted.
+
+![DeleteTaskCommandActivityDiagram](images/DeleteTaskActivityDiagram.png)
+
+The following sequence diagram shows how the delete task operation work assuming no exception is thrown:
+
+![DeleteTaskCommandSequenceDiagram](images/DeleteTaskSequenceDiagram.png)
+
+_{more aspects and alternatives to be added}_
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Documentation, logging, testing, configuration, dev-ops**
