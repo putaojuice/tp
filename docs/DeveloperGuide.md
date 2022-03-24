@@ -239,6 +239,33 @@ _{more aspects and alternatives to be added}_
 _{Explain here how the data archiving feature will be implemented}_
 
 
+### \[Proposed\] Add Task Feature (Yu An)
+#### Proposed Implementation
+The proposed add task feature is facilitated by `AddTaskCommand`. It extends `Command` and make use of a new model `TaskList` and `Task`.
+The `TaskList` model consists of an `ArrayList<Task>` to store the `Task`. The `AddTaskCommand` also has a `AddTaskCommandParser`
+to do the logical parsing of user's input. Additionally, this feature implements the following operations:
+
+* `AddTaskCommand#execute()` — Executes the command.
+* `AddTaskCommandParser#parse()` — Make sense of the user's input and returns an `AddTaskCommand` object.
+* `TaskList#addTask()` — Add a new task to the task list if user's input is valid.
+
+The `TaskList#addTask()` is exposed in the `Model` interface as `Model#addTask()`.
+
+Given below is an example usage scenario and how the add task feature works.
+
+The following activity diagram shows the workflow of add task operation:
+
+The user will type in the command `addt d/DESCRIPTION [t/DEADLINE (dd/mm/yyyy)]` with the deadline being optional field.
+If a valid format is detected, the system will create a new task, add it to the task list and prompt the user that a
+task has been successfully added.
+
+![AddTaskCommandActivityDiagram](images/AddTaskCommandActivityDiagram.png)
+
+The following sequence diagram shows how the add task operation work assuming no exception is thrown:
+
+![AddTaskCommandSequenceDiagram](images/AddTaskCommandSequenceDiagram.png)
+
+_{more aspects and alternatives to be added}_
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Documentation, logging, testing, configuration, dev-ops**

@@ -74,9 +74,9 @@ If you can type fast, NUScheduler can schedule your tasks faster than traditiona
 
 Adds a task to the task list.
 
-Format: `addt d/DESCRIPTION [t/DEADLINE]`
+Format: `addt d/DESCRIPTION [t/DEADLINE (dd/mm/yyyy)]`
 
-Example: `addt d/Buy groceries [t/2022 02 22 5pm]`
+Example: `addt d/Buy groceries [t/01/01/2022]`
 
 ### Feature - Delete a task: `delt <integer>`
 
