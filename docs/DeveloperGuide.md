@@ -265,6 +265,31 @@ The following sequence diagram shows how the add task operation work assuming no
 
 ![AddTaskCommandSequenceDiagram](images/AddTaskCommandSequenceDiagram.png)
 
+
+### \[Proposed\] Find Task Feature (Yu Meng)
+#### Proposed Implementation
+The proposed find task feature is facilitated by `FindTaskCommand`. It extends `Command` and makes use of the `TaskList` model
+and `Task`. The `TaskList` Model is used to retrieve the `Tasks` that have been stored. The `FindTaskCommand` also has a
+`FindTaskCommandParser` to do the logical parsing of the user's input. It uses regex to ignore case sensitivity of user's input.
+These are the operations that the feature implements: 
+* `FindTaskCommand#execute()` : Executes the command.
+* `FindTaskCommandParser#parse()` :  Parses the user input and returns a `FindTaskCommand` Object.
+* `TaskList#findTask()` : Finds and returns tasks matching keyword from user input (ignores case sensitivity)
+
+Given Below is an example usage scenario and how the find task feature works.
+
+The following activity diagram shows the workflow of add task operation:
+
+The user will type in the command `findt KEYWORD`. If the user inputs a valid format, the system will retrieve matching
+tasks from the TaskList. If there is one or more matching Tasks, the system will prompt the user with the matching Tasks.
+
+![FindTaskCommandActivityDiagram](images/FindTaskActivityDiagram.png)
+
+The following sequence diagram shows how the add task operation work assuming no exception is thrown:
+
+![FindTaskCommandSequenceDiagram](images/FindTaskSequenceDiagram.png)
+
+
 _{more aspects and alternatives to be added}_
 --------------------------------------------------------------------------------------------------------------------
 
