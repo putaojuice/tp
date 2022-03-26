@@ -99,4 +99,6 @@ public interface Model {
     String findTask(String input);
 
     String viewTask();
+
+    void updateTask(Task taskToUpdate, Task updatedTask);
 }

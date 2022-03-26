@@ -86,6 +86,15 @@ public class TaskList {
         }
         return sb.toString();
     }
+
+    /**
+     * Provides the task in the corresponding index
+     * @param taskId task id of the task to be retrieved
+     * @return task with the matching ID in task list
+     */
+    public Task getTask(Integer taskId) {
+        return taskList.get(taskId - 1); // to convert to zero-based
+    }
 }
 
 

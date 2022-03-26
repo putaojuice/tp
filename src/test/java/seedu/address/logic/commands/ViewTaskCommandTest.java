@@ -140,6 +140,11 @@ public class ViewTaskCommandTest {
         public String viewTask() {
             throw new AssertionError("This method should not be called.");
         }
+
+        @Override
+        public void updateTask(Task taskToUpdate, Task updatedTask) {
+            throw new AssertionError("This method should not be called.");
+        }
     }
 
     private class ModelStubViewTask extends ModelStub {

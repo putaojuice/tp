@@ -183,4 +183,11 @@ public class ModelManager implements Model {
     public String viewTask() {
         return taskList.viewTask();
     }
+
+    //=========== Update Task ===============
+    @Override
+    public void updateTask(Task taskToUpdate, Task updatedTask) {
+        taskToUpdate.updateDescription(updatedTask.getDescription());
+        taskToUpdate.updateDeadline(updatedTask.getDeadline());
+    }
 }
