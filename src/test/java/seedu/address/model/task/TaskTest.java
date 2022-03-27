@@ -23,6 +23,18 @@ public class TaskTest {
     }
 
     @Test
+    public void getDescription_success() {
+        Task task = new Task("dummy", "01/01/2022");
+        assertEquals("dummy", task.getDescription());
+    }
+
+    @Test
+    public void getDeadline_success() {
+        Task task = new Task("dummy", "01/01/2022");
+        assertEquals("01/01/2022", task.getDeadline());
+    }
+
+    @Test
     public void toString_success() {
         Task task = new Task("description", "2022");
         assertEquals(task.toString(), "Task: description 2022");

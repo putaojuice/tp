@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
+import static seedu.address.testutil.TypicalTask.getTypicalTaskList;
 
 import java.nio.file.Path;
 import java.util.function.Predicate;
@@ -18,6 +19,7 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.ReadOnlyAddressBook;
+import seedu.address.model.ReadOnlyTaskList;
 import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.TaskList;
 import seedu.address.model.UserPrefs;
@@ -26,7 +28,7 @@ import seedu.address.model.task.Task;
 
 public class DeleteTaskCommandTest {
 
-    private ModelManager model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
+    private ModelManager model = new ModelManager(getTypicalAddressBook(), new UserPrefs(), getTypicalTaskList());
 
     @Test
     public void constructor_validInputSuccess() throws Exception {
@@ -178,6 +180,21 @@ public class DeleteTaskCommandTest {
 
         @Override
         public String viewTask() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public Path getTaskListFilePath() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void setTaskListFilePath(Path taskListFilePath) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public ReadOnlyTaskList getReadOnlyTaskList() {
             throw new AssertionError("This method should not be called.");
         }
     }
