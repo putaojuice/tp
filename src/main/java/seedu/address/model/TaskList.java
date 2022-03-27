@@ -12,17 +12,30 @@ import seedu.address.model.task.Task;
 public class TaskList implements ReadOnlyTaskList {
     private final ArrayList<Task> taskList;
 
+    /*
+     * The 'unusual' code block below is a non-static initialization block, sometimes used to avoid duplication
+     * between constructors. See https://docs.oracle.com/javase/tutorial/java/javaOO/initial.html
+     *
+     * Note that non-static init blocks are not recommended to use. There are other ways to avoid duplication
+     *   among constructors.
+     */
     {
         taskList = new ArrayList<>();
     }
 
     public TaskList() {}
 
+    /**
+     * Creates a TaskList using the Tasks in the {@code toBeCopied}
+     */
     public TaskList(ReadOnlyTaskList toBeCopied) {
         this();
         resetData(toBeCopied);
     }
 
+    /**
+     * Resets the existing data of this {@code TaskList} with {@code newData}.
+     */
     public void resetData(ReadOnlyTaskList newData) {
         requireNonNull(newData);
 

@@ -25,7 +25,8 @@ public class StorageManager implements Storage {
     /**
      * Creates a {@code StorageManager} with the given {@code AddressBookStorage} and {@code UserPrefStorage}.
      */
-    public StorageManager(AddressBookStorage addressBookStorage, UserPrefsStorage userPrefsStorage, TaskListStorage taskListStorage) {
+    public StorageManager(AddressBookStorage addressBookStorage, UserPrefsStorage userPrefsStorage,
+                          TaskListStorage taskListStorage) {
         this.addressBookStorage = addressBookStorage;
         this.userPrefsStorage = userPrefsStorage;
         this.taskListStorage = taskListStorage;
@@ -101,7 +102,7 @@ public class StorageManager implements Storage {
     }
 
     @Override
-    public void saveTaskList(ReadOnlyTaskList taskList, Path filePath) throws IOException{
+    public void saveTaskList(ReadOnlyTaskList taskList, Path filePath) throws IOException {
         logger.fine("Attempting to write to data file: " + filePath);
         taskListStorage.saveTaskList(taskList, filePath);
     }

@@ -1,11 +1,5 @@
 package seedu.address.storage;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
-
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -19,17 +13,27 @@ public class JsonAdaptedTask {
     private final String description;
     private final String deadline;
 
+    /**
+     * Constructs a {@code JsonAdaptedTask} with the given task details.
+     */
     @JsonCreator
     public JsonAdaptedTask(@JsonProperty("description") String description, @JsonProperty("deadline") String deadline) {
         this.description = description;
         this.deadline = deadline;
     }
-
+    /**
+     * Converts a given {@code Task} into this class for Jackson use.
+     */
     public JsonAdaptedTask(Task source) {
         description = source.getDescription();
         deadline = source.getDeadline();
     }
 
+    /**
+     * Converts this Jackson-friendly adapted person object into the model's {@code Task} object.
+     *
+     * @throws IllegalValueException if there were any data constraints violated in the adapted task.
+     */
     public Task toModelType() throws IllegalValueException {
         if (description == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, "description"));

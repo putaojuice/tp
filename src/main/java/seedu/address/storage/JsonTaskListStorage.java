@@ -33,6 +33,12 @@ public class JsonTaskListStorage implements TaskListStorage {
         return readTaskList(filePath);
     }
 
+    /**
+     * Similar to {@link #readTaskList()}.
+     *
+     * @param filePath location of the data. Cannot be null.
+     * @throws DataConversionException if the file is not in the correct format.
+     */
     public Optional<ReadOnlyTaskList> readTaskList(Path filePath) throws DataConversionException, IOException {
         requireNonNull(filePath);
 
@@ -55,6 +61,11 @@ public class JsonTaskListStorage implements TaskListStorage {
         saveTaskList(taskList, filePath);
     }
 
+    /**
+     * Similar to {@link #saveTaskList(ReadOnlyTaskList)}.
+     *
+     * @param filePath location of the data. Cannot be null.
+     */
     public void saveTaskList(ReadOnlyTaskList taskList, Path filePath) throws IOException {
         requireNonNull(taskList);
         requireNonNull(filePath);
