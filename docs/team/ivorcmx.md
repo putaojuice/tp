@@ -19,6 +19,7 @@ Given below are my contributions to the project.
         * `DeleteTaskCommandTest`
     * **Additional info**:
         * Updated ParserUtil method of parseNumber to work with DeleteTaskCommand
+        * Added relevant activity and sequence diagrams into Developer Guide
 
 * **New Feature**:
     * to be added soon
@@ -40,6 +41,8 @@ Given below are my contributions to the project.
         * Contribute to glossary in the developer guide.
         * Added user story for Delete task feature.
         * Added MSS for `DeleteTask`.
+        * Add sequence diagram for delete task
+        * Add activity diagram for delete task
 
 * **Community**:
     * to be added soon
