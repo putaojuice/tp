@@ -3,8 +3,8 @@ layout: page
 title: User Guide
 ---
 #User Guide - NUScheduler
-NUScheduler is a desktop app for Year 1 Computing students to assist with more efficient management of tasks and contacts, 
-optimized for use via a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI). 
+NUScheduler is a desktop app for Year 1 Computing students to assist with more efficient management of tasks and contacts,
+optimized for use via a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI).
 If you can type fast, NUScheduler can schedule your tasks faster than traditional GUI apps.
 
 - Quick Start
@@ -61,12 +61,12 @@ If you can type fast, NUScheduler can schedule your tasks faster than traditiona
 
 **Notes about the command format:**
 
-- Words in **UPPER_CASE** are the parameters to be supplied by the user.e.g. in `add t n /NAME`, **NAME** is a parameter 
+- Words in **UPPER_CASE** are the parameters to be supplied by the user.e.g. in `add t n /NAME`, **NAME** is a parameter.
 - which can be used as `add t n /John Doe`.
 - Items in **square brackets** are optional.e.g `/NAME [/TAG]` can be used as `/John Doe /friend` or as `/John Doe`.
-- Parameters cannot be in any order and must follow the order given in the command format.e.g. if the command format 
+- Parameters cannot be in any order and must follow the order given in the command format.e.g. if the command format.
 - specifies `add t /DESCRIPTION /DEADLINE [/TAG]`, the details must be entered as `/DESCRIPTION /DEADLINE [/TAG]`.
-- All `<integer>` fields must be > 0
+- All `<integer>` fields must be > 0.
 
 </div>
 
@@ -203,7 +203,7 @@ NUScheduler data is saved in the hard disk automatically after any command that 
 
 **Q**: How do I transfer my data to another Computer?
 
-**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the 
+**A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the
 data of your previous NUScheduler home folder.
 
 --------------------------------------------------------------------------------------------------------------------

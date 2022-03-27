@@ -26,16 +26,14 @@ You can reach us at the email `e0544443@u.nus.edu`
 [[portfolio](team/castryl.md)]
 
 * Role: Documentation
-*
 
 ### Ivor Chua
 
 <img src="images/ivorcmx.png" width="200px">
 
-[[github](http://github.com/ivorcmx)] 
+[[github](http://github.com/ivorcmx)]
 [[portfolio](team/ivorcmx.md)]
 * Role: Testing
-* 
 
 ### Tan Yu Meng
 
