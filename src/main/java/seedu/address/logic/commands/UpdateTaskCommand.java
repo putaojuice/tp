@@ -59,7 +59,7 @@ public class UpdateTaskCommand extends Command {
             throw new CommandException(MESSAGE_DUPLICATE_TASK);
         }
 
-        model.updateTask(taskToUpdate, updatedTask);
+        model.updateTask(taskToUpdate, updatedTask, taskId);
 
         return new CommandResult(String.format(MESSAGE_UPDATE_TASK_SUCCESS, updatedTask));
     }

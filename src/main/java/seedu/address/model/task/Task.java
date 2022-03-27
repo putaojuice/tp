@@ -4,8 +4,8 @@ import static java.util.Objects.requireNonNull;
 
 public class Task {
 
-    private String description;
-    private String deadline;
+    private final String description;
+    private final String deadline;
 
     /**
      * Initializes a Task with a description and deadline.
@@ -15,22 +15,6 @@ public class Task {
         requireNonNull(deadline);
         this.description = description;
         this.deadline = deadline;
-    }
-
-    /**
-     * Updates description of task
-     * @param newDescription new description of task
-     */
-    public void updateDescription(String newDescription) {
-        this.description = newDescription;
-    }
-
-    /**
-     * Updates deadline of task
-     * @param newDeadline new deadline of task
-     */
-    public void updateDeadline(String newDeadline) {
-        this.deadline = newDeadline;
     }
 
     /**

@@ -156,6 +156,11 @@ public class AddCommandTest {
         }
 
         @Override
+        public void addTask(Task task, Integer taskId) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public TaskList getTaskList() {
             throw new AssertionError("This method should not be called.");
         }
@@ -176,7 +181,7 @@ public class AddCommandTest {
         }
 
         @Override
-        public void updateTask(Task taskToUpdate, Task updatedTask) {
+        public void updateTask(Task taskToUpdate, Task updatedTask, Integer taskId) {
             throw new AssertionError("This method should not be called.");
         }
     }

@@ -88,6 +88,8 @@ public interface Model {
 
     void addTask(Task task);
 
+    void addTask(Task task, Integer taskId);
+
     TaskList getTaskList();
 
     void deleteTask(Integer taskNumber);
@@ -100,5 +102,5 @@ public interface Model {
 
     String viewTask();
 
-    void updateTask(Task taskToUpdate, Task updatedTask);
+    void updateTask(Task taskToUpdate, Task updatedTask, Integer taskId);
 }
