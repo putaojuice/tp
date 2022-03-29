@@ -102,5 +102,5 @@ public interface Model {
 
     String viewTask();
 
-    void updateTask(Task taskToUpdate, Task updatedTask, Integer taskId);
+    void updateTask(Task updatedTask, Integer taskId);
 }

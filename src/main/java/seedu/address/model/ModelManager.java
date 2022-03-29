@@ -191,7 +191,7 @@ public class ModelManager implements Model {
 
     //=========== Update Task ===============
     @Override
-    public void updateTask(Task taskToUpdate, Task updatedTask, Integer taskId) {
+    public void updateTask(Task updatedTask, Integer taskId) {
         taskList.deleteTask(taskId);
         taskList.addTask(updatedTask, taskId);
     }
