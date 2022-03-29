@@ -104,9 +104,9 @@ public interface Model {
 
 
     Path getTaskListFilePath();
-    
+
     void setTaskListFilePath(Path taskListFilePath);
-    
+
     ReadOnlyTaskList getReadOnlyTaskList();
 
     void updateTask(Task updatedTask, Integer taskId);
