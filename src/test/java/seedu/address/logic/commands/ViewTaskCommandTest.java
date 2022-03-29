@@ -123,6 +123,11 @@ public class ViewTaskCommandTest {
         }
 
         @Override
+        public void addTask(Task task, Integer taskId) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public TaskList getTaskList() {
             throw new AssertionError("This method should not be called.");
         }
@@ -154,6 +159,9 @@ public class ViewTaskCommandTest {
 
         @Override
         public ReadOnlyTaskList getReadOnlyTaskList() {
+
+        @Override
+        public void updateTask(Task updatedTask, Integer taskId) {
             throw new AssertionError("This method should not be called.");
         }
     }

@@ -171,6 +171,11 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public void addTask(Task task, Integer taskId) {
+        taskList.addTask(task, taskId);
+    }
+
+    @Override
     public TaskList getTaskList() {
         return this.taskList;
     }
@@ -197,5 +202,12 @@ public class ModelManager implements Model {
     @Override
     public String viewTask() {
         return taskList.viewTask();
+    }
+
+    //=========== Update Task ===============
+    @Override
+    public void updateTask(Task updatedTask, Integer taskId) {
+        taskList.deleteTask(taskId);
+        taskList.addTask(updatedTask, taskId);
     }
 }

@@ -117,8 +117,8 @@ Locating tasks which match any of given keywords.
 Format:  `findt KEYWORD`
 
 - The search is case-insensitive. e.g. `lessons` will match `Lessons`.
-- The order of the keywords does not matter. e.g. `drink water` will match `water drink`
-- Choice of either full words matched or any tasks containing keyword.
+- The order of the keywords matters. e.g. `drink water` will not match `water drink`
+- Only full keyword(s) will be accepted. e.g. `drink` will match `drink`; `ink` will not match `drink`
 
 Example: `findt lessons` returns `Swimming lessons 03/05/2022`.
 
