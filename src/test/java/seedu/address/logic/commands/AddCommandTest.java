@@ -193,6 +193,8 @@ public class AddCommandTest {
 
         @Override
         public ReadOnlyTaskList getReadOnlyTaskList() {
+            throw new AssertionError("This method should not be called.");
+        }
 
         @Override
         public void updateTask(Task updatedTask, Integer taskId) {
