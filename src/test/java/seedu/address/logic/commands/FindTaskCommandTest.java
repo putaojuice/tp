@@ -161,6 +161,11 @@ public class FindTaskCommandTest {
         }
 
         @Override
+        public void addTask(Task task, Integer taskId) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public void deleteTask(Integer taskNumber) {
             throw new AssertionError("This method should not be called.");
         }
@@ -177,6 +182,11 @@ public class FindTaskCommandTest {
 
         @Override
         public String viewTask() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void updateTask(Task updatedTask, Integer taskId) {
             throw new AssertionError("This method should not be called.");
         }
     }

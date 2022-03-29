@@ -24,6 +24,18 @@ public class TaskList {
     }
 
     /**
+     *  Add a task to the taskList at a specific index.
+     *
+     * @param task the Task to be added which must not be null
+     * @param taskId the location to be added in which must not be null
+     */
+    public void addTask(Task task, Integer taskId) {
+        requireNonNull(task);
+        requireNonNull(taskId);
+        this.taskList.add(taskId - 1, task); // to convert to zero-based indexing
+    }
+
+    /**
      * Returns the taskList.
      *
      * @return the taskList with all the tasks contained
@@ -85,6 +97,15 @@ public class TaskList {
             }
         }
         return sb.toString();
+    }
+
+    /**
+     * Provides the task in the corresponding index
+     * @param taskId task id of the task to be retrieved
+     * @return task with the matching ID in task list
+     */
+    public Task getTask(Integer taskId) {
+        return taskList.get(taskId - 1); // to convert to zero-based
     }
 }
 
