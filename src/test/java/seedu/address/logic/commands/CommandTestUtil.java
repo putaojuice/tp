@@ -3,14 +3,12 @@ package seedu.address.logic.commands;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_ADD_TASK_DEADLINE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_ADD_TASK_DESCRIPTION;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_ADD_TASK_DESCRIPTION;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_ADD_TASK_DEADLINE;
-
-
 import static seedu.address.testutil.Assert.assertThrows;
 
 import java.util.ArrayList;
@@ -42,9 +40,7 @@ public class CommandTestUtil {
     public static final String VALID_TAG_FRIEND = "friend";
 
     public static final String VALID_DESCRIPTION_SWIMMING = "Swimming Lesson";
-    public static final String VALID_DESCRIPTION_RUNNING = "Running Lesson";
     public static final String VALID_DEADLINE_MARCH = "03/03/2022";
-    public static final String VALID_DEADLINE_OCT = "10/10/2022";
 
     public static final String DESC_SWIMMING = " " + PREFIX_ADD_TASK_DESCRIPTION + VALID_DESCRIPTION_SWIMMING;
     public static final String DEADLINE_SWIMMING = " " + PREFIX_ADD_TASK_DEADLINE + VALID_DEADLINE_MARCH;

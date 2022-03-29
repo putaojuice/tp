@@ -2,16 +2,16 @@ package seedu.address.logic.parser;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.commands.CommandTestUtil.DEADLINE_SWIMMING;
+import static seedu.address.logic.commands.CommandTestUtil.DESC_SWIMMING;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_DEADLINE_MONTH;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_DEADLINE_YEAR;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_DEADLINE_MARCH;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_DESCRIPTION_SWIMMING;
-import static seedu.address.logic.commands.CommandTestUtil.DESC_SWIMMING;
-import static seedu.address.logic.commands.CommandTestUtil.INVALID_DEADLINE_YEAR;
-import static seedu.address.logic.commands.CommandTestUtil.INVALID_DEADLINE_MONTH;
-
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
 
 import org.junit.jupiter.api.Test;
+
 import seedu.address.logic.commands.UpdateTaskCommand;
 
 public class UpdateTaskCommandParserTest {

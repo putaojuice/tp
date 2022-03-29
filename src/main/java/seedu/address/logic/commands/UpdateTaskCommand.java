@@ -9,7 +9,6 @@ import seedu.address.model.Model;
 import seedu.address.model.TaskList;
 import seedu.address.model.task.Task;
 
-import java.util.Optional;
 
 public class UpdateTaskCommand extends Command {
     public static final String COMMAND_WORD = "updt";
