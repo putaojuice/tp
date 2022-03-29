@@ -102,5 +102,13 @@ public interface Model {
 
     String viewTask();
 
+
+    Path getTaskListFilePath();
+
+    void setTaskListFilePath(Path taskListFilePath);
+
+    ReadOnlyTaskList getReadOnlyTaskList();
+
     void updateTask(Task updatedTask, Integer taskId);
+
 }

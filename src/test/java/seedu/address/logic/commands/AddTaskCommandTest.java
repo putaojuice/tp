@@ -13,6 +13,7 @@ import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyAddressBook;
+import seedu.address.model.ReadOnlyTaskList;
 import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.TaskList;
 import seedu.address.model.person.Person;
@@ -152,6 +153,19 @@ public class AddTaskCommandTest {
         public String viewTask() {
             throw new AssertionError("This method should not be called.");
         }
+
+        @Override
+        public Path getTaskListFilePath() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void setTaskListFilePath(Path taskListFilePath) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public ReadOnlyTaskList getReadOnlyTaskList() {
 
         @Override
         public void updateTask(Task updatedTask, Integer taskId) {

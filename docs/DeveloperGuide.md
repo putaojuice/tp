@@ -271,7 +271,7 @@ The following sequence diagram shows how the add task operation work assuming no
 The proposed find task feature is facilitated by `FindTaskCommand`. It extends `Command` and makes use of the `TaskList` model
 and `Task`. The `TaskList` Model is used to retrieve the `Tasks` that have been stored. The `FindTaskCommand` also has a
 `FindTaskCommandParser` to do the logical parsing of the user's input. It uses regex to ignore case sensitivity of user's input.
-These are the operations that the feature implements: 
+These are the operations that the feature implements:
 * `FindTaskCommand#execute()` : Executes the command.
 * `FindTaskCommandParser#parse()` :  Parses the user input and returns a `FindTaskCommand` Object.
 * `TaskList#findTask()` : Finds and returns tasks matching keyword from user input (ignores case sensitivity)

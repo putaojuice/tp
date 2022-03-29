@@ -3,14 +3,47 @@ package seedu.address.model;
 import static java.util.Objects.requireNonNull;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import seedu.address.model.task.Task;
 
-public class TaskList {
+public class TaskList implements ReadOnlyTaskList {
     private final ArrayList<Task> taskList;
 
-    public TaskList() {
-        this.taskList = new ArrayList<>();
+    /*
+     * The 'unusual' code block below is a non-static initialization block, sometimes used to avoid duplication
+     * between constructors. See https://docs.oracle.com/javase/tutorial/java/javaOO/initial.html
+     *
+     * Note that non-static init blocks are not recommended to use. There are other ways to avoid duplication
+     *   among constructors.
+     */
+    {
+        taskList = new ArrayList<>();
+    }
+
+    public TaskList() {}
+
+    /**
+     * Creates a TaskList using the Tasks in the {@code toBeCopied}
+     */
+    public TaskList(ReadOnlyTaskList toBeCopied) {
+        this();
+        resetData(toBeCopied);
+    }
+
+    /**
+     * Resets the existing data of this {@code TaskList} with {@code newData}.
+     */
+    public void resetData(ReadOnlyTaskList newData) {
+        requireNonNull(newData);
+
+        setTaskList(newData.getObservableTaskList());
+    }
+
+    public void setTaskList(List<Task> tasks) {
+        this.taskList.addAll(tasks);
     }
 
     /**
@@ -106,6 +139,13 @@ public class TaskList {
      */
     public Task getTask(Integer taskId) {
         return taskList.get(taskId - 1); // to convert to zero-based
+    }
+
+    @Override
+    public ObservableList<Task> getObservableTaskList() {
+        ObservableList<Task> taskObservableList = FXCollections.observableArrayList(taskList);
+        return taskObservableList;
+
     }
 }
 
