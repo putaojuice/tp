@@ -131,7 +131,7 @@ public class TaskList implements ReadOnlyTaskList {
         }
         return sb.toString();
     }
-  
+
     /**
      * Provides the task in the corresponding index
      * @param taskId task id of the task to be retrieved
@@ -140,7 +140,7 @@ public class TaskList implements ReadOnlyTaskList {
     public Task getTask(Integer taskId) {
         return taskList.get(taskId - 1); // to convert to zero-based
     }
-    
+
     @Override
     public ObservableList<Task> getObservableTaskList() {
         ObservableList<Task> taskObservableList = FXCollections.observableArrayList(taskList);
