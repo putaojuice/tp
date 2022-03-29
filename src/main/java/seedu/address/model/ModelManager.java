@@ -11,6 +11,7 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
+import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.person.Person;
 import seedu.address.model.task.Task;
 
@@ -23,7 +24,7 @@ public class ModelManager implements Model {
     private final AddressBook addressBook;
     private final UserPrefs userPrefs;
     private final FilteredList<Person> filteredPersons;
-
+    private final FilteredList<Task> filteredTasks;
     private final TaskList taskList;
 
     /**
@@ -37,8 +38,8 @@ public class ModelManager implements Model {
         this.addressBook = new AddressBook(addressBook);
         this.userPrefs = new UserPrefs(userPrefs);
         filteredPersons = new FilteredList<>(this.addressBook.getPersonList());
-
         this.taskList = new TaskList(taskList);
+        filteredTasks = new FilteredList<>(this.taskList.getObservableTaskList());
     }
 
     public ModelManager() {
@@ -160,18 +161,35 @@ public class ModelManager implements Model {
         ModelManager other = (ModelManager) obj;
         return addressBook.equals(other.addressBook)
                 && userPrefs.equals(other.userPrefs)
-                && filteredPersons.equals(other.filteredPersons);
+                && filteredPersons.equals(other.filteredPersons)
+                && filteredTasks.equals(other.filteredTasks);
+    }
+    //=========== Filtered Task List Accessors =============================================================
+    /**
+     * Returns an unmodifiable view of the list of {@code Task} backed by the internal list of
+     * {@code versionedAddressBook}
+     * @return filteredTasks
+     */
+    @Override
+    public ObservableList<Task> getFilteredTaskList() {
+        return filteredTasks;
     }
 
+    @Override
+    public void updateFilteredTaskList(Predicate<Task> predicate) {
+        requireNonNull(predicate);
+        filteredTasks.setPredicate(predicate);
+    }
     //=========== TaskList ==================================================================================
 
     @Override
     public void addTask(Task task) {
         taskList.addTask(task);
+        filteredTasks.setPredicate(unused -> true);
     }
 
     @Override
-    public void addTask(Task task, Integer taskId) {
+    public void addTask(Task task, Integer taskId) throws CommandException {
         taskList.addTask(task, taskId);
     }
 
@@ -206,7 +224,7 @@ public class ModelManager implements Model {
 
     //=========== Update Task ===============
     @Override
-    public void updateTask(Task updatedTask, Integer taskId) {
+    public void updateTask(Task updatedTask, Integer taskId) throws CommandException {
         taskList.deleteTask(taskId);
         taskList.addTask(updatedTask, taskId);
     }

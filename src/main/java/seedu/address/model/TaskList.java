@@ -5,12 +5,14 @@ import static java.util.Objects.requireNonNull;
 import java.util.ArrayList;
 import java.util.List;
 
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.task.Task;
+import seedu.address.model.task.UniqueTaskList;
 
 public class TaskList implements ReadOnlyTaskList {
     private final ArrayList<Task> taskList;
+    private final UniqueTaskList uniqueTaskList;
 
     /*
      * The 'unusual' code block below is a non-static initialization block, sometimes used to avoid duplication
@@ -21,6 +23,7 @@ public class TaskList implements ReadOnlyTaskList {
      */
     {
         taskList = new ArrayList<>();
+        uniqueTaskList = new UniqueTaskList();
     }
 
     public TaskList() {}
@@ -43,7 +46,9 @@ public class TaskList implements ReadOnlyTaskList {
     }
 
     public void setTaskList(List<Task> tasks) {
+        requireNonNull(tasks);
         this.taskList.addAll(tasks);
+        this.uniqueTaskList.addAll(tasks);
     }
 
     /**
@@ -54,6 +59,7 @@ public class TaskList implements ReadOnlyTaskList {
     public void addTask(Task task) {
         requireNonNull(task);
         this.taskList.add(task);
+        this.uniqueTaskList.addTask(task);
     }
 
     /**
@@ -62,7 +68,8 @@ public class TaskList implements ReadOnlyTaskList {
      * @param task the Task to be added which must not be null
      * @param taskId the location to be added in which must not be null
      */
-    public void addTask(Task task, Integer taskId) {
+    public void addTask(Task task, Integer taskId) throws CommandException {
+        uniqueTaskList.addTask(task, taskId); //throws an exception if adding duplicate task
         requireNonNull(task);
         requireNonNull(taskId);
         this.taskList.add(taskId - 1, task); // to convert to zero-based indexing
@@ -81,8 +88,14 @@ public class TaskList implements ReadOnlyTaskList {
         return this.taskList.size();
     }
 
+    /**
+     * Deletes a task from the tasklist in the specified index.
+     *
+     * @param taskNumber the index of the task to be deleted
+     */
     public void deleteTask(Integer taskNumber) {
         taskList.remove(taskNumber - 1); // to convert to zero-based indexing
+        uniqueTaskList.deleteTask(taskNumber);
     }
 
     /**
@@ -141,10 +154,13 @@ public class TaskList implements ReadOnlyTaskList {
         return taskList.get(taskId - 1); // to convert to zero-based
     }
 
+    /**
+     * Retrieves the observable list of tasks
+     * @return observable list of tasks
+     */
     @Override
     public ObservableList<Task> getObservableTaskList() {
-        ObservableList<Task> taskObservableList = FXCollections.observableArrayList(taskList);
-        return taskObservableList;
+        return uniqueTaskList.asUnmodifiableObservableList();
 
     }
 }
