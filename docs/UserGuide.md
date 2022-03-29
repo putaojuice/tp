@@ -13,15 +13,12 @@ If you can type fast, NUScheduler can schedule your tasks faster than traditiona
         - Add task
         - Delete task
         - Update task
-        - Add a label to a task
         - View all tasks and their deadlines
     - Contact Management
         - Add contact
         - Delete contact
         - Update contact
         - View all contacts
-    - Reminder
-        - Remind the user of upcoming tasks
     - Exit the app
 - FAQ
 - CLI Summary
@@ -101,14 +98,6 @@ Updates a task in the task list, where `<integer>` is the ID of the task.
 Format: `upd t t <integer> /DEADLINE`
 
 Example: `upd t t <integer> /2022 03 10 12pm`
-
-### Feature - Label a task: `lab t <integer>`
-
-Label a task based on a specific tag, where `<integer>` is the ID of the task.
-
-Format: `label t <integer> tag`
-
-Example: `label t 3 important`
 
 ### Feature - Find tasks: `findt KEYWORD`
 
@@ -217,11 +206,9 @@ data of your previous NUScheduler home folder.
 | **upd t d <integer>** | `upd t d <integer>  /DESCRIPTION`<br> e.g., `upd t d 3 /Buy groceries`                                            |
 | **upd t t <integer>** | `upd t t <integer> /DEADLINE`<br> e.g.,`upd t t <integer> /2022 03 10 12pm`                                       |
 | **findt KEYWORD**     | `findt <KEYWORD>` <br> e.g., `findt lessons`                                                                      |
-| **lab t <integer>**   | `label t <integer> tag` <br> e.g., `label t 3 important`                                                          |
-| **view t**            | `view t`                                                                                                          |
+| **viewt**            | `view t`                                                                                                          |
 | **add c**             | `add c /NAME /EMAIL /TELEGRAM [/TAG]` <br> e.g., `add c /Betsy Crow /betsycrow@example.com /betsyc /Group Member` |
 | **del c <integer>**   | `del c <integer>` <br> e.g., `del c 3`                                                                            |
 | **upd c <integer>**   | `upd c /NAME /EMAIL /TELEGRAM [/TAG] <integer>` <br> e.g., `upd c /John Doe  /johndoe@example.com /johntele 23`   |
 | **view c**            | `view c [to] [t] [/TAG]` <br> e.g., `view c`                                                                      |
-| **remind**            | `remind [<integer>]` <br> e.g., `remind 10`                                                                       |
 | **exit**              | `exit`                                                                                                            |
