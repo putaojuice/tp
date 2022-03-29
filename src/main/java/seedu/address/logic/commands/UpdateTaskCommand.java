@@ -9,6 +9,8 @@ import seedu.address.model.Model;
 import seedu.address.model.TaskList;
 import seedu.address.model.task.Task;
 
+import java.util.Optional;
+
 public class UpdateTaskCommand extends Command {
     public static final String COMMAND_WORD = "updt";
 
@@ -68,7 +70,7 @@ public class UpdateTaskCommand extends Command {
      * Creates and returns a {@code Task} with the details of {@code taskToEdit}
      * edited with {@code updateTaskDescriptor}.
      */
-    private static Task createUpdatedTask(Task taskToUpdate, UpdateTaskDescriptor updateTaskDescriptor) {
+    public static Task createUpdatedTask(Task taskToUpdate, UpdateTaskDescriptor updateTaskDescriptor) {
         assert taskToUpdate != null;
 
         String updatedDescription = "";
@@ -86,11 +88,7 @@ public class UpdateTaskCommand extends Command {
             updatedDeadline = updateTaskDescriptor.getDeadline();
         }
 
-        if (updatedDeadline == null) {
-            return new Task(updatedDescription, "No deadline set");
-        } else {
-            return new Task(updatedDescription, updatedDeadline);
-        }
+        return new Task(updatedDescription, updatedDeadline);
     }
 
     @Override
