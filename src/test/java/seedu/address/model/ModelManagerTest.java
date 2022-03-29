@@ -73,6 +73,18 @@ public class ModelManagerTest {
     }
 
     @Test
+    public void setTaskListFilePath_nullPath_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> modelManager.setTaskListFilePath(null));
+    }
+
+    @Test
+    public void setTaskListFilePath_validPath_setsAddressBookFilePath() {
+        Path path = Paths.get("task/list/file/path");
+        modelManager.setTaskListFilePath(path);
+        assertEquals(path, modelManager.getTaskListFilePath());
+    }
+
+    @Test
     public void hasPerson_nullPerson_throwsNullPointerException() {
         assertThrows(NullPointerException.class, () -> modelManager.hasPerson(null));
     }
