@@ -9,6 +9,7 @@ import static seedu.address.testutil.TypicalTask.getTypicalTaskList;
 
 import org.junit.jupiter.api.Test;
 
+import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
@@ -19,7 +20,7 @@ public class UpdateTaskCommandTest {
     private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs(), getTypicalTaskList());
 
     @Test
-    public void execute_allFieldsSpecifiedUnfilteredList_success() {
+    public void execute_allFieldsSpecifiedUnfilteredList_success() throws CommandException {
         Task updatedTask = new Task("test", "03/03/2022");
         UpdateTaskCommand.UpdateTaskDescriptor descriptor = new UpdateTaskCommand.UpdateTaskDescriptor();
         descriptor.setDescription(updatedTask.getDescription());
@@ -63,7 +64,7 @@ public class UpdateTaskCommandTest {
     }
 
     @Test
-    public void execute_updateDuplicateTask_failure() {
+    public void execute_updateDuplicateTask_failure() throws CommandException {
         Task updatedTask = new Task("test", "03/03/2022");
         UpdateTaskCommand.UpdateTaskDescriptor descriptor = new UpdateTaskCommand.UpdateTaskDescriptor();
         descriptor.setDescription(updatedTask.getDescription());

@@ -5,6 +5,7 @@ import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
+import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.person.Person;
 import seedu.address.model.task.Task;
 
@@ -86,9 +87,18 @@ public interface Model {
      */
     void updateFilteredPersonList(Predicate<Person> predicate);
 
+    /**
+     * Updates the filter of the filtered person list to filter by the given {@code predicate}.
+     * @throws NullPointerException if {@code predicate} is null.
+     */
+    void updateFilteredTaskList(Predicate<Task> predicate);
+
+    /** Returns an unmodifiable view of the filtered tasks list */
+    ObservableList<Task> getFilteredTaskList();
+
     void addTask(Task task);
 
-    void addTask(Task task, Integer taskId);
+    void addTask(Task task, Integer taskId) throws CommandException;
 
     TaskList getTaskList();
 
@@ -109,6 +119,6 @@ public interface Model {
 
     ReadOnlyTaskList getReadOnlyTaskList();
 
-    void updateTask(Task updatedTask, Integer taskId);
+    void updateTask(Task updatedTask, Integer taskId) throws CommandException;
 
 }
