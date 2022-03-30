@@ -50,7 +50,7 @@ public class UniqueTaskListTest {
     @Test
     public void remove_existingTask_removesTask() {
         UniqueTaskList expectedUniqueTaskList = uniqueTaskList;
-        Task test = new Task("test","30/03/2022");
+        Task test = new Task("test", "30/03/2022");
         uniqueTaskList.addTask(test);
         uniqueTaskList.deleteTask(1);
         assertEquals(uniqueTaskList, expectedUniqueTaskList);
@@ -59,6 +59,6 @@ public class UniqueTaskListTest {
     @Test
     public void asUnmodifiableObservableList_modifyList_throwsUnsupportedOperationException() {
         assertThrows(UnsupportedOperationException.class, ()
-                -> uniqueTaskList.asUnmodifiableObservableList().remove(0));
+            -> uniqueTaskList.asUnmodifiableObservableList().remove(0));
     }
 }
