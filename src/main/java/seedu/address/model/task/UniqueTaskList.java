@@ -2,7 +2,6 @@ package seedu.address.model.task;
 
 import static java.util.Objects.requireNonNull;
 
-import java.util.Iterator;
 import java.util.List;
 
 import javafx.collections.FXCollections;
@@ -19,7 +18,7 @@ import seedu.address.logic.commands.exceptions.CommandException;
  * Supports a minimal set of list operations.
  *
  */
-public class UniqueTaskList implements Iterable<Task> {
+public class UniqueTaskList {
 
     private final ObservableList<Task> internalList = FXCollections.observableArrayList();
     private final ObservableList<Task> internalUnmodifiableList =
@@ -83,23 +82,6 @@ public class UniqueTaskList implements Iterable<Task> {
      */
     public ObservableList<Task> asUnmodifiableObservableList() {
         return internalUnmodifiableList;
-    }
-
-    @Override
-    public Iterator<Task> iterator() {
-        return internalList.iterator();
-    }
-
-    @Override
-    public boolean equals(Object other) {
-        return other == this // short circuit if same object
-                || (other instanceof UniqueTaskList // instanceof handles nulls
-                && internalList.equals(((UniqueTaskList) other).internalList));
-    }
-
-    @Override
-    public int hashCode() {
-        return internalList.hashCode();
     }
 
 }
