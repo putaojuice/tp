@@ -31,7 +31,7 @@ If you can type fast, NUScheduler can schedule your tasks faster than traditiona
 
 1. Ensure you have `Java 11` or above installed in your Computer.
 
-2. Download the latest `NUScheduler.jar` from [here](https://github.com/se-edu/addressbook-level3/releases).
+2. Download the latest `NUScheduler.jar` from [here](https://github.com/AY2122S2-CS2103-F11-4/tp/releases/tag/v1.3).
 
 3. Copy the file to the folder you want to use as the _home folder_ for your AddressBook.
 
@@ -45,7 +45,7 @@ If you can type fast, NUScheduler can schedule your tasks faster than traditiona
    3. `delele 3` : Deletes the 3rd contact shown in the current list.
    4. `delt 3` : Deletes the 3rd task shown in the current task list.
    5. `findt assignment 1` : Finds any tasks in the current task list that contains the keyword(s).
-   6. `upd t d 3 /Buy groceries` : Updates the specified task in the current list.
+   6. `updt 3 d/Buy groceries` : Updates the specified task in the current list.
    7. `viewt` : Lists all tasks.
    8. `list` : Lists all contacts.
    9. `clear` : Deletes all contacts.
