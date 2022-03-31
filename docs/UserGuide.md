@@ -38,15 +38,18 @@ If you can type fast, NUScheduler can schedule your tasks faster than traditiona
 
 5. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
    Some example commands you can try:
-   1. `view c` : Lists all contacts.
-   2. `add c` /John Doe /[johnd@example.com](mailto:johnd@example.com) /johntele: Adds a contact named John Doe to the Address Book.
-   3. `add tn/Assignment 1 m/CS1101s` : Adds an `assignment/task` of the specified module to NUScheduler.
-   4. `del c 3` : Deletes the 3rd contact shown in the current list.
-   5. `delt 3` : Deletes the 3rd task shown in the current task list.
-   6. `upd t 3 n/Assignment 2 m/CS1231s` : Updates the specified task in the current list.
-   7. `exit` : Exits the app.
+   1. `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a contact named John Doe to the Address Book.
+   2. `addt d/Buy groceries t/01/01/2022` : Adds an `assignment/task` to NUScheduler.
+   3. `delele 3` : Deletes the 3rd contact shown in the current list.
+   4. `delt 3` : Deletes the 3rd task shown in the current task list.
+   5. `findt assignment 1` : Finds any tasks in the current task list that contains the keyword(s).
+   6. `upd t d 3 /Buy groceries` : Updates the specified task in the current list.
+   7. `viewt` : Lists all tasks.
+   8. `list` : Lists all contacts.
+   9. `clear` : Deletes all contacts.
+   10. `exit` : Exits the app.
 
-6. Refer to the [Features](#features) below for details of each command.
+7. Refer to the [Features](#features) below for details of each command.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -71,9 +74,9 @@ If you can type fast, NUScheduler can schedule your tasks faster than traditiona
 
 Adds a task to the task list.
 
-Format: `addt d/DESCRIPTION [t/DEADLINE (dd/mm/yyyy)]`
+Format: `addt d/DESCRIPTION t/DEADLINE (dd/mm/yyyy)`
 
-Example: `addt d/Buy groceries [t/01/01/2022]`
+Example: `addt d/Buy groceries t/01/01/2022`
 
 ### Feature - Delete a task: `delt <integer>`
 
@@ -99,7 +102,7 @@ Format: `upd t t <integer> /DEADLINE`
 
 Example: `upd t t <integer> /2022 03 10 12pm`
 
-### Feature - Find tasks: `findt KEYWORD`
+### Feature - Find tasks: `findt KEYWORD [MORE_KEYWORDS]`
 
 Locating tasks which match any of given keywords.
 
@@ -108,6 +111,7 @@ Format:  `findt KEYWORD`
 - The search is case-insensitive. e.g. `lessons` will match `Lessons`.
 - The order of the keywords matters. e.g. `drink water` will not match `water drink`
 - Only full keyword(s) will be accepted. e.g. `drink` will match `drink`; `ink` will not match `drink`
+- All keyword(s) have to be matched for task to be returned.
 
 Example: `findt lessons` returns `Swimming lessons 03/05/2022`.
 
@@ -117,65 +121,62 @@ View all the tasks currently in the task list.
 
 Format: `viewt`
 
-### Feature - Add contact: `add c`
+### Feature - Adding a contact: `add`
 
-Adds a person to address book.
+Adds a person to the address book.
 
-Format: `add c /NAME /EMAIL /TELEGRAM [/TAG]`
+Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`
 
-The Telegram handle can be entered with or without an @ symbol in front.
-
-Examples:
-
-- `add c /John Doe /johnd@example.com /johndtele /Group Member`
-- `add c /Betsy Crow /betsycrow@example.com /betsyc`
-
-### Feature - Delete contact: `del c <integer>`
-
-Deletes a contact from the contact list.
-
-Format: `del c <integer>`
-
-Example: `del c 3`
-
-### Feature - Update contact: `upd c <integer>`
-
-Updates a contact from the contact list.
-
-Format:  `upd c /NAME /EMAIL /TELEGRAM [/TAG] <integer>`
-
-Update a contact’s information, where `<integer>` is the contact’s unique identifier.
-
-Example: `upd c /John Doe  /johndoe@example.com /johntele 23`
-
-### Feature - View all contacts: `view c`
-
-View all the contacts currently in the contact list.
-
-Format: `view c [to] [t] [/TAG]`
-
-The optional parameter `[to]` will return the contact list in tag order instead of the default alphabetical order.
-
-The optional parameter `[t]` requires a tag input and will return contacts from that tag only.
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+A person can have any number of tags (including 0)
+</div>
 
 Examples:
+* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
+* `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal`
 
-- `view c`
-- `view c to`
-- `view c t /Friends`
+### Feature - Deleting a contact : `delete`
 
-### Feature - Remind the user of upcoming tasks: `remind`
+Deletes the specified person from the address book.
 
-Reminds the user of all the tasks with upcoming deadlines (within 7 days by default).
+Format: `delete INDEX`
 
-Format: `remind [<integer>]`
+* Deletes the person at the specified `INDEX`.
+* The index refers to the index number shown in the displayed contact list.
+* The index **must be a positive integer** 1, 2, 3, …​
 
-The optional `[<integer>]` specifies the number of days to check tasks against and return.
+Examples:
+* `list` followed by `delete 2` deletes the 2nd contact in the address book.
+* `find Betsy` followed by `delete 1` deletes the 1st contact in the results of the `find` command.
 
-Tasks are returned in ascending order of time to deadline (closest deadline first).
+### Feature: Editing a contact : `edit`
 
-Example: `remind 10`
+Edits an existing contact in the address book.
 
+Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`
+
+* Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
+* At least one of the optional fields must be provided.
+* Existing values will be updated to the input values.
+* When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
+* You can remove all the person’s tags by typing `t/` without
+  specifying any tags after it.
+
+Examples:
+*  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st contact to be `91234567` and `johndoe@example.com` respectively.
+*  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd contact to be `Betsy Crower` and clears all existing tags.
+
+### Listing all contacts : `list`
+
+Shows a list of all contacts in the address book.
+
+Format: `list`
+
+### Clearing all contact entries : `clear`
+
+Clears all entries from the address book.
+
+Format: `clear`
 ### Feature - Exit the app: `exit`
 
 Exits the app.
@@ -184,7 +185,16 @@ Format: exit
 
 ### Feature - Saving the data
 
-NUScheduler data is saved in the hard disk automatically after any command that changes the data. There is no manual save function.
+NUScheduler data is saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
+
+### Feature - Editing the data file
+
+NUScheduler data are saved as a JSON file `[JAR file location]/data/addressbook.json` for address book and `[JAR file location]/data/tasklist.json`. 
+Advanced users are welcome to update data directly by editing that data file.
+
+<div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
+If your changes to the data file makes its format invalid, AddressBook will discard all data and start with an empty data file at the next run.
+</div>
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -199,16 +209,15 @@ data of your previous NUScheduler home folder.
 
 ## Command summary
 
-| Action                | Format, Examples                                                                                                  |
-|-----------------------|-------------------------------------------------------------------------------------------------------------------|
-| **addt**              | `addt d/DESCRIPTION [t/DEADLINE]` <br> e.g., `addt d/Buy groceries [t/2022 02 22 5pm]`                            |
-| **delt <integer>**    | `del t <integer>` <br> e.g., `del t 3`                                                                            |
-| **upd t d <integer>** | `upd t d <integer>  /DESCRIPTION`<br> e.g., `upd t d 3 /Buy groceries`                                            |
-| **upd t t <integer>** | `upd t t <integer> /DEADLINE`<br> e.g.,`upd t t <integer> /2022 03 10 12pm`                                       |
-| **findt KEYWORD**     | `findt <KEYWORD>` <br> e.g., `findt lessons`                                                                      |
-| **viewt**            | `view t`                                                                                                          |
-| **add c**             | `add c /NAME /EMAIL /TELEGRAM [/TAG]` <br> e.g., `add c /Betsy Crow /betsycrow@example.com /betsyc /Group Member` |
-| **del c <integer>**   | `del c <integer>` <br> e.g., `del c 3`                                                                            |
-| **upd c <integer>**   | `upd c /NAME /EMAIL /TELEGRAM [/TAG] <integer>` <br> e.g., `upd c /John Doe  /johndoe@example.com /johntele 23`   |
-| **view c**            | `view c [to] [t] [/TAG]` <br> e.g., `view c`                                                                      |
-| **exit**              | `exit`                                                                                                            |
+| Action                   | Format, Examples                                                                                                                                                      |
+|--------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **addt**                 | `addt d/DESCRIPTION [t/DEADLINE]` <br> e.g., `addt d/Buy groceries [t/2022 02 22 5pm]`                                                                                |
+| **delt <integer>**       | `del t <integer>` <br> e.g., `del t 3`                                                                                                                                |
+| **updt d <integer>**     | `updt d <integer>  /DESCRIPTION`<br> e.g., `upd t d 3 /Buy groceries`                                                                                                 |
+| **updt t <integer>**     | `updt t <integer> /DEADLINE`<br> e.g.,`updt t <integer> /2022 03 10 12pm`                                                                                             |
+| **findt <KEYWORD(s)>**   | `findt <KEYWORD>` <br> e.g., `findt lessons`, `findt swimming lessons`                                                                                                |
+| **viewt**                | `viewt`                                                                                                                                                               |
+| **add**                  | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague` |
+| **del c <integer>**      | `del c <integer>` <br> e.g., `del c 3`                                                                                                                                |
+| **edit <integer>**       | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br>  e.g., `edit 1 p/91234567 e/johndoe@example.com`                                           |
+| **exit**                 | `exit`                                                                                                                                                                |
