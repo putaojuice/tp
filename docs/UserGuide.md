@@ -13,12 +13,14 @@ If you can type fast, NUScheduler can schedule your tasks faster than traditiona
         - Add task
         - Delete task
         - Update task
+        - Find task
         - View all tasks and their deadlines
     - Contact Management
         - Add contact
         - Delete contact
-        - Update contact
-        - View all contacts
+        - Edit contact
+        - List all contacts
+        - Clear all contacts
     - Exit the app
 - FAQ
 - CLI Summary
@@ -61,11 +63,11 @@ If you can type fast, NUScheduler can schedule your tasks faster than traditiona
 
 **Notes about the command format:**
 
-- Words in **UPPER_CASE** are the parameters to be supplied by the user.e.g. in `add t n /NAME`, **NAME** is a parameter.
-- which can be used as `add t n /John Doe`.
-- Items in **square brackets** are optional.e.g `/NAME [/TAG]` can be used as `/John Doe /friend` or as `/John Doe`.
+- Words in **UPPER_CASE** are the parameters to be supplied by the user.e.g. in `add n/NAME`, **NAME** is a parameter.
+- which can be used as `add n/John Doe`.
+- Items in **square brackets** are optional.e.g `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
 - Parameters cannot be in any order and must follow the order given in the command format.e.g. if the command format.
-- specifies `add t /DESCRIPTION /DEADLINE [/TAG]`, the details must be entered as `/DESCRIPTION /DEADLINE [/TAG]`.
+- specifies `addt d/DESCRIPTION [t/DEADLINE]`, the details must be entered as `d/DESCRIPTION [t/DEADLINE]`.
 - All `<integer>` fields must be > 0.
 
 </div>
@@ -86,27 +88,23 @@ Format: `delt <integer>`
 
 Example: `delt 3`
 
-### Feature - Update a task description: `upd t d <integer>`
+### Feature - Update a task description and/or deadline: `updt`
 
 Updates a task in the task list, where `<integer>` is the ID of the task.
 
-Format: `upd t d <integer>  /DESCRIPTION`
+Format: `updt <integer> [d/DESCRIPTION] [t/DEADLINE]`
 
-Example: `upd t d 3 /Buy groceries`
+Example: `updt 3 d/Buy groceries t/01/02/2022`
 
-### Feature - Update a task deadline: `upd t t <integer>`
+Example: `updt 3 d/Buy groceries`
 
-Updates a task in the task list, where `<integer>` is the ID of the task.
+Example: `updt 3 t/01/02/2022`
 
-Format: `upd t t <integer> /DEADLINE`
-
-Example: `upd t t <integer> /2022 03 10 12pm`
-
-### Feature - Find tasks: `findt KEYWORD [MORE_KEYWORDS]`
+### Feature - Find tasks: `findt`
 
 Locating tasks which match any of given keywords.
 
-Format:  `findt KEYWORD`
+Format: `findt KEYWORD [MORE_KEYWORDS]`
 
 - The search is case-insensitive. e.g. `lessons` will match `Lessons`.
 - The order of the keywords matters. e.g. `drink water` will not match `water drink`
@@ -139,9 +137,9 @@ Examples:
 
 Deletes the specified person from the address book.
 
-Format: `delete INDEX`
+Format: `delete <Integer>`
 
-* Deletes the person at the specified `INDEX`.
+* Deletes the person at the specified `<Integer>`.
 * The index refers to the index number shown in the displayed contact list.
 * The index **must be a positive integer** 1, 2, 3, …​
 
@@ -212,12 +210,11 @@ data of your previous NUScheduler home folder.
 | Action                   | Format, Examples                                                                                                                                                      |
 |--------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **addt**                 | `addt d/DESCRIPTION [t/DEADLINE]` <br> e.g., `addt d/Buy groceries [t/2022 02 22 5pm]`                                                                                |
-| **delt <integer>**       | `del t <integer>` <br> e.g., `del t 3`                                                                                                                                |
-| **updt d <integer>**     | `updt d <integer>  /DESCRIPTION`<br> e.g., `upd t d 3 /Buy groceries`                                                                                                 |
-| **updt t <integer>**     | `updt t <integer> /DEADLINE`<br> e.g.,`updt t <integer> /2022 03 10 12pm`                                                                                             |
+| **delt <integer>**       | `delt <integer>` <br> e.g., `del t 3`                                                                                                                                 |
+| **updt <integer> [d/DESCRIPTION] [t/DEADLINE]**     | `updt <integer> [d/DESCRIPTION] [t/DEADLINE]`<br> e.g., `updt 3 d/Buy groceries t/01/01/2022`                                              |
 | **findt <KEYWORD(s)>**   | `findt <KEYWORD>` <br> e.g., `findt lessons`, `findt swimming lessons`                                                                                                |
 | **viewt**                | `viewt`                                                                                                                                                               |
 | **add**                  | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague` |
-| **del c <integer>**      | `del c <integer>` <br> e.g., `del c 3`                                                                                                                                |
-| **edit <integer>**       | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br>  e.g., `edit 1 p/91234567 e/johndoe@example.com`                                           |
+| **del <integer>**        | `del <integer>` <br> e.g., `del 3`                                                                                                                                    |
+| **edit <integer>**       | `edit <integer> [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br>  e.g., `edit 1 p/91234567 e/johndoe@example.com`                                    |
 | **exit**                 | `exit`                                                                                                                                                                |
