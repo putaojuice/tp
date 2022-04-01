@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import javafx.collections.ObservableList;
 import seedu.address.logic.commands.exceptions.CommandException;
@@ -108,7 +109,8 @@ public class TaskList implements ReadOnlyTaskList {
         ArrayList<Task> matchingTasks = new ArrayList<>();
         for (int i = 0; i < this.taskList.size(); i++) {
             Task curr = this.taskList.get(i);
-            if (curr.toString().matches("(?i).*" + input + ".*")) { //bypass case sensitivity with regex
+            String pattern = "(?i)(?<!\\w)" + Pattern.quote(input) + "(?!\\w)"; //bypass case sensitivity with regex
+            if (Pattern.compile(pattern).matcher(curr.toString()).find()) {
                 matchingTasks.add(curr);
             }
         }
