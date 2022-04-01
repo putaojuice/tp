@@ -140,8 +140,8 @@ Deletes the specified person from the address book.
 Format: `delete <Integer>`
 
 * Deletes the person at the specified `<Integer>`.
-* The index refers to the index number shown in the displayed contact list.
-* The index **must be a positive integer** 1, 2, 3, …​
+* The integer refers to the index number shown in the displayed contact list.
+* The integer **must be a positive integer** 1, 2, 3, …
 
 Examples:
 * `list` followed by `delete 2` deletes the 2nd contact in the address book.
@@ -151,9 +151,9 @@ Examples:
 
 Edits an existing contact in the address book.
 
-Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`
+Format: `edit INTEGER [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`
 
-* Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
+* Edits the person at the specified `INTEGER`. The integer refers to the index number shown in the displayed person list. The integer **must be a positive integer** 1, 2, 3, …
 * At least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
 * When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
@@ -179,7 +179,7 @@ Format: `clear`
 
 Exits the app.
 
-Format: exit
+Format: `exit`
 
 ### Feature - Saving the data
 
@@ -210,11 +210,11 @@ data of your previous NUScheduler home folder.
 | Action                   | Format, Examples                                                                                                                                                      |
 |--------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **addt**                 | `addt d/DESCRIPTION [t/DEADLINE]` <br> e.g., `addt d/Buy groceries [t/2022 02 22 5pm]`                                                                                |
-| **delt <integer>**       | `delt <integer>` <br> e.g., `del t 3`                                                                                                                                 |
-| **updt <integer> [d/DESCRIPTION] [t/DEADLINE]**     | `updt <integer> [d/DESCRIPTION] [t/DEADLINE]`<br> e.g., `updt 3 d/Buy groceries t/01/01/2022`                                              |
-| **findt <KEYWORD(s)>**   | `findt <KEYWORD>` <br> e.g., `findt lessons`, `findt swimming lessons`                                                                                                |
+| **delt**       | `delt <integer>` <br> e.g., `del t 3`                                                                                                                                 |
+| **updt**     | `updt <integer> [d/DESCRIPTION] [t/DEADLINE]`<br> e.g., `updt 3 d/Buy groceries t/01/01/2022`                                              |
+| **findt**   | `findt <KEYWORD>` <br> e.g., `findt lessons`, `findt swimming lessons`                                                                                                |
 | **viewt**                | `viewt`                                                                                                                                                               |
 | **add**                  | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague` |
-| **del <integer>**        | `del <integer>` <br> e.g., `del 3`                                                                                                                                    |
-| **edit <integer>**       | `edit <integer> [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br>  e.g., `edit 1 p/91234567 e/johndoe@example.com`                                    |
+| **del**        | `del <integer>` <br> e.g., `del 3`                                                                                                                                    |
+| **edit**       | `edit <integer> [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br>  e.g., `edit 1 p/91234567 e/johndoe@example.com`                                    |
 | **exit**                 | `exit`                                                                                                                                                                |
