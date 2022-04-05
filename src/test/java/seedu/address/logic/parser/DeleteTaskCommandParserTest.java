@@ -7,7 +7,6 @@ import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSucces
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.logic.commands.DeleteCommand;
 import seedu.address.logic.commands.DeleteTaskCommand;
 
 
@@ -23,13 +22,13 @@ public class DeleteTaskCommandParserTest {
     @Test
     public void parse_invalidArgs_throwsParseException() {
         assertParseFailure(parser, "a",
-            String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteCommand.MESSAGE_USAGE));
+            String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteTaskCommand.MESSAGE_USAGE));
     }
 
     @Test
     public void parse_invalidSymbols_throwsParseException() {
         assertParseFailure(parser, "$%^%$^%#$",
-            String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteCommand.MESSAGE_USAGE));
+            String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteTaskCommand.MESSAGE_USAGE));
     }
 
 }
