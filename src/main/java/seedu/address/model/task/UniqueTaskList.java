@@ -53,9 +53,6 @@ public class UniqueTaskList {
     public void addTask(Task toAdd, Integer taskId) throws CommandException {
         requireNonNull(toAdd);
         requireNonNull(taskId);
-        if (contains(toAdd)) {
-            throw new CommandException("Duplicate Task received");
-        }
         internalList.add(taskId - 1, toAdd); // to convert to zero-based indexing
     }
 

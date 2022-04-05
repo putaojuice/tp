@@ -9,7 +9,6 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.List;
 
-import seedu.address.logic.commands.AddTaskCommand;
 import seedu.address.logic.commands.UpdateTaskCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
@@ -105,13 +104,15 @@ public class UpdateTaskCommandParser implements Parser <UpdateTaskCommand> {
         if (argMultimap.getValue(PREFIX_ADD_TASK_DESCRIPTION).isPresent()) {
             String description = argMultimap.getValue(PREFIX_ADD_TASK_DESCRIPTION).orElse("");
             if (description.equals("")) {
-                throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddTaskCommand.MESSAGE_USAGE));
+                throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
+                    UpdateTaskCommand.MESSAGE_EMPTY_PARAMETERS));
             }
         }
         if (argMultimap.getValue(PREFIX_ADD_TASK_DEADLINE).isPresent()) {
             String deadline = argMultimap.getValue(PREFIX_ADD_TASK_DEADLINE).orElse("");
             if (deadline.equals("")) {
-                throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddTaskCommand.MESSAGE_USAGE));
+                throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
+                    UpdateTaskCommand.MESSAGE_EMPTY_PARAMETERS));
             }
         }
     }
