@@ -127,8 +127,10 @@ Format: `findt KEYWORD [MORE_KEYWORDS]`
 - The order of the keywords matters. e.g. `drink water` will not match `water drink`
 - Only full keyword(s) will be accepted. e.g. `drink` will match `drink`; `ink` will not match `drink`
 - All keyword(s) have to be matched for task to be returned.
+- If a word is contained within a parantheses without spaces, the keyword has to contain the parantheses as well. 
+e.g. `Assignment` will not match `(Assignment`.
 
-Example: `findt lessons` returns `Swimming lessons 03/05/2022`.
+Example: `findt lessons` returns `Swimming lessons 03/05/2022`. 
 
 ### Feature 5
 #### Feature - List all tasks: `viewt`
