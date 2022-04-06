@@ -109,7 +109,10 @@ public class TaskList implements ReadOnlyTaskList {
         ArrayList<Task> matchingTasks = new ArrayList<>();
         for (int i = 0; i < this.taskList.size(); i++) {
             Task curr = this.taskList.get(i);
-            String pattern = "(?i)(?<!\\w)" + Pattern.quote(input) + "(?!\\w)"; //bypass case sensitivity with regex
+            // Solution below adapted from
+            // https://stackoverflow.com/questions/25483114/regex-to-find-whole-word-in-text-but-case-insensitive
+            String pattern = "(?i)(?<=|^|\\.)"
+                    + Pattern.quote(input) + "(?=\\s|$|\\.)"; //bypass case sensitivity with regex
             if (Pattern.compile(pattern).matcher(curr.toString()).find()) {
                 matchingTasks.add(curr);
             }
