@@ -63,18 +63,6 @@ public class UpdateTaskCommandTest {
         assertTrue(newTaskCreated.getDeadline().equals("No deadline set"));
     }
 
-    @Test
-    public void execute_updateDuplicateTask_failure() throws CommandException {
-        Task updatedTask = new Task("test", "03/03/2022");
-        UpdateTaskCommand.UpdateTaskDescriptor descriptor = new UpdateTaskCommand.UpdateTaskDescriptor();
-        descriptor.setDescription(updatedTask.getDescription());
-        descriptor.setDeadline(updatedTask.getDeadline());
-        UpdateTaskCommand updateTaskCommand = new UpdateTaskCommand(1, descriptor);
-        model.updateTask(updatedTask, 1);
-        model.updateTask(updatedTask, 1); // throw duplicate task error
-
-        assertCommandFailure(updateTaskCommand, model, "This task already exists in the task list.");
-    }
 
     @Test
     public void execute_invalidPersonIndexUnfilteredList_failure() {

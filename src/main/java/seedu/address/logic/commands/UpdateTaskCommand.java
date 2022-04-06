@@ -24,9 +24,9 @@ public class UpdateTaskCommand extends Command {
         + PREFIX_ADD_TASK_DESCRIPTION + "Running Lesson "
         + PREFIX_ADD_TASK_DEADLINE + "04/05/2022";
 
+    public static final String MESSAGE_EMPTY_PARAMETERS = "Parameter given cannot be blank";
     public static final String MESSAGE_UPDATE_TASK_SUCCESS = "Updated Task: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
-    public static final String MESSAGE_DUPLICATE_TASK = "This task already exists in the task list.";
     public static final String MESSAGE_INVALID_TASK_DISPLAYED_ID = "The task id provided is invalid";
 
     private final Integer taskId;
@@ -55,10 +55,6 @@ public class UpdateTaskCommand extends Command {
 
         Task taskToUpdate = lastShownList.getTask(taskId);
         Task updatedTask = createUpdatedTask(taskToUpdate, updateTaskDescriptor);
-
-        if (taskToUpdate.equals(updatedTask)) {
-            throw new CommandException(MESSAGE_DUPLICATE_TASK);
-        }
 
         model.updateTask(updatedTask, taskId);
 

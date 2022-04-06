@@ -13,7 +13,7 @@ public class DeleteTaskCommand extends Command {
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Delete a task number from current tasklist using given index. \n"
-            + "Format: delt [tasknumber]. \n"
+            + "Format: delt <tasknumber>. \n"
             + "Example: " + COMMAND_WORD + " " + "1";
 
     public static final String MESSAGE_ARGUMENTS = "Task %1$s deleted";

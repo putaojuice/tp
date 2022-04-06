@@ -36,11 +36,6 @@ public class UniqueTaskListTest {
         assertThrows(NullPointerException.class, () -> uniqueTaskList.addTask(null));
     }
 
-    @Test
-    public void add_duplicateTask_throwsDuplicatePersonException() throws CommandException {
-        uniqueTaskList.addTask(DUMMY_TASK, 1);
-        assertThrows(CommandException.class, () -> uniqueTaskList.addTask(DUMMY_TASK, 1));
-    }
 
     @Test
     public void remove_nullTask_throwsNullPointerException() {
