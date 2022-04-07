@@ -42,33 +42,35 @@ to load the stored task list from the last access.
         * `TypicalTask`
     * **Additional info**:
         * This feature requires a good understand of how the application is designed and involves modification to 
-`Logic`, `Model` and `Storage`
+`Logic`, `Model` and `Storage`.
 
-* **Code contributed**: [RepoSense link](https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=putaojuice&sort=groupTitle&sortWithin=title&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=true&checkedFileTypes=docs~functional-code~test-code~other&since=2022-02-18&tabOpen=true&tabType=authorship&tabAuthor=putaojuice&tabRepo=AY2122S2-CS2103-F11-4%2Ftp%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTypes=docs~functional-code~test-code~other&authorshipIsBinaryFileTypeChecked=false)
+* **Code contributed**: [RepoSense link](https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=putaojuice&sort=groupTitle&sortWithin=title&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=true&checkedFileTypes=docs~functional-code~test-code~other&since=2022-02-18&tabOpen=true&tabType=authorship&tabAuthor=putaojuice&tabRepo=AY2122S2-CS2103-F11-4%2Ftp%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTypes=docs~functional-code~test-code~other&authorshipIsBinaryFileTypeChecked=false).
 
 * **Project management**:
-    * Managed release `v1.1`, `v1.2`, `v1.3`.
+    * Managed release `v1.1`, `v1.2`, `v1.3`, `v1.4`.
     * Organised weekly project meeting and set up weekly milestone.
     * Reviewed pull requests.
     * Wrap up every milestone.
     * Released `Trial v1.3` ([#61](https://github.com/AY2122S2-CS2103-F11-4/tp/pull/61)).
-    * Complete any administrative matters for the team.
-
-* **Enhancements to existing features**:
-    * to be added soon
+    * Complete administrative matters for the team.
+    * Viewed through all PE-D issues and assigned relevant issues to the team members.
 
 * **Documentation**:
     * User Guide:
-        * Added documentation for the feature `AddTask`.
+      * Added documentation for the feature `AddTask`.
+      * Help in proofreading user guide.
     * Developer Guide:
         * Added various non-functional requirement in the developer guide.
         * Contribute to glossary in the developer guide.
         * Added MSS for `AddTask`.
-        * Added information about the implementation of the `AddTask` command ([#60](https://github.com/AY2122S2-CS2103-F11-4/tp/pull/60))
-          * Added 2 UML diagrams to aid the explanations
+        * Added information about the implementation of the `AddTask` command ([#60](https://github.com/AY2122S2-CS2103-F11-4/tp/pull/60)).
+            * Added 2 UML diagrams to aid the explanations.
+    * Weekly Team Meeting Minutes:
+        * Help in recording meeting minutes.
+        * Screenshot `v1.2` and `v1.3` demo.
 
 * **Community**:
-    * Participate in forum ([#240](https://github.com/nus-cs2103-AY2122S2/forum/issues/240))
+    * Participate in forum ([#240](https://github.com/nus-cs2103-AY2122S2/forum/issues/240)).
 
 * **Tools**:
     * Set up the team's Github group and repo.

@@ -2,7 +2,7 @@
 layout: page
 title: User Guide
 ---
-# User Guide - NUScheduler
+#NUScheduler
 NUScheduler is a desktop app for Year 1 Computing students to assist with more efficient management of tasks and contacts,
 optimized for use via a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI).
 If you can type fast, NUScheduler can schedule your tasks faster than traditional GUI apps.
@@ -30,7 +30,7 @@ If you can type fast, NUScheduler can schedule your tasks faster than traditiona
 
 ## Quick start
 
-1. Ensure you have `Java 11` or above installed in your Computer.
+1. Ensure you have `Java 11` installed in your Computer.
 
 2. Download the latest `NUScheduler.jar` from [here](https://github.com/AY2122S2-CS2103-F11-4/tp/releases/tag/v1.3).
 
@@ -42,14 +42,14 @@ If you can type fast, NUScheduler can schedule your tasks faster than traditiona
 
 6. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
    Some example commands you can try:
-   1. `add n/Beow Tan p/9123 4157 e/beow@example.com a/Jurong street 11, block 123, #01-01` : Adds a contact named Beow Tan to NUScheduler.
-   2. `addt d/CS2105 Assignment 1 t/01/03/2022` : Adds an `assignment/task` to NUScheduler.
-   3. `delete 1` : Deletes the 1st contact shown in the current list.
-   4. `delt 1` : Deletes the 1st task shown in the current task list.
-   5. `findt swimming lesson` : Finds any tasks in the current task list that contains the keyword(s).
-   6. `updt 1 d/CS2102 Assignment 1` : Updates the specified task in the current list.
-   7. `viewt` : Lists all tasks.
-   8. `list` : Lists all contacts.
+   1. `add n/Beow Tan p/91234157 e/beow@example.com a/Jurong street 11, block 123, #01-01` : Adds a contact named Beow Tan to NUScheduler.
+   2. `addt d/CS2105 Assignment 1 t/01/03/2022` : Adds a task to NUScheduler.
+   3. `findt swimming lesson` : Finds any tasks in the current task list that contains the keyword(s).
+   4. `updt 1 d/CS2102 Assignment 1` : Updates the specified task in the current list.
+   5. `viewt` : Lists all tasks.
+   6. `list` : Lists all contacts.
+   7. `delete 1` : Deletes the 1st contact shown in the current list.
+   8. `delt 1` : Deletes the 1st task shown in the current task list.
    9. `clear` : Deletes all contacts.
    10. `exit` : Exits the app.
 
@@ -68,9 +68,9 @@ If you can type fast, NUScheduler can schedule your tasks faster than traditiona
 - Words in **UPPER_CASE** are the parameters to be supplied by the user.e.g. in `add n/NAME`, **NAME** is a parameter.
 - which can be used as `add n/John Doe`.
 - Items in **square brackets** are optional.e.g `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
-- Parameters cannot be in any order and must follow the order given in the command format.e.g. if the command format.
-- specifies `addt d/DESCRIPTION [t/DEADLINE]`, the details must be entered as `d/DESCRIPTION [t/DEADLINE]`.
-- All `<Integer>` fields must be > 0.
+- Parameters can be in any order given in the command format.e.g. if the command format. specifies 
+`addt d/DESCRIPTION [t/DEADLINE]`, the details can be entered as `[t/DEADLINE] d/DESCRIPTION`.
+- All `<Integer>` fields must be greater than 0.
 - Additional parameters for commands that do not take in any parameters (such as `list`) will be ignored.
   e.g. if you input `list aa`, NUScheduler will understand it as `list`.
 
@@ -84,7 +84,8 @@ If you can type fast, NUScheduler can schedule your tasks faster than traditiona
 ### Feature 1
 #### Add Task - Adds a task: `addt`
 
-Adds a task to the task list. There will be no restriction on duplicate tasks.
+Adds a task to the task list. There will be no restriction on duplicate tasks. The deadline must follow the date format
+specified and the deadline cannot be earlier than today's date or invalid date (e.g.31/02/2022).
 
 Format: `addt d/DESCRIPTION [t/DEADLINE (dd/mm/yyyy)]`
 
@@ -127,7 +128,7 @@ Format: `findt KEYWORD [MORE_KEYWORDS]`
 - The order of the keywords matters. e.g. `drink water` will not match `water drink`
 - Only full keyword(s) will be accepted. e.g. `drink` will match `drink`; `ink` will not match `drink`
 - All keyword(s) have to be matched for task to be returned.
-- If a word is contained within a parantheses without spaces, the keyword has to contain the parantheses as well. 
+- If a word is contained within a parentheses without spaces, the keyword has to contain the parantheses as well. 
 e.g. `Assignment` will not match `(Assignment`.
 
 Example: `findt lessons` returns `Swimming lessons 03/05/2022`. 
@@ -151,7 +152,7 @@ Adds a contact to NUScheduler.
 Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-A contact can have any number of tags (including 0)
+A contact can have any number of tags (including 0).
 </div>
 
 Examples:
