@@ -12,6 +12,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.stage.Stage?>
 
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.Label?>
 <fx:root minHeight="600.0" minWidth="400.0" onCloseRequest="#handleExit" title="NUScheduler" type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
   <icons>
     <Image url="@/images/address_book_32.png" />
@@ -38,6 +41,16 @@
           <padding>
             <Insets bottom="10" left="10" right="10" top="10" />
           </padding>
+          <HBox styleClass="header-icons" alignment="CENTER" spacing="5.0">
+            <ImageView fitHeight="30.0" fitWidth="30.0" preserveRatio="true">
+              <Image url="@../images/contact.png"/>
+            </ImageView>
+            <Label styleClass="icon-text" text="Contacts" textAlignment="CENTER" textFill="WHITE">
+              <padding>
+                <Insets bottom="15.0" top="15.0" />
+              </padding>
+            </Label>
+          </HBox>
           <StackPane fx:id="personListPanelPlaceholder" VBox.vgrow="ALWAYS" />
         </VBox>
 
@@ -45,6 +58,16 @@
           <padding>
             <Insets bottom="10" left="10" right="10" top="10" />
           </padding>
+          <HBox styleClass="header-icons" alignment="CENTER" spacing="5.0">
+            <ImageView fitHeight="30.0" fitWidth="30.0" preserveRatio="true">
+              <Image url="@../images/task.png"/>
+            </ImageView>
+            <Label styleClass="icon-text" text="Tasks" textAlignment="CENTER" textFill="WHITE">
+              <padding>
+                <Insets bottom="15.0" top="15.0" />
+              </padding>
+            </Label>
+          </HBox>
           <StackPane fx:id="taskListPanelPlaceholder" VBox.vgrow="ALWAYS" />
         </VBox>
         </SplitPane>

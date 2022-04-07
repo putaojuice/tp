@@ -35,7 +35,6 @@ public class TaskCard extends UiPart<Region> {
         super(FXML);
         this.task = task;
         taskId.setText(displayedIndex + ". ");
-        //taskTitle.setText("Tasks:");
         taskDescription.setText(task.getDescription());
         taskDeadline.setText(task.getDeadline());
     }
