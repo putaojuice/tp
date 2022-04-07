@@ -1,10 +1,12 @@
 package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADD_TASK_DEADLINE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADD_TASK_DESCRIPTION;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.List;
@@ -26,18 +28,23 @@ public class AddTaskCommandParser implements Parser<AddTaskCommand> {
         ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args, PREFIX_ADD_TASK_DESCRIPTION,
                 PREFIX_ADD_TASK_DEADLINE);
 
-        try {
-            // Throw exception if more than 1 description or deadline prefix exists
-            checkMultiplePrefixTokens(argMultimap);
+        // Throw exception if more than 1 description or deadline prefix exists
+        checkMultiplePrefixTokens(argMultimap);
 
-            // Throw exception if user input does not contain any description prefix
-            checkDescriptionPrefixEmpty(argMultimap);
+        // Throw exception if user input does not contain any description prefix
+        checkDescriptionPrefixEmpty(argMultimap);
 
-            // Throw exception if deadline does not adhere to specified format
-            checkDeadlineFormat(argMultimap);
-        } catch (ParseException e) {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddTaskCommand.MESSAGE_USAGE));
-        }
+        // Throw exception if deadline does not adhere to specified format
+        checkDeadlineFormat(argMultimap);
+
+        // Throw exception if deadline is invalid
+        checkDeadlineValidity(argMultimap);
+
+        // Throw exception if deadline is before today's date
+        checkDeadlineIsBeforeToday(argMultimap);
+
+        // Throw exception if description contains deadline prefix
+        checkDeadlinePrefixInDescription(argMultimap);
 
         String description = argMultimap.getValue(PREFIX_ADD_TASK_DESCRIPTION).orElse("");
         String deadline = argMultimap.getValue(PREFIX_ADD_TASK_DEADLINE).orElse("");
@@ -64,7 +71,7 @@ public class AddTaskCommandParser implements Parser<AddTaskCommand> {
         // Throw exception if more than 1 description or deadline token is used
         if (description.size() > 1 || deadline.size() > 1) {
             // more than 1 "d/" or "t/" prefix were used, meaning that it is wrong format
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddTaskCommand.MESSAGE_USAGE));
+            throw new ParseException("Duplicated prefix detected in input!\n" + AddTaskCommand.MESSAGE_USAGE);
         }
     }
 
@@ -77,7 +84,7 @@ public class AddTaskCommandParser implements Parser<AddTaskCommand> {
     private void checkDescriptionPrefixEmpty(ArgumentMultimap argMultimap) throws ParseException {
         String description = argMultimap.getValue(PREFIX_ADD_TASK_DESCRIPTION).orElse("");
         if (description.equals("")) {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddTaskCommand.MESSAGE_USAGE));
+            throw new ParseException("Description is compulsory!\n" + AddTaskCommand.MESSAGE_USAGE);
         }
     }
 
@@ -99,7 +106,67 @@ public class AddTaskCommandParser implements Parser<AddTaskCommand> {
         try {
             dateTimeFormatter.parse(deadline);
         } catch (DateTimeParseException e) {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddTaskCommand.MESSAGE_USAGE));
+            throw new ParseException("Deadline is not in dd/mm/yyyy!\n" + AddTaskCommand.MESSAGE_USAGE);
+        }
+    }
+
+    /**
+     * Check if user's deadline is a valid date.
+     *
+     * @param argMultimap Tokenized user input
+     * @throws ParseException Throw exception if deadline is not a valid date
+     */
+    private void checkDeadlineValidity(ArgumentMultimap argMultimap) throws ParseException {
+        String deadline = argMultimap.getValue(PREFIX_ADD_TASK_DEADLINE).orElse("");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+
+        if (deadline.equals("")) {
+            return;
+        }
+
+        try {
+            // Check if user's deadline input is a valid date
+            simpleDateFormat.setLenient(false);
+            simpleDateFormat.parse(deadline);
+        } catch (java.text.ParseException e) {
+            throw new ParseException("Invalid date input!\n" + AddTaskCommand.MESSAGE_USAGE);
+        }
+    }
+
+    /**
+     * Check if user's deadline is before today's date.
+     *
+     * @param argMultimap Tokenized user input
+     * @throws ParseException Throw exception if deadline is before today's date
+     */
+    private void checkDeadlineIsBeforeToday(ArgumentMultimap argMultimap) throws ParseException {
+        String deadline = argMultimap.getValue(PREFIX_ADD_TASK_DEADLINE).orElse("");
+
+        if (deadline.equals("")) {
+            return;
+        }
+
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate today = LocalDate.now(ZoneId.systemDefault());
+        LocalDate date = LocalDate.parse(deadline, dateTimeFormatter);
+        if (date.isBefore(today)) {
+            throw new ParseException("Deadline is before today's date!\n" + AddTaskCommand.MESSAGE_USAGE);
+        }
+    }
+
+    /**
+     * Check if user's description contains deadline prefix.
+     *
+     * @param argMultimap Tokenized user input
+     * @throws ParseException Throw exception if description contains deadline prefix
+     */
+    private void checkDeadlinePrefixInDescription(ArgumentMultimap argMultimap) throws ParseException {
+        String description = argMultimap.getValue(PREFIX_ADD_TASK_DESCRIPTION).orElse("");
+
+        if (description.contains("t/")) {
+            // if deadline token is used in the description
+            throw new ParseException("You cannot have 't/' prefix in the description!\n"
+                    + AddTaskCommand.MESSAGE_USAGE);
         }
     }
 }
