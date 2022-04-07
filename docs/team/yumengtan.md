@@ -17,37 +17,46 @@ Given below are my contributions to the project.
     * `FindTaskCommandParser`
     * **Tests Written**:
       * `FindTaskCommandTest`
+      * `FindTaskCommandParserTest`
     * **Additional info**:
-      * Used regex to ignore case sensitivity from user input.
+      * Used regex to filter task list.
 
-* **New Feature**:
-    * to be added soon
 
-* **Code contributed**: [RepoSense link (to be added soon)]()
+* **Code contributed**: [RepoSense link](https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=yumengtan&sort=groupTitle&sortWithin=title&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=true&checkedFileTypes=docs~functional-code~test-code~other&since=2022-02-18&tabOpen=false)
+
 
 * **Project management**:
-    * Managed release `v1.1`, `v1.2`, `v1.3`.
+    * Managed release `v1.1 - v1.4`.
     * Participated in weekly project meetings and set up weekly milestones with the team.
-    * Reviewed pull requests.
+
 
 * **Enhancements to existing features**:
-    * to be added soon
+    * Updated GUI layout and components (Pull requests [#64](https://github.com/AY2122S2-CS2103-F11-4/tp/pull/64), [#65](https://github.com/AY2122S2-CS2103-F11-4/tp/pull/65), [#137](https://github.com/AY2122S2-CS2103-F11-4/tp/pull/137), [#81](https://github.com/AY2122S2-CS2103-F11-4/tp/pull/81))
+    * Updated GUI to display task list (Pull request [#78](https://github.com/AY2122S2-CS2103-F11-4/tp/pull/78))
+    * Wrote additional tests to increase coverage (Pull request [#59](https://github.com/AY2122S2-CS2103-F11-4/tp/pull/59))
+
 
 * **Documentation**:
     * User Guide:
-        * Added documentation for the feature `FindTask`.
+        * Added documentation for the feature `FindTask`. (Pull request [#38](https://github.com/AY2122S2-CS2103-F11-4/tp/pull/38/files))
+        * Fixed User Guide bugs (Pull requests [#82](https://github.com/AY2122S2-CS2103-F11-4/tp/pull/82), [#135](https://github.com/AY2122S2-CS2103-F11-4/tp/pull/135))
     * Developer Guide:
-        * Contribute to glossary in the developer guide.
-        * Added user story for find task feature.
-        * Added MSS for `FindTask`.
+        * Contribute to glossary in the developer guide. (Pull request [#62](https://github.com/AY2122S2-CS2103-F11-4/tp/pull/62))
+        * Added user story for find task feature. (Pull request [#62](https://github.com/AY2122S2-CS2103-F11-4/tp/pull/62))
+        * Added MSS for `FindTask`. (Pull request [#38](https://github.com/AY2122S2-CS2103-F11-4/tp/pull/38/files))
     * Diagrams
-      * Added Sequence Diagram for `FindTask`
-      * Added Activity Diagram for `FindTask`
+      * Added Sequence Diagram for `FindTask` (Pull request [#62](https://github.com/AY2122S2-CS2103-F11-4/tp/pull/62))
+      * Added Activity Diagram for `FindTask` (Pull request [#62](https://github.com/AY2122S2-CS2103-F11-4/tp/pull/62))
 
 * **Community**:
-    * to be added soon
+    *PRs reviewed (with non-trivial review comments): [#136](https://github.com/AY2122S2-CS2103-F11-4/tp/pull/136)
+    *Reported 12 bugs for other teams during [PED](https://github.com/yumengtan/ped/issues)  
 
-* **Tools**:
-    * to be added soon
+
+* **Statistics**:
+    * Reviewed PRs: [10](https://github.com/AY2122S2-CS2103-F11-4/tp/pulls?q=is%3Apr+is%3Aclosed+reviewed-by%3A%40me)
+    * Raised PRs: [17](https://github.com/AY2122S2-CS2103-F11-4/tp/pulls?q=is%3Apr+is%3Aclosed+author%3Ayumengtan+review%3Aapproved)
+    * Issues Taken: [22](https://github.com/AY2122S2-CS2103-F11-4/tp/issues?q=assignee%3Ayumengtan+is%3Aclosed)
+    
 
 

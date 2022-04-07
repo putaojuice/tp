@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Basic&display=swap');
+
 .background {
     -fx-background-color: derive(#fffff0, 20%);
     background-color: #383838; /* Used in the default.html file */
@@ -86,6 +88,18 @@
     -fx-background-color: derive(#f0ffff, 20%);
 }
 
+.header-icons {
+    -fx-background-color: derive(#f0ffff, 20%);
+}
+
+.icon-text {
+     -fx-background-color: derive(#f0ffff, 20%);
+     -fx-font-size: 22pt;
+     -fx-font-family: 'Basic', sans-serif;
+     -fx-text-fill: black;
+     -fx-opacity: 1;
+}
+
 .list-view {
     -fx-background-insets: 0;
     -fx-padding: 0;
@@ -96,15 +110,18 @@
     -fx-label-padding: 0 0 0 0;
     -fx-graphic-text-gap : 0;
     -fx-background-insets: 3px;
-    -fx-background-radius: 15;
+    -fx-background-color: derive(#f0ffff, 20%);
+
 }
 
 .list-cell:filled:even {
     -fx-background-color: #e8eaf6;
+    -fx-background-radius: 15;
 }
 
 .list-cell:filled:odd {
     -fx-background-color: #dadef1;
+    -fx-background-radius: 15;
 }
 
 .list-cell:filled:selected {
@@ -113,7 +130,6 @@
 
 .list-cell:filled:selected #cardPane {
     -fx-label-padding: 0 0 0 0;
-    -fx-border-color: #3e7b91;
     -fx-border-width: 1;
     -fx-background-insets: 3px;
     -fx-border-radius: 15;
@@ -209,11 +225,6 @@
 
 .menu .left-container {
     -fx-background-color: #c9f1fd;
-}
-
-.menu-item .label{
-    -fx-background-color: #c9f1fd;
-    -fx-text-fill: black;
 }
 
 .context-menu {
