@@ -339,7 +339,7 @@ task has been successfully updated.
 
 ![UpdateTaskCommandActivityDiagram](images/UpdateTaskCommandActivityDiagram.png)
 
-The following sequence diagram shows how the delete task operation work assuming no exception is thrown:
+The following sequence diagram shows how the update task operation work assuming no exception is thrown:
 
 ![UpdateTaskCommandSequenceDiagram](images/UpdateTaskCommandSequenceDiagram.png)
 
