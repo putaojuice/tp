@@ -17,35 +17,57 @@ Given below are my contributions to the project.
     * `DeleteTaskCommandParser`
     * **Tests Written**:
         * `DeleteTaskCommandTest`
+        * `DeleteTaskCommandParserTest`
     * **Additional info**:
         * Updated ParserUtil method of parseNumber to work with DeleteTaskCommand
         * Added relevant activity and sequence diagrams into Developer Guide
 
-* **New Feature**:
-    * to be added soon
+* **New Feature**: Implemented `UpdateTask` command.
+    * What it does: Allow the user to update a particular task attributes based on its ID in the Tasklist
+    * Justification: Our target audience is year 1 computing students. It helps them to update task that details have changed.
+    * **Classes created**:
+    * `UpdateTaskCommand`
+    * `UpdateTaskCommandParser`
+    * **Tests Written**:
+        * `UpdateTaskCommandTest`
+        * `UpdateTaskCommandParserTest`
+    * **Additional info**:
+        * Added additional class `UpdateTaskDescriptor` in `UpdateTaskCommand` to assist functionality
+        * Added relevant activity and sequence diagrams into Developer Guide
 
-* **Code contributed**: [RepoSense link (to be added soon)]()
+* **Code contributed**: [RepoSense link](https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=Ivor&sort=groupTitle&sortWithin=title&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=true&checkedFileTypes=docs~functional-code~test-code~other&since=2022-02-18)
 
 * **Project management**:
-    * Managed release `v1.1`, `v1.2`.
+    * Managed release `v1.1`, `v1.2`, `v1.3`, `v1.4`.
     * Participated in weekly project meetings and set up weekly milestones with the team.
     * Reviewed pull requests.
 
 * **Enhancements to existing features**:
-    * to be added soon
+    * Wrote additional tests to increase coverage for `DeleteTask`
 
 * **Documentation**:
     * User Guide:
         * Added documentation for the feature `DeleteTask`.
+        * Added documentation for the feature `UpdateTask`.
+        * Added visuals in UG to enhance readability and understandability.
+        * Fixed User Guide Bugs
     * Developer Guide:
         * Contribute to glossary in the developer guide.
         * Added user story for Delete task feature.
         * Added MSS for `DeleteTask`.
         * Add sequence diagram for delete task
         * Add activity diagram for delete task
+        * Added user story for Update task feature.
+        * Added MSS for `UpdateTask`.
+        * Add sequence diagram for update task
+        * Add activity diagram for update task
 
 * **Community**:
-    * to be added soon
+    * PRs reviewed with comments to submitted PRs
+    * Reported 9 bugs during PE-D
+    * Submitted forum post #240.
 
-* **Tools**:
-    * to be added soon
+* **Statistics**:
+    * Reviewed PRs: 15
+    * Raised PRs: 15
+    * Issues Taken: 39
