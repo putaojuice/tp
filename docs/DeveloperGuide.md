@@ -308,7 +308,7 @@ Given below is an example usage scenario and how the delete task feature works.
 The following activity diagram shows the workflow of delete task operation:
 
 The user will type in the command `delt <integer>`.
-If a valid format is detected, the system will remove the corresponding task with the integer ID,  and prompt the user that a
+If a valid format is detected, the system will remove the corresponding task with the integer ID, and prompt the user that a
 task has been successfully deleted.
 
 ![DeleteTaskCommandActivityDiagram](images/DeleteTaskActivityDiagram.png)
@@ -334,7 +334,7 @@ Given below is an example usage scenario and how the update task feature works.
 The following activity diagram shows the workflow of delete task operation:
 
 The user will type in the command `updt <integer> d\new description t\ new deadline`. Either parameter is optional but at least one must be provided.
-If a valid format is detected, the system will update the corresponding task with the integer ID with the new attributes,  and prompt the user that a
+If a valid format is detected, the system will update the corresponding task with the integer ID with the new attributes, and prompt the user that a
 task has been successfully updated.
 
 ![UpdateTaskCommandActivityDiagram](images/UpdateTaskCommandActivityDiagram.png)
