@@ -2,7 +2,8 @@
 layout: page
 title: User Guide
 ---
-#NUScheduler
+
+##NUScheduler
 
 NUScheduler is a desktop app for Year 1 Computing students to assist with more efficient management of tasks and contacts,
 optimized for use via a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI).
