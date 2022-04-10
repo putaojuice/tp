@@ -64,10 +64,10 @@ Given below are my contributions to the project.
 
 * **Community**:
     * PRs reviewed with comments to submitted PRs
-    * Reported 9 bugs during PE-D
-    * Submitted forum post #240.
+    * Reported 9 bugs during [PE-D](https://github.com/ivorcmx/ped/issues)
+    * Submitted forum post [#240](https://github.com/nus-cs2103-AY2122S2/forum/issues/240).
 
 * **Statistics**:
-    * Reviewed PRs: 15
-    * Raised PRs: 15
-    * Issues Taken: 39
+    * Reviewed PRs: [16](https://github.com/AY2122S2-CS2103-F11-4/tp/pulls?q=type%3Apr+reviewed-by%3Aivorcmx)
+    * Raised PRs: [17](https://github.com/AY2122S2-CS2103-F11-4/tp/pulls/@me)
+    * Issues Taken: [44](https://github.com/AY2122S2-CS2103-F11-4/tp/issues?q=assignee%3A%40me+is%3Aclosed)

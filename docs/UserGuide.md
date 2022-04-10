@@ -137,6 +137,8 @@ Format: `findt KEYWORD [MORE_KEYWORDS]`
 - All keyword(s) have to be matched for task to be returned.
 - If a word is contained within a parentheses without spaces, the keyword has to contain the parentheses as well. 
 e.g. `Assignment` will not match `(Assignment`.
+- Allows the user to easily copy data from command box. Future versions of this program will update the UI according
+to the search parameters.
 
 Example: `findt lessons` returns `Swimming lessons 03/05/2022`. 
 
@@ -145,7 +147,8 @@ Example: `findt lessons` returns `Swimming lessons 03/05/2022`.
 ### Feature 5
 #### Feature - List all tasks: `viewt`
 
-View all the tasks currently in the task list. Allows the user to copy the data easily. 
+View all the tasks currently in the task list. Allows the user to copy the data easily. Future versions of this program
+will update the UI to display all tasks.
 
 Format: `viewt`
 
@@ -164,6 +167,8 @@ Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 A contact can have any number of tags (including 0).
+
+Note: Only the Person's name will be deemed as unique. Other contacts are able to share the same email address and phone numbers.
 </div>
 
 Examples:
@@ -201,7 +206,7 @@ Format: `edit <Integer> [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`
   * Existing values will be updated to the input values.
 * When editing tags, the existing tags of the contact will be removed i.e. adding of tags is not cumulative.
 * You can remove all the contact’s tags by typing `t/` without
-  specifying any tags after it.
+  specifying any tags after it. Note: For this clearing, only this format will be accepted. `edit <Integer> t/`
 
 Examples:
 *  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st contact to be `91234567` and `johndoe@example.com` respectively.
