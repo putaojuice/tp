@@ -39,7 +39,7 @@ public class JsonTaskListStorage implements TaskListStorage {
      * @param filePath location of the data. Cannot be null.
      * @throws DataConversionException if the file is not in the correct format.
      */
-    public Optional<ReadOnlyTaskList> readTaskList(Path filePath) throws DataConversionException, IOException {
+    public Optional<ReadOnlyTaskList> readTaskList(Path filePath) throws DataConversionException {
         requireNonNull(filePath);
 
         Optional<JsonSerializableTaskList> jsonTaskList = JsonUtil.readJsonFile(
