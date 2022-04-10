@@ -9,9 +9,9 @@ If you can type fast, NUScheduler can schedule your tasks faster than traditiona
 
 Given below are my contributions to the project.
 
-* **New Feature**: Implemented `FindTask` command.
-    * What it does: Allow the user to find matching tasks in task list based on keyword/
-    * Justification: Our target audience is year 1 computing students. It helps them find any tasks easily based on keyword.
+* **New Feature**: Implemented `FindTask` command (Pull Requests [#33](https://github.com/AY2122S2-CS2103-F11-4/tp/pull/33), [#59](https://github.com/AY2122S2-CS2103-F11-4/tp/pull/59), [#84](https://github.com/AY2122S2-CS2103-F11-4/tp/pull/84))
+    * What it does: Allow the user to find matching tasks in task list based on a keyword or multiple keywords
+    * Justification: Our target audience is year 1 computing students. It helps them easily find any tasks such as assignments based on a keyword or multiple keywords. 
     * **Classes created**:
     * `FindTaskCommand`
     * `FindTaskCommandParser`
@@ -20,19 +20,15 @@ Given below are my contributions to the project.
       * `FindTaskCommandParserTest`
     * **Additional info**:
       * Used regex to filter task list.
+      * Credits: The regex method to implement `FindTask` feature was referenced and adapted from [stackoverflow](https://stackoverflow.com/questions/25483114/regex-to-find-whole-word-in-text-but-case-insensitive).
 
 
 * **Code contributed**: [RepoSense link](https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=yumengtan&sort=groupTitle&sortWithin=title&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=true&checkedFileTypes=docs~functional-code~test-code~other&since=2022-02-18&tabOpen=false)
 
 
-* **Project management**:
-    * Managed release `v1.1 - v1.4`.
-    * Participated in weekly project meetings and set up weekly milestones with the team.
-
-
 * **Enhancements to existing features**:
     * Updated GUI layout and components (Pull requests [#64](https://github.com/AY2122S2-CS2103-F11-4/tp/pull/64), [#65](https://github.com/AY2122S2-CS2103-F11-4/tp/pull/65), [#137](https://github.com/AY2122S2-CS2103-F11-4/tp/pull/137), [#81](https://github.com/AY2122S2-CS2103-F11-4/tp/pull/81))
-    * Updated GUI to display task list (Pull request [#78](https://github.com/AY2122S2-CS2103-F11-4/tp/pull/78))
+    * Updated GUI to display task list, added `TaskCard`, `TaskListPanel` and `UniqueTaskList` classes.  (Pull request [#78](https://github.com/AY2122S2-CS2103-F11-4/tp/pull/78))
     * Wrote additional tests to increase coverage (Pull request [#59](https://github.com/AY2122S2-CS2103-F11-4/tp/pull/59))
 
 
@@ -47,16 +43,24 @@ Given below are my contributions to the project.
     * Diagrams
       * Added Sequence Diagram for `FindTask` (Pull request [#62](https://github.com/AY2122S2-CS2103-F11-4/tp/pull/62))
       * Added Activity Diagram for `FindTask` (Pull request [#62](https://github.com/AY2122S2-CS2103-F11-4/tp/pull/62))
+    *README and GitHub Pages:
+      * Refactored README and GitHub pages to match project description. (Pull Requests [#9](https://github.com/AY2122S2-CS2103-F11-4/tp/pull/9), [##47](https://github.com/AY2122S2-CS2103-F11-4/tp/pull/47))
+
+
+* **Contributions to team-based tasks**:
+    * Designed application logo and Ui mockup.
+
 
 * **Community**:
-    *PRs reviewed (with non-trivial review comments): [#136](https://github.com/AY2122S2-CS2103-F11-4/tp/pull/136)
-    *Reported 12 bugs for other teams during [PED](https://github.com/yumengtan/ped/issues)  
+    * PRs reviewed (with non-trivial review comments): (Pull Request [#136](https://github.com/AY2122S2-CS2103-F11-4/tp/pull/136))
+    * Reported 12 bugs for other teams during [PE Dry Run](https://github.com/yumengtan/ped/issues)  
+    * Submitted forum post [#211](https://github.com/nus-cs2103-AY2122S2/forum/issues/211)
 
 
 * **Statistics**:
-    * Reviewed PRs: [10](https://github.com/AY2122S2-CS2103-F11-4/tp/pulls?q=is%3Apr+is%3Aclosed+reviewed-by%3A%40me)
-    * Raised PRs: [17](https://github.com/AY2122S2-CS2103-F11-4/tp/pulls?q=is%3Apr+is%3Aclosed+author%3Ayumengtan+review%3Aapproved)
-    * Issues Taken: [22](https://github.com/AY2122S2-CS2103-F11-4/tp/issues?q=assignee%3Ayumengtan+is%3Aclosed)
+    * Reviewed PRs: [13](https://github.com/AY2122S2-CS2103-F11-4/tp/pulls?q=is%3Apr+is%3Aclosed+reviewed-by%3A%40me)
+    * Raised PRs: [19](https://github.com/AY2122S2-CS2103-F11-4/tp/pulls?q=is%3Apr+is%3Aclosed+author%3Ayumengtan+review%3Aapproved)
+    * Issues Taken: [30](https://github.com/AY2122S2-CS2103-F11-4/tp/issues?q=assignee%3Ayumengtan+is%3Aclosed)
     
 
 
