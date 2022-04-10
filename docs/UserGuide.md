@@ -3,6 +3,7 @@ layout: page
 title: User Guide
 ---
 #NUScheduler
+
 NUScheduler is a desktop app for Year 1 Computing students to assist with more efficient management of tasks and contacts,
 optimized for use via a Command Line Interface (CLI) while still having the benefits of a Graphical User Interface (GUI).
 If you can type fast, NUScheduler can schedule your tasks faster than traditional GUI apps.
@@ -134,7 +135,7 @@ Format: `findt KEYWORD [MORE_KEYWORDS]`
 - The order of the keywords matters. e.g. `drink water` will not match `water drink`
 - Only full keyword(s) will be accepted. e.g. `drink` will match `drink`; `ink` will not match `drink`
 - All keyword(s) have to be matched for task to be returned.
-- If a word is contained within a parentheses without spaces, the keyword has to contain the parantheses as well. 
+- If a word is contained within a parentheses without spaces, the keyword has to contain the parentheses as well. 
 e.g. `Assignment` will not match `(Assignment`.
 
 Example: `findt lessons` returns `Swimming lessons 03/05/2022`. 
@@ -198,7 +199,7 @@ Format: `edit <Integer> [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`
 * Edits the contact at the specified `INTEGER`. The integer refers to the index number shown in the displayed contact list. The integer **must be a positive integer**.
 * At least one of the optional fields must be provided.
   * Existing values will be updated to the input values.
-* When editing tags, the existing tags of the contact will be removed i.e adding of tags is not cumulative.
+* When editing tags, the existing tags of the contact will be removed i.e. adding of tags is not cumulative.
 * You can remove all the contact’s tags by typing `t/` without
   specifying any tags after it.
 
@@ -229,7 +230,7 @@ Format: `clear`
 
 Format: `find KEYWORD [MORE_KEYWORDS]`
 
-* The search is case-insensitive. e.g `hans` will match `Hans`
+* The search is case-insensitive. e.g. `hans` will match `Hans`
 * The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
 * Only the name is searched.
 * Only full words will be matched e.g. `Han` will not match `Hans`
