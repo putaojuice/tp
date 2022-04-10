@@ -91,6 +91,8 @@ Format: `addt d/DESCRIPTION [t/DEADLINE (dd/mm/yyyy)]`
 
 Example: `addt d/Buy groceries t/01/01/2022`
 
+![Ui](images/UiAddTask.png)
+
 ### Feature 2
 #### Feature - Deletes a task: `delt`
 
@@ -98,7 +100,9 @@ Deletes a task from the task list, where `<Integer>` is the ID of the task.
 
 Format: `delt <Integer>`
 
-Example: `delt 3`
+Example: `delt 1`
+
+![Ui](images/UiDeleteTask.png)
 
 ### Feature 3
 #### Feature - Updates a task description and/or deadline: `updt`
@@ -115,7 +119,9 @@ Example 1: `updt 3 t/01/02/2022`
 
 Example 2: `updt 3 d/Buy groceries`
 
-Example 3: `updt 3 d/Buy groceries t/01/02/2022`
+Example 3: `updt 3 d/Buy groceries later t/01/06/2022`
+
+![Ui](images/UiUpdateTask.png)
 
 ### Feature 4
 #### Feature - Find tasks: `findt`
@@ -133,12 +139,16 @@ e.g. `Assignment` will not match `(Assignment`.
 
 Example: `findt lessons` returns `Swimming lessons 03/05/2022`. 
 
+![Ui](images/UiFindTask.png)
+
 ### Feature 5
 #### Feature - List all tasks: `viewt`
 
-View all the tasks currently in the task list.
+View all the tasks currently in the task list. Allows the user to copy the data easily. 
 
 Format: `viewt`
+
+![Ui](images/UiViewTask.png)
 
 ## Contact Management
 
@@ -159,6 +169,8 @@ Examples:
 * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
 * `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal`
 
+![Ui](images/UiAddPerson.png)
+
 ### Feature 7
 #### Feature - Deletes a contact : `delete`
 
@@ -173,6 +185,8 @@ Format: `delete <Integer>`
 Examples:
 * `list` followed by `delete 2` deletes the 2nd contact in NUScheduler.
 * `find Betsy` followed by `delete 1` deletes the 1st contact in the results of the `find` command.
+
+![Ui](images/UiDeletePerson.png)
 
 ### Feature 8
 #### Feature - Edits a contact : `edit`
@@ -192,6 +206,8 @@ Examples:
 *  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st contact to be `91234567` and `johndoe@example.com` respectively.
 *  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd contact to be `Betsy Crower` and clears all existing tags.
 
+![Ui](images/UiEditPerson.png)
+
 ### Feature 9
 #### Feature - List all contacts : `list`
 
@@ -205,6 +221,8 @@ Format: `list`
 Clears all contacts from NUScheduler.
 
 Format: `clear`
+
+![Ui](images/UiClearPerson.png)
 
 ### Feature 11
 #### Feature - Finds contacts containing any of the given keywords: `find`
@@ -221,6 +239,8 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
 Examples:
 * `find John` returns `john` and `John Doe`
 * `find alex david` returns `Alex Yeoh`, `David Li`<br>
+
+![Ui](images/UiFindPerson.png)
 
 ### Feature 12
 #### Feature - Exit the app: `exit`

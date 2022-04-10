@@ -294,12 +294,12 @@ _{more aspects and alternatives to be added}_
 ### \[Proposed\] Add Delete Task Feature (Ivor)
 #### Proposed Implementation
 The proposed delete task feature is facilitated by `DeleteTaskCommand`. It extends `Command` and make use of a new model `TaskList` and `Task`.
-The `TaskList` model consists of an `ArrayList<Task>` to store the `Task`. The `DeketeTaskCommand` also has a `DeleteTaskCommandParser`
+The `TaskList` model consists of an `ArrayList<Task>` to store the `Task`. The `DeleteTaskCommand` also has a `DeleteTaskCommandParser`
 to do the logical parsing of user's input. Additionally, this feature implements the following operations:
 
 * `DeleteTaskCommand#execute()` — Executes the command.
 * `DeleteTaskCommandParser#parse()` — Make sense of the user's input and returns an `DeleteTaskCommand` object.
-* `TaskList#DeleteTask()` — Delete an existing task in the task list if user's input is valid.
+* `TaskList#deleteTask()` — Delete an existing task in the task list if user's input is valid.
 
 The `TaskList#deleteTask()` is exposed in the `Model` interface as `Model#deleteTask()`.
 
@@ -308,7 +308,7 @@ Given below is an example usage scenario and how the delete task feature works.
 The following activity diagram shows the workflow of delete task operation:
 
 The user will type in the command `delt <integer>`.
-If a valid format is detected, the system will remove the corresponding task with the integer ID,  and prompt the user that a
+If a valid format is detected, the system will remove the corresponding task with the integer ID, and prompt the user that a
 task has been successfully deleted.
 
 ![DeleteTaskCommandActivityDiagram](images/DeleteTaskActivityDiagram.png)
@@ -316,6 +316,32 @@ task has been successfully deleted.
 The following sequence diagram shows how the delete task operation work assuming no exception is thrown:
 
 ![DeleteTaskCommandSequenceDiagram](images/DeleteTaskSequenceDiagram.png)
+
+### \[Proposed\] Add Update Task Feature (Ivor)
+#### Proposed Implementation
+The proposed update task feature is facilitated by `UpdateTaskCommand`. It extends `Command` and make use of a new model `TaskList` and `Task`.
+The `TaskList` model consists of an `ArrayList<Task>` to store the `Task`. The `UpdateTaskCommand` also has a `UpdateTaskCommandParser`
+to do the logical parsing of user's input. Additionally, this feature implements the following operations:
+
+* `UpdateTaskCommand#execute()` — Executes the command.
+* `UpdateTaskCommandParser#parse()` — Make sense of the user's input and returns an `UpdateTaskCommand` object.
+* `TaskList#updateTask()` — Updates an existing task in the task list if user's input is valid.
+
+The `TaskList#updateTask()` is exposed in the `Model` interface as `Model#updateTask()`.
+
+Given below is an example usage scenario and how the update task feature works.
+
+The following activity diagram shows the workflow of delete task operation:
+
+The user will type in the command `updt <integer> d\new description t\ new deadline`. Either parameter is optional but at least one must be provided.
+If a valid format is detected, the system will update the corresponding task with the integer ID with the new attributes, and prompt the user that a
+task has been successfully updated.
+
+![UpdateTaskCommandActivityDiagram](images/UpdateTaskCommandActivityDiagram.png)
+
+The following sequence diagram shows how the update task operation work assuming no exception is thrown:
+
+![UpdateTaskCommandSequenceDiagram](images/UpdateTaskCommandSequenceDiagram.png)
 
 _{more aspects and alternatives to be added}_
 --------------------------------------------------------------------------------------------------------------------
@@ -353,7 +379,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | beginner user            | view all tasks                       | keep track of all my current tasks   |
 | `* * *`  | beginner user            | add a contact                        | keep track of all my contacts        |
 | `* * *`  | beginner user            | delete a contact                     | delete an incorrect/unneeded contact |
-| `* * *`  | beginner user            | edit a contact                       | correct/update a a contact           |
+| `* * *`  | beginner user            | delete a task                        | delete an incorrect/unneeded task    |
+| `* * *`  | beginner user            | edit a contact                       | correct/update a contact             |
+| `* * *`  | beginner user            | update a task                        | correct/update a task                |
 | `* * *`  | beginner user            | find tasks based on keyword          | search for relevant tasks quickly    |
 | `* * *`  | beginner user            | find contacts based on keyword       | search for relevant contacts quickly |
 | `* * *`  | beginner user            | view all contacts                    | view all my current contacts         |
@@ -481,6 +509,42 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case ends.
 
+**Use case: Update a task**
+
+**MSS**
+
+1. User requests to update a task with update task command
+2. NUScheduler updates task specified from task list
+
+   Use case ends.
+
+**Extensions**
+
+* 2a. The task list is empty.
+    * 2a1. NUScheduler shows an error message.
+
+      Use case ends.
+
+* 2b. The task number to update is invalid.
+    * 2b1. NUScheduler shows an error message.
+
+      Use case ends.
+
+* 2c. No prefix is provided.
+    * 2c1. NUScheduler prompts the user use the correct command format.
+
+      Use case ends.
+
+* 2d. The task deadline has a wrong time format.
+    * 2d1. NUScheduler shows an error message.
+
+      Use case ends.
+
+* 2e. The task has multiple description prefix (`d/`) or deadline prefix (`t/`).
+    * 2e1. NUScheduler shows an error message.
+
+      Use case ends.
+    
 ### Non-Functional Requirements
 
 1. Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
