@@ -166,6 +166,8 @@ Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 A contact can have any number of tags (including 0).
+
+Note: Only the Person's name will be deemed as unique. Other contacts are able to share the same email address and phone numbers.
 </div>
 
 Examples:
