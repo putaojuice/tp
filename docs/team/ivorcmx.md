@@ -69,5 +69,5 @@ Given below are my contributions to the project.
 
 * **Statistics**:
     * Reviewed PRs: 15
-    * Raised PRs: 15
-    * Issues Taken: 39
+    * Raised PRs: 16
+    * Issues Taken: 40
