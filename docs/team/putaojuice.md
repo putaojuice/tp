@@ -70,11 +70,12 @@ Given below are my contributions to the project.
     * Added documentation for the feature `AddTask`.
     * Help in proofreading user guide.
   * Developer Guide:
-    * Added various non-functional requirement in the developer guide.
+    * Contribute non-functional requirement in the developer guide.
     * Contribute to glossary in the developer guide.
     * Added MSS for `AddTask`.
     * Added information about the implementation of the `AddTask` command ([#60](https://github.com/AY2122S2-CS2103-F11-4/tp/pull/60)).
       * Added 2 UML diagrams to aid the explanations.
+    * Help in proofreading developer guide.
   * Weekly Team Meeting Minutes:
     * Help in recording meeting minutes.
     * Screenshot `v1.2` and `v1.3` demo.
