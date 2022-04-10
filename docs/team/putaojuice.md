@@ -28,7 +28,7 @@ Given below are my contributions to the project.
   `ModelManager`.
 
 * **New Feature**: Implemented `TaskListStorage` ([#74](https://github.com/AY2122S2-CS2103-F11-4/tp/pull/74)).
-  * What it does: The system will write the task list to user's local folder in Json format whenever there is a change 
+  * What it does: The system will write the task list to user's local folder in Json format whenever there is a change
   in the task list. The system will read from the saved task list from user's local folder in Json format when starting up
   to load the stored task list from the last access.
   * Justification: This feature allows the user to save their task list and continue where it was left from.
@@ -44,7 +44,7 @@ Given below are my contributions to the project.
     * `JsonTaskListStorageTest`
     * `TypicalTask`
   * **Additional info**:
-    * This feature requires a good understand of how the application is designed and involves modification to 
+    * This feature requires a good understand of how the application is designed and involves modification to
     `Logic`, `Model` and `Storage`.
 
 * **Code contributed**: [RepoSense link](https://nus-cs2103-ay2122s2.github.io/tp-dashboard/?search=putaojuice&sort=groupTitle&sortWithin=title&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=true&checkedFileTypes=docs~functional-code~test-code~other&since=2022-02-18&tabOpen=true&tabType=authorship&tabAuthor=putaojuice&tabRepo=AY2122S2-CS2103-F11-4%2Ftp%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTypes=docs~functional-code~test-code~other&authorshipIsBinaryFileTypeChecked=false).
@@ -70,11 +70,12 @@ Given below are my contributions to the project.
     * Added documentation for the feature `AddTask`.
     * Help in proofreading user guide.
   * Developer Guide:
-    * Added various non-functional requirement in the developer guide.
+    * Contribute non-functional requirement in the developer guide.
     * Contribute to glossary in the developer guide.
     * Added MSS for `AddTask`.
     * Added information about the implementation of the `AddTask` command ([#60](https://github.com/AY2122S2-CS2103-F11-4/tp/pull/60)).
       * Added 2 UML diagrams to aid the explanations.
+    * Help in proofreading developer guide.
   * Weekly Team Meeting Minutes:
     * Help in recording meeting minutes.
     * Screenshot `v1.2` and `v1.3` demo.

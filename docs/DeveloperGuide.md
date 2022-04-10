@@ -342,7 +342,6 @@ The following sequence diagram shows how the update task operation work assuming
 
 ![UpdateTaskCommandSequenceDiagram](images/UpdateTaskCommandSequenceDiagram.png)
 
-_{more aspects and alternatives to be added}_
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Documentation, logging, testing, configuration, dev-ops**
@@ -364,7 +363,6 @@ _{more aspects and alternatives to be added}_
 NUScheduler is for Year 1 NUS Computing students who prefer CLI over GUI and has a lot of academic tasks to keep track of.
 
 **Value proposition**: This app has simple CLI and a sleek GUI that allows the user to manage the tasks easily and efficiently. It will be mainly used to keep track NUS assignments and projects across multiple modules.
-
 
 ### User stories
 
@@ -388,8 +386,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | potential user           | use simple commands                  | learn the commands easily            |
 | `* * *`  | year 1 computing student | keep track of assignment deadlines   | complete the tasks on time           |
 | `*`      | beginner user            | see a reminder of tasks from the app | know what are my upcoming deadlines  |
-
-*{More to be added}*
 
 ### Use cases
 
@@ -435,13 +431,28 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
       Use case ends.
 
-* 2b. The task deadline has a wrong time format.
+* 2b. The task deadline has a wrong date format.
     * 2b1. NUScheduler shows an error message.
+
+    Use case ends.
+
+* 2c. The task has multiple description prefix (`d/`) or deadline prefix (`t/`).
+    * 2c1. NUScheduler prompts the user to fill up the description.
 
       Use case ends.
 
-* 2c. The task has multiple description prefix (`d/`) or deadline prefix (`t/`).
-    * 2c1. NUScheduler shows an error message.
+* 2d. The task has deadline prefix (`t/`) in the task description.
+    * 2d1. NUScheduler prompts the user to fill up the description.
+
+      Use case ends.
+
+* 2e. The task deadline is before today's date.
+    * 2e1. NUScheduler prompts the user to fill up the description.
+
+      Use case ends.
+
+* 2f. The task deadline is invalid (e.g. 30/02/2022).
+    * 2f1. NUScheduler prompts the user to fill up the description.
 
       Use case ends.
 
@@ -543,20 +554,32 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 2e1. NUScheduler shows an error message.
 
       Use case ends.
-    
+
 ### Non-Functional Requirements
 
-1. Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
-2. Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
-3. A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
-4. The command used should be simple to learn.
-5. The system should be usable by a novice who has never used the system before.
-6. The system should be backward compatible with data produced by earlier versions of the system.
-7. Each command should not take more than 2 second to complete and display the result.
-8. Texts in the UI should wrap around.
-9. The project is expected to adhere to a schedule that delivers a feature set every milestone.
-
-*{More to be added}*
+1. Should work on any _mainstream OS_ as long as it has Java `11` is installed.
+2. Should be used by a single user.
+3. Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
+4. A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
+5. The command used should be simple to learn.
+6. New user should be able to access the help page within 3 actions upon launching the application.
+7. The system should be usable by a novice who has never used the system before.
+8. The system should be backward compatible with data produced by earlier versions of the system.
+9. Each command should not take more than 5 second to complete.
+10. Each command should display the result.
+11. The order of the user input parameters when executing a command should not matter.
+12. Texts in the UI should wrap around.
+13. The project is expected to adhere to a schedule that delivers a feature set every milestone.
+14. Data should be stored locally.
+15. Data should be stored in a human-editable format.
+16. Data should be able to port over to another computer.
+17. Should notify the user with necessary information if their input does not follow the format.
+18. Should be portable without using any installer.
+19. Should be packaged into a single file, in JAR format.
+20. Should have a total app size of at most 50 MB.
+21. Should function without a remote server.
+22. Should not allow duplicate entries of person with the same name.
+23. Should allow duplicated tasks with same description.
 
 ### Glossary
 
@@ -566,6 +589,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * **Task list**: A task list of all the tasks
 * **Task list ID**: ID assigned to corresponding task in the list
 * **Prefix**: A header (eg `d/`, `t/`) that is used to identify different clauses in user inputs.
+* **Data**: It refers to the entries of person in `addressbook.json` or task in `tasklist.json`.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -582,18 +606,19 @@ testers are expected to do more *exploratory* testing.
 
 1. Initial launch
 
-   1. Download the jar file and copy into an empty folder
+    1a. Download the jar file and copy into an empty folder
 
-   1. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
+    1b. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
 
-1. Saving window preferences
+    1c. If double-click does not work, user can run `java -jar NUScheduler.jar` in terminal in the same directory as the jar file.
 
-   1. Resize the window to an optimum size. Move the window to a different location. Close the window.
+2. Saving window preferences
 
-   1. Re-launch the app by double-clicking the jar file.<br>
+    2a. Resize the window to an optimum size. Move the window to a different location. Close the window.
+
+    2b. Re-launch the app by double-clicking the jar file.<br>
        Expected: The most recent window size and location is retained.
 
-1. _{ more test cases …​ }_
 
 ### Deleting a person
 
@@ -610,12 +635,9 @@ testers are expected to do more *exploratory* testing.
    1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
       Expected: Similar to previous.
 
-1. _{ more test cases …​ }_
+### Saving data in JSON
 
-### Saving data
+1. Dealing with missing json files.
+   1a. The system automatically loads up a preset JSON file.
 
-1. Dealing with missing/corrupted data files
-
-   1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
-
-1. _{ more test cases …​ }_
+2. The system will automatically save data in JSON format when the user successfully executes command.
