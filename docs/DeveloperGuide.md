@@ -554,7 +554,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 2e1. NUScheduler shows an error message.
 
       Use case ends.
-    
+
 ### Non-Functional Requirements
 
 1. Should work on any _mainstream OS_ as long as it has Java `11` is installed.
@@ -609,7 +609,7 @@ testers are expected to do more *exploratory* testing.
     1a. Download the jar file and copy into an empty folder
 
     1b. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
-   
+
     1c. If double-click does not work, user can run `java -jar NUScheduler.jar` in terminal in the same directory as the jar file.
 
 2. Saving window preferences
@@ -637,7 +637,7 @@ testers are expected to do more *exploratory* testing.
 
 ### Saving data in JSON
 
-1. Dealing with missing json files. 
+1. Dealing with missing json files.
    1a. The system automatically loads up a preset JSON file.
 
 2. The system will automatically save data in JSON format when the user successfully executes command.

@@ -38,7 +38,7 @@ If you can type fast, NUScheduler can schedule your tasks faster than traditiona
 3. Copy the file to the folder you want to use as the _home folder_ for your NUScheduler.
 
 4. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
-   
+
 ![Ui](images/Ui.png)
 
 6. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
@@ -69,7 +69,7 @@ If you can type fast, NUScheduler can schedule your tasks faster than traditiona
 - Words in **UPPER_CASE** are the parameters to be supplied by the user.e.g. in `add n/NAME`, **NAME** is a parameter.
 - which can be used as `add n/John Doe`.
 - Items in **square brackets** are optional.e.g `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
-- Parameters can be in any order given in the command format.e.g. if the command format. specifies 
+- Parameters can be in any order given in the command format.e.g. if the command format. specifies
 `addt d/DESCRIPTION [t/DEADLINE]`, the details can be entered as `[t/DEADLINE] d/DESCRIPTION`.
 - All `<Integer>` fields must be greater than 0.
 - Additional parameters for commands that do not take in any parameters (such as `list`) will be ignored.
@@ -135,12 +135,12 @@ Format: `findt KEYWORD [MORE_KEYWORDS]`
 - The order of the keywords matters. e.g. `drink water` will not match `water drink`
 - Only full keyword(s) will be accepted. e.g. `drink` will match `drink`; `ink` will not match `drink`
 - All keyword(s) have to be matched for task to be returned.
-- If a word is contained within a parentheses without spaces, the keyword has to contain the parentheses as well. 
+- If a word is contained within a parentheses without spaces, the keyword has to contain the parentheses as well.
 e.g. `Assignment` will not match `(Assignment`.
 - Allows the user to easily copy data from command box. Future versions of this program will update the UI according
 to the search parameters.
 
-Example: `findt lessons` returns `Swimming lessons 03/05/2022`. 
+Example: `findt lessons` returns `Swimming lessons 03/05/2022`.
 
 ![Ui](images/UiFindTask.png)
 
@@ -259,7 +259,7 @@ NUScheduler data is saved in the hard disk automatically after any command that 
 
 ### Note - Editing the data file
 
-NUScheduler data are saved as a JSON file `[JAR file location]/data/addressbook.json` for contact list and `[JAR file location]/data/tasklist.json` for task list. 
+NUScheduler data are saved as a JSON file `[JAR file location]/data/addressbook.json` for contact list and `[JAR file location]/data/tasklist.json` for task list.
 Advanced users are welcome to update data directly by editing that data file.
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
