@@ -40,9 +40,11 @@ Given below are my contributions to the project.
         * Contribute to glossary in the developer guide. (Pull request [#62](https://github.com/AY2122S2-CS2103-F11-4/tp/pull/62))
         * Added user story for find task feature. (Pull request [#62](https://github.com/AY2122S2-CS2103-F11-4/tp/pull/62))
         * Added MSS for `FindTask`. (Pull request [#38](https://github.com/AY2122S2-CS2103-F11-4/tp/pull/38/files))
+        * Updated Ui component to match project details (Pull request [#144](https://github.com/AY2122S2-CS2103-F11-4/tp/pull/144))
     * Diagrams
       * Added Sequence Diagram for `FindTask` (Pull request [#62](https://github.com/AY2122S2-CS2103-F11-4/tp/pull/62))
       * Added Activity Diagram for `FindTask` (Pull request [#62](https://github.com/AY2122S2-CS2103-F11-4/tp/pull/62))
+      * Updated Ui Class Diagram to match project details (Pull request [#144](https://github.com/AY2122S2-CS2103-F11-4/tp/pull/144))
     *README and GitHub Pages:
       * Refactored README and GitHub pages to match project description. (Pull Requests [#9](https://github.com/AY2122S2-CS2103-F11-4/tp/pull/9), [##47](https://github.com/AY2122S2-CS2103-F11-4/tp/pull/47))
 
@@ -59,5 +61,5 @@ Given below are my contributions to the project.
 
 * **Statistics**:
     * Reviewed PRs: [13](https://github.com/AY2122S2-CS2103-F11-4/tp/pulls?q=is%3Apr+is%3Aclosed+reviewed-by%3A%40me)
-    * Raised PRs: [19](https://github.com/AY2122S2-CS2103-F11-4/tp/pulls?q=is%3Apr+is%3Aclosed+author%3Ayumengtan+review%3Aapproved)
+    * Raised PRs: [20](https://github.com/AY2122S2-CS2103-F11-4/tp/pulls?q=is%3Apr+is%3Aclosed+author%3Ayumengtan+review%3Aapproved)
     * Issues Taken: [30](https://github.com/AY2122S2-CS2103-F11-4/tp/issues?q=assignee%3Ayumengtan+is%3Aclosed)
