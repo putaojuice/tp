@@ -20,7 +20,7 @@ If you can type fast, NUScheduler can schedule your tasks faster than traditiona
   * Add a task/contact
   * Delete a task/contact
   * Update a task/contact
-  * Add a label to task
+  * Find task(s)
   * View all tasks and their deadlines
   * View all contacts
   * Remind upcoming tasks
