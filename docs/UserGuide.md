@@ -35,7 +35,7 @@ If you can type fast, NUScheduler can schedule your tasks faster than traditiona
 
 1. Ensure you have `Java 11` installed in your Computer.
 
-2. Download the latest `NUScheduler.jar` from [here](https://github.com/AY2122S2-CS2103-F11-4/tp/releases/tag/v1.3).
+2. Download the latest `NUScheduler.jar` from [here](https://github.com/AY2122S2-CS2103-F11-4/tp/releases/tag/v1.4).
 
 3. Copy the file to the folder you want to use as the _home folder_ for your NUScheduler.
 
@@ -80,6 +80,8 @@ If you can type fast, NUScheduler can schedule your tasks faster than traditiona
 
 </div>
 
+--------------------------------------------------------------------------------------------------------------------
+
 <div style="page-break-after: always;"></div>
 
 ## Task Management
@@ -95,6 +97,8 @@ Example: `addt d/Buy groceries t/01/05/2022`
 
 ![Ui](images/UiAddTask.png)
 
+<div style="page-break-after: always;"></div>
+
 ### Feature 2
 #### Feature - Deletes a task: `delt`
 
@@ -105,6 +109,8 @@ Format: `delt <Integer>`
 Example: `delt 1`
 
 ![Ui](images/UiDeleteTask.png)
+
+<div style="page-break-after: always;"></div>
 
 ### Feature 3
 #### Feature - Updates a task description and/or deadline: `updt`
@@ -124,6 +130,8 @@ Example 2: `updt 3 d/Buy groceries`
 Example 3: `updt 3 d/Buy groceries later t/01/06/2022`
 
 ![Ui](images/UiUpdateTask.png)
+
+<div style="page-break-after: always;"></div>
 
 ### Feature 4
 #### Feature - Find tasks: `findt`
@@ -145,6 +153,8 @@ Example: `findt groceries` returns `Buy groceries later 01/06/2022`.
 
 ![Ui](images/UiFindTask.png)
 
+<div style="page-break-after: always;"></div>
+
 ### Feature 5
 #### Feature - List all tasks: `viewt`
 
@@ -154,8 +164,6 @@ will update the UI to display all tasks.
 Format: `viewt`
 
 ![Ui](images/UiViewTask.png)
-
-<div style="page-break-after: always;"></div>
 
 ## Contact Management
 ### Feature 6
@@ -177,6 +185,8 @@ Examples:
 
 ![Ui](images/UiAddPerson.png)
 
+<div style="page-break-after: always;"></div>
+
 ### Feature 7
 #### Feature - Deletes a contact : `delete`
 
@@ -193,6 +203,8 @@ Examples:
 * `find Betsy` followed by `delete 1` deletes the 1st contact in the results of the `find` command.
 
 ![Ui](images/UiDeletePerson.png)
+
+<div style="page-break-after: always;"></div>
 
 ### Feature 8
 #### Feature - Edits a contact : `edit`
@@ -214,6 +226,8 @@ Examples:
 
 ![Ui](images/UiEditPerson.png)
 
+<div style="page-break-after: always;"></div>
+
 ### Feature 9
 #### Feature - List all contacts : `list`
 
@@ -229,6 +243,8 @@ Clears all contacts from NUScheduler.
 Format: `clear`
 
 ![Ui](images/UiClearPerson.png)
+
+<div style="page-break-after: always;"></div>
 
 ### Feature 11
 #### Feature - Finds contacts containing any of the given keywords: `find`
@@ -276,6 +292,8 @@ If your changes to the data file makes its format invalid, NUScheduler will disc
 
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the
 data of your previous NUScheduler home folder.
+
+--------------------------------------------------------------------------------------------------------------------
 
 <div style="page-break-after: always;"></div>
 
