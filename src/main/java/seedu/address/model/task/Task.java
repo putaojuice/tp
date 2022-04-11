@@ -2,6 +2,15 @@ package seedu.address.model.task;
 
 import static java.util.Objects.requireNonNull;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+
+import seedu.address.logic.commands.AddTaskCommand;
+import seedu.address.logic.parser.exceptions.ParseException;
+
 public class Task {
 
     private final String description;
@@ -44,6 +53,39 @@ public class Task {
             return true;
         }
         return otherTask != null && otherTask.getDescription().equals(getDescription());
+    }
+
+    /**
+     * Check if the task has valid description or deadline.
+     *
+     * @param task a Task object
+     * @return true if task has valid description or deadline, false otherwise
+     */
+    public boolean isValidTask(Task task) {
+        String deadline = task.getDeadline();
+        String description = task.getDescription();
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            if (description.contains("t/") || description.contains("d/")) {
+                // if deadline token is used in the description
+                throw new ParseException("You cannot have 't/' prefix in the description!");
+            }
+
+            dateTimeFormatter.parse(deadline);
+
+            simpleDateFormat.setLenient(false);
+            simpleDateFormat.parse(deadline);
+
+            LocalDate today = LocalDate.now(ZoneId.systemDefault());
+            LocalDate date = LocalDate.parse(deadline, dateTimeFormatter);
+            if (date.isBefore(today)) {
+                throw new ParseException("Deadline is before today's date!\n" + AddTaskCommand.MESSAGE_USAGE);
+            }
+        } catch (DateTimeParseException | ParseException | java.text.ParseException e) {
+            return false;
+        }
+        return true;
     }
 
     /**

@@ -70,14 +70,14 @@ class JsonTaskListStorageTest {
         assertEquals(original.getTaskList().toString(), new TaskList(readBack).getTaskList().toString());
 
         // Modify data, overwrite exiting file, and read back
-        original.addTask(new Task("dummy", "01/01/2022"));
+        original.addTask(new Task("dummy", "01/01/2023"));
         original.deleteTask(1);
         jsonTaskListStorage.saveTaskList(original, filePath);
         readBack = jsonTaskListStorage.readTaskList(filePath).get();
         assertEquals(original.getTaskList().toString(), new TaskList(readBack).getTaskList().toString());
 
         // Save and read without specifying file path
-        original.addTask(new Task("dummy", "01/01/2022"));
+        original.addTask(new Task("dummy", "01/01/2023"));
         jsonTaskListStorage.saveTaskList(original); // file path not specified
         readBack = jsonTaskListStorage.readTaskList().get(); // file path not specified
         assertEquals(original.getTaskList().toString(), new TaskList(readBack).getTaskList().toString());

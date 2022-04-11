@@ -62,7 +62,7 @@ public class SampleDataUtil {
 
     public static Task[] getSampleTask() {
         return new Task[] {
-            new Task("dummy", "01/01/2022")
+            new Task("dummy", "01/01/2023")
         };
     }
 

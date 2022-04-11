@@ -8,7 +8,7 @@ import seedu.address.model.TaskList;
 import seedu.address.model.task.Task;
 
 public class TypicalTask {
-    public static final Task DUMMY_TASK = new Task("dummy", "01/01/2022");
+    public static final Task DUMMY_TASK = new Task("dummy", "01/01/2023");
 
     private TypicalTask() {} // prevent instantiation
 

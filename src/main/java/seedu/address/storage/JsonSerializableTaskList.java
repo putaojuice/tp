@@ -9,6 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 import seedu.address.commons.exceptions.IllegalValueException;
+import seedu.address.model.AddressBook;
 import seedu.address.model.ReadOnlyTaskList;
 import seedu.address.model.TaskList;
 import seedu.address.model.task.Task;
@@ -36,9 +37,13 @@ public class JsonSerializableTaskList {
      * @throws IllegalValueException if there were any data constraints violated.
      */
     public TaskList toModelType() throws IllegalValueException {
+        AddressBook addressBook = new AddressBook();
         TaskList taskList = new TaskList();
         for (JsonAdaptedTask jsonAdaptedTask : tasks) {
             Task task = jsonAdaptedTask.toModelType();
+            if (!addressBook.validTask(task)) {
+                throw new IllegalValueException("Invalid task!");
+            }
             taskList.addTask(task);
         }
         return taskList;

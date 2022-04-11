@@ -90,7 +90,8 @@ public class AddTaskCommandParserTest {
 
     @Test
     public void parse_descriptionContainsDeadlinePrefix_failure() {
-        String expectedMessage = "You cannot have 't/' prefix in the description!\n" + AddTaskCommand.MESSAGE_USAGE;
+        String expectedMessage = "You cannot have 't/' or 'd/' prefix in the description!\n"
+                + AddTaskCommand.MESSAGE_USAGE;
 
         assertParseFailure(parser, "addt d/descriptiont/01/02/2022 t/01/01/2222", expectedMessage);
     }
