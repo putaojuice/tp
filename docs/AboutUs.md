@@ -22,7 +22,7 @@ You can reach us at the email `e0544443@u.nus.edu`
 
 <img src="images/castryl.png" width="200px">
 
-[[github](http://github.com/castryl]
+[[github](http://github.com/castryl)]
 [[portfolio](team/castryl.md)]
 
 * Role: Documentation
