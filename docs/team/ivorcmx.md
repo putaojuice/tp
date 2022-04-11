@@ -19,7 +19,6 @@ Given below are my contributions to the project.
     * **Tests Written**:
         * `DeleteTaskCommandTest`
         * `DeleteTaskCommandParserTest`
-<div style="page-break-after: always;"></div>
     * **Additional info**:
         * Updated ParserUtil method of parseNumber to work with DeleteTaskCommand
         * Added relevant activity and sequence diagrams into Developer Guide
@@ -34,6 +33,9 @@ Given below are my contributions to the project.
     * **Tests Written**:
         * `UpdateTaskCommandTest`
         * `UpdateTaskCommandParserTest`
+
+<div style="page-break-after: always;"></div>
+
     * **Additional info**:
         * Added additional class `UpdateTaskDescriptor` in `UpdateTaskCommand` to assist functionality
         * Added relevant activity and sequence diagrams into Developer Guide
