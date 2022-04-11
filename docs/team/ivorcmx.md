@@ -70,6 +70,6 @@ Given below are my contributions to the project.
     * Submitted forum post [#240](https://github.com/nus-cs2103-AY2122S2/forum/issues/240).
 
 * **Statistics**:
-    * Reviewed PRs: [20](https://github.com/AY2122S2-CS2103-F11-4/tp/pulls?q=type%3Apr+reviewed-by%3Aivorcmx)
-    * Raised PRs: [18](https://github.com/AY2122S2-CS2103-F11-4/tp/pulls/@me)
+    * Reviewed PRs: [24](https://github.com/AY2122S2-CS2103-F11-4/tp/pulls?q=type%3Apr+reviewed-by%3Aivorcmx)
+    * Raised PRs: [20](https://github.com/AY2122S2-CS2103-F11-4/tp/pulls/@me)
     * Issues Taken: [45](https://github.com/AY2122S2-CS2103-F11-4/tp/issues?q=assignee%3A%40me+is%3Aclosed)
