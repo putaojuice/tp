@@ -24,13 +24,16 @@ public class UpdateTaskCommandParserTest {
     @Test
     public void parse_missingParts_failure() {
         // no taskId specified
-        assertParseFailure(parser, VALID_DESCRIPTION_SWIMMING, MESSAGE_INVALID_FORMAT);
+        assertParseFailure(parser, VALID_DESCRIPTION_SWIMMING, String.format(MESSAGE_INVALID_COMMAND_FORMAT,
+            UpdateTaskCommand.MESSAGE_USAGE));
 
         // no field specified
-        assertParseFailure(parser, "1", MESSAGE_INVALID_FORMAT);
+        assertParseFailure(parser, "1", String.format(MESSAGE_INVALID_COMMAND_FORMAT,
+            UpdateTaskCommand.MESSAGE_NOT_EDITED));
 
         // no taskId and no field specified
-        assertParseFailure(parser, "", MESSAGE_INVALID_FORMAT);
+        assertParseFailure(parser, "", String.format(MESSAGE_INVALID_COMMAND_FORMAT,
+            UpdateTaskCommand.MESSAGE_USAGE));
     }
 
     @Test
@@ -52,17 +55,22 @@ public class UpdateTaskCommandParserTest {
     public void parse_invalidValue_failure() {
         assertParseFailure(parser, "1" + INVALID_DEADLINE_YEAR, MESSAGE_INVALID_FORMAT); // invalid deadline
         assertParseFailure(parser, "1" + INVALID_DEADLINE_MONTH, MESSAGE_INVALID_FORMAT); // invalid deadline
-        assertParseFailure(parser, "1" + " d/", MESSAGE_INVALID_FORMAT); // empty description
-        assertParseFailure(parser, "1" + " t/", MESSAGE_INVALID_FORMAT); // empty deadline
+        assertParseFailure(parser, "1" + " d/", String.format(MESSAGE_INVALID_COMMAND_FORMAT,
+            UpdateTaskCommand.MESSAGE_EMPTY_PARAMETERS)); // empty description
+        assertParseFailure(parser, "1" + " t/", String.format(MESSAGE_INVALID_COMMAND_FORMAT,
+            UpdateTaskCommand.MESSAGE_EMPTY_PARAMETERS)); // empty deadline
 
         // valid description followed by invalid deadline
-        assertParseFailure(parser, "1" + DESC_SWIMMING + INVALID_DEADLINE_YEAR, MESSAGE_INVALID_FORMAT);
+        assertParseFailure(parser, "1" + DESC_SWIMMING + INVALID_DEADLINE_YEAR,
+            String.format(MESSAGE_INVALID_COMMAND_FORMAT, UpdateTaskCommand.MESSAGE_USAGE));
 
         // invalid description followed by valid deadline.
-        assertParseFailure(parser, "1" + " d/" + DEADLINE_SWIMMING, MESSAGE_INVALID_FORMAT);
+        assertParseFailure(parser, "1" + " d/" + DEADLINE_SWIMMING,
+            String.format(MESSAGE_INVALID_COMMAND_FORMAT, UpdateTaskCommand.MESSAGE_EMPTY_PARAMETERS));
 
         // multiple invalid values
-        assertParseFailure(parser, "1" + " d/" + INVALID_DEADLINE_YEAR, MESSAGE_INVALID_FORMAT);
+        assertParseFailure(parser, "1" + " d/" + INVALID_DEADLINE_YEAR,
+            String.format(MESSAGE_INVALID_COMMAND_FORMAT, UpdateTaskCommand.MESSAGE_USAGE));
     }
 
     @Test

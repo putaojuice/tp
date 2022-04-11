@@ -40,7 +40,7 @@ public class CommandTestUtil {
     public static final String VALID_TAG_FRIEND = "friend";
 
     public static final String VALID_DESCRIPTION_SWIMMING = "Swimming Lesson";
-    public static final String VALID_DEADLINE_MARCH = "03/03/2022";
+    public static final String VALID_DEADLINE_MARCH = "03/03/2023";
 
     public static final String DESC_SWIMMING = " " + PREFIX_ADD_TASK_DESCRIPTION + VALID_DESCRIPTION_SWIMMING;
     public static final String DEADLINE_SWIMMING = " " + PREFIX_ADD_TASK_DEADLINE + VALID_DEADLINE_MARCH;
