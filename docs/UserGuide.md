@@ -38,7 +38,7 @@ If you can type fast, NUScheduler can schedule your tasks faster than traditiona
 
 3. Copy the file to the folder you want to use as the _home folder_ for your NUScheduler.
 
-4. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
+4. Double-click the file to start the app. A GUI similar to the image below should appear in a few seconds. Note how the app contains some sample data.<br>
 
 ![Ui](images/Ui.png)
 
