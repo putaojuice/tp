@@ -59,6 +59,7 @@ Given below are my contributions to the project.
   * Released `v1.2`: [View](https://github.com/AY2122S2-CS2103-F11-4/tp/releases/tag/v1.2).
   * Released `v1.3 Trial`: [View](https://github.com/AY2122S2-CS2103-F11-4/tp/releases/tag/v1.3.trial).
   * Released `v1.3`: [View](https://github.com/AY2122S2-CS2103-F11-4/tp/releases/tag/v1.3)
+  * Released `v1.4`: [View](https://github.com/AY2122S2-CS2103-F11-4/tp/releases/tag/v1.4)
 
 * **Enhancements to existing features:**
   * Added `tasklist.json`, a separate JSON file to store the tasks added by user so that it does not interfere with
