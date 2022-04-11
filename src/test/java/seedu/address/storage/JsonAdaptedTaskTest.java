@@ -13,13 +13,13 @@ class JsonAdaptedTaskTest {
 
     @Test
     public void toModelType_validTask_returnsTask() throws Exception {
-        JsonAdaptedTask task = new JsonAdaptedTask("dummy", "01/01/2022");
+        JsonAdaptedTask task = new JsonAdaptedTask("dummy", "01/01/2023");
         assertEquals(DUMMY_TASK.toString(), task.toModelType().toString());
     }
 
     @Test
     void toModelType_nullDescription_throwsIllegalValueException() {
-        JsonAdaptedTask task = new JsonAdaptedTask(null, "01/01/2022");
+        JsonAdaptedTask task = new JsonAdaptedTask(null, "01/01/2023");
         String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, "description");
         assertThrows(IllegalValueException.class, expectedMessage, task::toModelType);
     }

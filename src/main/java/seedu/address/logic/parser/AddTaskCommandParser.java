@@ -163,9 +163,9 @@ public class AddTaskCommandParser implements Parser<AddTaskCommand> {
     private void checkDeadlinePrefixInDescription(ArgumentMultimap argMultimap) throws ParseException {
         String description = argMultimap.getValue(PREFIX_ADD_TASK_DESCRIPTION).orElse("");
 
-        if (description.contains("t/")) {
-            // if deadline token is used in the description
-            throw new ParseException("You cannot have 't/' prefix in the description!\n"
+        if (description.contains("t/") || description.contains("d/")) {
+            // if deadline or description token is used in the description
+            throw new ParseException("You cannot have 't/' or 'd/' prefix in the description!\n"
                     + AddTaskCommand.MESSAGE_USAGE);
         }
     }

@@ -91,7 +91,7 @@ specified and the deadline cannot be earlier than today's date or invalid date (
 
 Format: `addt d/DESCRIPTION [t/DEADLINE (dd/mm/yyyy)]`
 
-Example: `addt d/Buy groceries t/01/01/2022`
+Example: `addt d/Buy groceries t/01/05/2022`
 
 ![Ui](images/UiAddTask.png)
 
@@ -117,7 +117,7 @@ Format 2: `updt <Integer> d/DESCRIPTION`
 
 Format 3: `updt <Integer> d/DESCRIPTION t/DEADLINE`
 
-Example 1: `updt 3 t/01/02/2022`
+Example 1: `updt 3 t/01/06/2022`
 
 Example 2: `updt 3 d/Buy groceries`
 
@@ -141,7 +141,7 @@ e.g. `Assignment` will not match `(Assignment`.
 - Allows the user to easily copy data from command box. Future versions of this program will update the UI according
 to the search parameters.
 
-Example: `findt lessons` returns `Swimming lessons 03/05/2022`.
+Example: `findt groceries` returns `Buy groceries later 01/06/2022`.
 
 ![Ui](images/UiFindTask.png)
 
