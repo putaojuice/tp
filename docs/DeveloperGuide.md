@@ -637,7 +637,6 @@ testers are expected to do more *exploratory* testing.
 
 ### Saving data in JSON
 
-1. Dealing with missing json files.
-   1a. The system automatically loads up a preset JSON file.
-
+1. The system automatically loads up a preset JSON file if there is any missing json files.
 2. The system will automatically save data in JSON format when the user successfully executes command.
+3. The system will automatically save data in JSON format when the user exits the application.
