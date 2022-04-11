@@ -166,9 +166,16 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 
 This section describes some noteworthy details on how certain features are implemented.
 
-### \[Proposed\] Data archiving (Yu An)
+### \[Proposed\] Task Storage Feature (Yu An)
 
-_{Explain here how the data archiving feature will be implemented}_
+The proposed task storage feature is facilitated by `TaskListStorage` that follows original AB3's `AddressBookStorage` implementation closely.
+Everytime when the user successfully executes a task command that either adds, deletes or updates a task, the data will be
+written into `tasklist.json` and be saved to a `data` folder. The `tasklist.json` will also get updated when the user
+executes `exit` command.
+
+Below is an activity diagram to aid the understanding when data reading from and writing to the `tasklist.json` will happen:
+
+![TaskListStorageActivityDiagram](images/TaskListStorageActivityDiagram.png)
 
 <div style="page-break-after: always;"></div>
 
