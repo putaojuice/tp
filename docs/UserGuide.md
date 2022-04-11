@@ -29,6 +29,7 @@ If you can type fast, NUScheduler can schedule your tasks faster than traditiona
 - [Command Summary](#command-summary)
 
 --------------------------------------------------------------------------------------------------------------------
+<div style="page-break-after: always;"></div>
 
 ## Quick start
 
@@ -58,6 +59,7 @@ If you can type fast, NUScheduler can schedule your tasks faster than traditiona
 7. Refer to the [Features](#features) below for details of each command.
 
 --------------------------------------------------------------------------------------------------------------------
+<div style="page-break-after: always;"></div>
 
 ## Features
 
@@ -78,11 +80,9 @@ If you can type fast, NUScheduler can schedule your tasks faster than traditiona
 
 </div>
 
+<div style="page-break-after: always;"></div>
+
 ## Task Management
-
---------------------------------------------------------------------------------------------------------------------
-
-
 ### Feature 1
 #### Add Task - Adds a task: `addt`
 
@@ -155,10 +155,9 @@ Format: `viewt`
 
 ![Ui](images/UiViewTask.png)
 
+<div style="page-break-after: always;"></div>
+
 ## Contact Management
-
---------------------------------------------------------------------------------------------------------------------
-
 ### Feature 6
 #### Feature - Adds a contact: `add`
 
@@ -258,6 +257,8 @@ Format: `exit`
 
 NUScheduler data is saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
+<div style="page-break-after: always;"></div>
+
 ### Note - Editing the data file
 
 NUScheduler data are saved as a JSON file `[JAR file location]/data/addressbook.json` for contact list and `[JAR file location]/data/tasklist.json` for task list.
@@ -276,21 +277,21 @@ If your changes to the data file makes its format invalid, NUScheduler will disc
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the
 data of your previous NUScheduler home folder.
 
---------------------------------------------------------------------------------------------------------------------
+<div style="page-break-after: always;"></div>
 
 ## Command summary
 
 | Action     | Format, Examples                                                                                                                                                      |
 |------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **addt**   | `addt d/DESCRIPTION [t/DEADLINE]` <br> e.g., `addt d/Buy groceries [t/2022 02 22 5pm]`                                                                                |
+| **addt**   | `addt d/DESCRIPTION [t/DEADLINE]` <br> e.g., `addt d/Buy groceries [t/01/01/2023]`                                                                                |
 | **delt**   | `delt <Integer>` <br> e.g., `delt 3`                                                                                                                                  |
-| **updt**   | `updt <Integer> [d/DESCRIPTION] [t/DEADLINE]`<br> e.g., `updt 3 d/Buy groceries t/01/01/2022`                                                                         |
-| **findt**  | `findt KEYWORD [MORE_KEYWORDS]` <br> e.g., `findt swimming lessons`                                                                                                   |
+| **updt**   | `updt <Integer> [d/DESCRIPTION] [t/DEADLINE]`<br> e.g., `updt 3 [d/Buy groceries] [t/01/01/2023]`                                                                         |
+| **findt**  | `findt KEYWORD [MORE_KEYWORDS]` <br> e.g., `findt swimming [lessons]`                                                                                                   |
 | **viewt**  | `viewt`                                                                                                                                                               |
-| **add**    | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague` |
+| **add**    | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 [t/friend] [t/colleague]` |
 | **delete** | `delete <Integer>` <br> e.g., `delete 3`                                                                                                                              |
 | **list**   | `list`                                                                                                                                                                |
 | **clear**  | `clear`                                                                                                                                                               |
-| **edit**   | `edit <Integer> [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br>  e.g., `edit 1 p/91234567 e/johndoe@example.com`                                       |
-| **find**   | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                                                                            |
+| **edit**   | `edit <Integer> [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br>  e.g., `edit 1 [p/91234567] [e/johndoe@example.com]`                                       |
+| **find**   | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James [Jake]`                                                                                                            |
 | **exit**   | `exit`                                                                                                                                                                |
