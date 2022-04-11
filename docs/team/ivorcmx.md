@@ -33,9 +33,6 @@ Given below are my contributions to the project.
     * **Tests Written**:
         * `UpdateTaskCommandTest`
         * `UpdateTaskCommandParserTest`
-
-<div style="page-break-after: always;"></div>
-
     * **Additional info**:
         * Added additional class `UpdateTaskDescriptor` in `UpdateTaskCommand` to assist functionality
         * Added relevant activity and sequence diagrams into Developer Guide
