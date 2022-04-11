@@ -60,7 +60,7 @@ The *Sequence Diagram* below shows how the components interact with each other f
 Each of the four main components (also shown in the diagram above),
 
 * defines its *API* in an `interface` with the same name as the Component.
-* implements its functionality using a concrete `{Component Name}Manager` class (which follows the corresponding API `interface` mentioned in the previous point.
+* implements its functionality using a concrete `{Component Name}Manager` class which follows the corresponding API `interface` mentioned in the previous point.
 
 For example, the `Logic` component defines its API in the `Logic.java` interface and implements its functionality using the `LogicManager.java` class which follows the `Logic` interface. Other components interact with a given component through its interface rather than the concrete class (reason: to prevent outside component's being coupled to the implementation of a component), as illustrated in the (partial) class diagram below.
 
@@ -97,7 +97,7 @@ How the `Logic` component works:
 1. When `Logic` is called upon to execute a command, it uses the `AddressBookParser` class to parse the user command.
 1. This results in a `Command` object (more precisely, an object of one of its subclasses e.g., `AddCommand`) which is executed by the `LogicManager`.
 1. The command can communicate with the `Model` when it is executed (e.g. to add a person).
-1. The result of the command execution is encapsulated as a `CommandResult` object which is returned back from `Logic`.
+1. The result of the command execution is encapsulated as a `CommandResult` object which is returned from `Logic`.
 
 The Sequence Diagram below illustrates the interactions within the `Logic` component for the `execute("delete 1")` API call.
 
@@ -242,9 +242,9 @@ _{Explain here how the data archiving feature will be implemented}_
 
 ### \[Proposed\] Add Task Feature (Yu An)
 #### Proposed Implementation
-The proposed add task feature is facilitated by `AddTaskCommand`. It extends `Command` and make use of a new model `TaskList` and `Task`.
+The proposed add task feature is facilitated by `AddTaskCommand`. It extends `Command` and makes use of a new model `TaskList` and `Task`.
 The `TaskList` model consists of an `ArrayList<Task>` to store the `Task`. The `AddTaskCommand` also has a `AddTaskCommandParser`
-to do the logical parsing of user's input. Additionally, this feature implements the following operations:
+to do the logical parsing of the user's input. Additionally, this feature implements the following operations:
 
 * `AddTaskCommand#execute()` — Executes the command.
 * `AddTaskCommandParser#parse()` — Make sense of the user's input and returns an `AddTaskCommand` object.
@@ -254,15 +254,15 @@ The `TaskList#addTask()` is exposed in the `Model` interface as `Model#addTask()
 
 Given below is an example usage scenario and how the add task feature works.
 
-The following activity diagram shows the workflow of add task operation:
+The following activity diagram shows the workflow of the add task operation:
 
-The user will type in the command `addt d/DESCRIPTION [t/DEADLINE (dd/mm/yyyy)]` with the deadline being optional field.
+The user will type in the command `addt d/DESCRIPTION [t/DEADLINE (dd/mm/yyyy)]` with the deadline being an optional field.
 If a valid format is detected, the system will create a new task, add it to the task list and prompt the user that a
 task has been successfully added.
 
 ![AddTaskCommandActivityDiagram](images/AddTaskCommandActivityDiagram.png)
 
-The following sequence diagram shows how the add task operation work assuming no exception is thrown:
+The following sequence diagram shows how the add task operation works assuming no exception is thrown:
 
 ![AddTaskCommandSequenceDiagram](images/AddTaskCommandSequenceDiagram.png)
 
@@ -277,7 +277,7 @@ These are the operations that the feature implements:
 * `FindTaskCommandParser#parse()` :  Parses the user input and returns a `FindTaskCommand` Object.
 * `TaskList#findTask()` : Finds and returns tasks matching keyword from user input (ignores case sensitivity)
 
-Given Below is an example usage scenario and how the find task feature works.
+Given below is an example usage scenario and how the find task feature works.
 
 The following activity diagram shows the workflow of add task operation:
 
@@ -293,9 +293,9 @@ The following sequence diagram shows how the add task operation work assuming no
 
 ### \[Proposed\] Add Delete Task Feature (Ivor)
 #### Proposed Implementation
-The proposed delete task feature is facilitated by `DeleteTaskCommand`. It extends `Command` and make use of a new model `TaskList` and `Task`.
+The proposed delete task feature is facilitated by `DeleteTaskCommand`. It extends `Command` and makes use of a new model `TaskList` and `Task`.
 The `TaskList` model consists of an `ArrayList<Task>` to store the `Task`. The `DeleteTaskCommand` also has a `DeleteTaskCommandParser`
-to do the logical parsing of user's input. Additionally, this feature implements the following operations:
+to do the logical parsing of the user's input. Additionally, this feature implements the following operations:
 
 * `DeleteTaskCommand#execute()` — Executes the command.
 * `DeleteTaskCommandParser#parse()` — Make sense of the user's input and returns an `DeleteTaskCommand` object.
@@ -305,7 +305,7 @@ The `TaskList#deleteTask()` is exposed in the `Model` interface as `Model#delete
 
 Given below is an example usage scenario and how the delete task feature works.
 
-The following activity diagram shows the workflow of delete task operation:
+The following activity diagram shows the workflow of the delete task operation:
 
 The user will type in the command `delt <integer>`.
 If a valid format is detected, the system will remove the corresponding task with the integer ID, and prompt the user that a
@@ -313,7 +313,7 @@ task has been successfully deleted.
 
 ![DeleteTaskCommandActivityDiagram](images/DeleteTaskActivityDiagram.png)
 
-The following sequence diagram shows how the delete task operation work assuming no exception is thrown:
+The following sequence diagram shows how the delete task operation works assuming no exception is thrown:
 
 ![DeleteTaskCommandSequenceDiagram](images/DeleteTaskSequenceDiagram.png)
 
@@ -331,7 +331,7 @@ The `TaskList#updateTask()` is exposed in the `Model` interface as `Model#update
 
 Given below is an example usage scenario and how the update task feature works.
 
-The following activity diagram shows the workflow of delete task operation:
+The following activity diagram shows the workflow of the delete task operation:
 
 The user will type in the command `updt <integer> d\new description t\ new deadline`. Either parameter is optional but at least one must be provided.
 If a valid format is detected, the system will update the corresponding task with the integer ID with the new attributes, and prompt the user that a
@@ -339,7 +339,7 @@ task has been successfully updated.
 
 ![UpdateTaskCommandActivityDiagram](images/UpdateTaskCommandActivityDiagram.png)
 
-The following sequence diagram shows how the update task operation work assuming no exception is thrown:
+The following sequence diagram shows how the update task operation works assuming no exception is thrown:
 
 ![UpdateTaskCommandSequenceDiagram](images/UpdateTaskCommandSequenceDiagram.png)
 
@@ -361,9 +361,9 @@ The following sequence diagram shows how the update task operation work assuming
 
 **Target user profile**:
 
-NUScheduler is for Year 1 NUS Computing students who prefer CLI over GUI and has a lot of academic tasks to keep track of.
+NUScheduler is for Year 1 NUS Computing students who prefer CLI to GUI and have a lot of academic tasks to keep track of.
 
-**Value proposition**: This app has simple CLI and a sleek GUI that allows the user to manage the tasks easily and efficiently. It will be mainly used to keep track NUS assignments and projects across multiple modules.
+**Value proposition**: This app has simple CLI and a sleek GUI that allows the user to manage tasks easily and efficiently. It will mainly be used to keep track of NUS assignments and projects across multiple modules.
 
 ### User stories
 
