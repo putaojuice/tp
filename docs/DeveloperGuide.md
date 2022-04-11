@@ -577,7 +577,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 17. Should notify the user with necessary information if their input does not follow the format.
 18. Should be portable without using any installer.
 19. Should be packaged into a single file, in JAR format.
-20. Should have a total app size of at most 50 MB.
+20. Should have a total app size of at most 100 MB.
 21. Should function without a remote server.
 22. Should not allow duplicate entries of person with the same name.
 23. Should allow duplicated tasks with same description.
